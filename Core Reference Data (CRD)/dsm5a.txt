@@ -1,0 +1,955 @@
+ICD-9-CM ICD-10-CM Disorder, condition, or problem 
+V62.3 Z55.9 Academic or educational problem 
+V62.4 Z60.3 Acculturation difficulty 
+308.3 F43.0 Acute stress disorder 
+  Adjustment disorder 
+309.9 F43.20  Adjustment disorder, Unspecified 
+309.24 F43.22 Adjustment disorder, With anxiety 
+309.0 F43.21 Adjustment disorder, With depressed mood 
+309.3 F43.24 Adjustment disorder, With disturbance of conduct 
+309.28 F43.25 Adjustment disorder, With mixed anxiety and depressed mood 
+309.4 F43.25 Adjustment disorder, With mixed disturbance of emotions and conduct 
+V71.01 Z72.811 Adult antisocial behavior 
+  Adult physical abuse by nonspouse or nonpartner, Confirmed 
+995.81 T74.11XA Adult physical abuse by nonspouse or nonpartner, Confirmed, Initial encounter 
+995.81 T74.11XD Adult physical abuse by nonspouse or nonpartner, Confirmed, Subsequent encounter 
+  Adult physical abuse by nonspouse or nonpartner, Suspected 
+995.81 T76.11XA Adult physical abuse by nonspouse or nonpartner, Suspected, Initial encounter 
+995.81 T76.11XD Adult physical abuse by nonspouse or nonpartner, Suspected, Subsequent encounter 
+  Adult psychological abuse by nonspouse or nonpartner, Confirmed 
+995.82 T74.31XA Adult psychological abuse by nonspouse or nonpartner, Confirmed, Initial encounter 
+995.82 T74.31XD Adult psychological abuse by nonspouse or nonpartner, Confirmed, Subsequent encounter 
+  Adult psychological abuse by nonspouse or nonpartner, Suspected 
+995.82 T76.31XA Adult psychological abuse by nonspouse or nonpartner, Suspected, Initial encounter 
+995.82 T76.31XD Adult psychological abuse by nonspouse or nonpartner, Suspected, Subsequent encounter 
+  Adult sexual abuse by nonspouse or nonpartner, Confirmed 
+995.83 T74.21XA Adult sexual abuse by nonspouse or nonpartner, Confirmed, Initial encounter 
+995.83 T74.21XD Adult sexual abuse by nonspouse or nonpartner, Confirmed, Subsequent encounter 
+  Adult sexual abuse by nonspouse or nonpartner, Suspected 
+995.83 T76.21XA Adult sexual abuse by nonspouse or nonpartner, Suspected, Initial encounter 
+995.83 T76.21XD Adult sexual abuse by nonspouse or nonpartner, Suspected, Subsequent encounter 
+307.0 F98.5 Adult-onset fluency disorder 
+300.22 F40.00 Agoraphobia 
+303.00  Alcohol intoxication 
+291.0  Alcohol intoxication delirium 
+ F10.121 Alcohol intoxication delirium, With mild use disorder 
+ F10.221 Alcohol intoxication delirium, With moderate or severe use disorder 
+ F10.921 Alcohol intoxication delirium, Without use disorder 
+ F10.129 Alcohol intoxication, With mild use disorder 
+ F10.229 Alcohol intoxication, With moderate or severe use disorder 
+ F10.929 Alcohol intoxication, Without use disorder 
+  Alcohol use disorder 
+305.00 F10.10 Alcohol use disorder, Mild 
+303.90 F10.20 Alcohol use disorder, Moderate 
+303.90 F10.20 Alcohol use disorder, Severe 
+291.81  Alcohol withdrawal 
+291.0 F10.231 Alcohol withdrawal delirium 
+ F10.232 Alcohol withdrawal, With perceptual disturbances 
+ F10.239 Alcohol withdrawal, Without perceptual disturbances 
+291.89  Alcohol-induced anxiety disorder 
+ F10.180 Alcohol-induced anxiety disorder, With mild use disorder 
+ F10.280 Alcohol-induced anxiety disorder, With moderate or severe use disorder 
+ F10.980 Alcohol-induced anxiety disorder, Without use disorder 
+291.89  Alcohol-induced bipolar and related disorder 
+ F10.14 Alcohol-induced bipolar and related disorder, With mild use disorder 
+ F10.24 Alcohol-induced bipolar and related disorder, With moderate or severe use disorder 
+ F10.94 Alcohol-induced bipolar and related disorder, Without use disorder 
+291.89  Alcohol-induced depressive disorder 
+ F10.14 Alcohol-induced depressive disorder, With mild use disorder 
+ F10.24 Alcohol-induced depressive disorder, With moderate or severe use disorder 
+ F10.94 Alcohol-induced depressive disorder, Without use disorder 
+291.1  Alcohol-induced major neurocognitive disorder, Amnestic confabulatory type 
+ F10.26 Alcohol-induced major neurocognitive disorder, Amnestic confabulatory type, With moderate or severe use disorder 
+ F10.96 Alcohol-induced major neurocognitive disorder, Amnestic confabulatory type, Without use disorder 
+291.2  Alcohol-induced major neurocognitive disorder, Nonamnestic confabulatory type 
+ F10.27 Alcohol-induced major neurocognitive disorder, Nonamnestic confabulatory type, With moderate or severe use disorder 
+ F10.97 Alcohol-induced major neurocognitive disorder, Nonamnestic confabulatory type, Without use disorder 
+291.89  Alcohol-induced mild neurocognitive disorder 
+ F10.288 Alcohol-induced mild neurocognitive disorder, With moderate or severe use disorder 
+ F10.988 Alcohol-induced mild neurocognitive disorder, Without use disorder 
+291.9  Alcohol-induced psychotic disorder 
+ F10.159 Alcohol-induced psychotic disorder, With mild use disorder 
+ F10.259 Alcohol-induced psychotic disorder, With moderate or severe use disorder 
+ F10.959 Alcohol-induced psychotic disorder, Without use disorder 
+291.89  Alcohol-induced sexual dysfunction 
+ F10.181 Alcohol-induced sexual dysfunction, With mild use disorder 
+ F10.281 Alcohol-induced sexual dysfunction, With moderate or severe use disorder 
+ F10.981 Alcohol-induced sexual dysfunction, Without use disorder 
+291.82  Alcohol-induced sleep disorder 
+ F10.182 Alcohol-induced sleep disorder, With mild use disorder 
+ F10.282 Alcohol-induced sleep disorder, With moderate or severe use disorder 
+ F10.982 Alcohol-induced sleep disorder, Without use disorder 
+292.81  Amphetamine (or other stimulant) intoxication delirium 
+ F15.121 Amphetamine (or other stimulant) intoxication delirium, With mild use disorder 
+ F15.221 Amphetamine (or other stimulant) intoxication delirium, With moderate or severe use disorder 
+ F15.921 Amphetamine (or other stimulant) intoxication delirium, Without use disorder 
+292.89  Amphetamine (or other stimulant)-induced anxiety disorder 
+ F15.180 Amphetamine (or other stimulant)-induced anxiety disorder, With mild use disorder 
+ F15.280 Amphetamine (or other stimulant)-induced anxiety disorder, With moderate or severe use disorder 
+ F15.980 Amphetamine (or other stimulant)-induced anxiety disorder, Without use disorder 
+292.84  Amphetamine (or other stimulant)-induced bipolar and related disorder 
+ F15.14 Amphetamine (or other stimulant)-induced bipolar and related disorder, With mild use disorder 
+ F15.24 Amphetamine (or other stimulant)-induced bipolar and related disorder, With moderate or severe use disorder 
+ F15.94 Amphetamine (or other stimulant)-induced bipolar and related disorder, Without use disorder 
+ F15.921 Amphetamine (or other stimulant)-induced delirium 
+292.84  Amphetamine (or other stimulant)-induced depressive disorder 
+ F15.14 Amphetamine (or other stimulant)-induced depressive disorder, With mild use disorder 
+ F15.24 Amphetamine (or other stimulant)-induced depressive disorder, With moderate or severe use disorder 
+ F15.94 Amphetamine (or other stimulant)-induced depressive disorder, Without use disorder 
+292.89  Amphetamine (or other stimulant)-induced obsessive-compulsive and related disorder 
+ F15.188 Amphetamine (or other stimulant)-induced obsessive-compulsive and related disorder, With mild use disorder 
+ F15.288 Amphetamine (or other stimulant)-induced obsessive-compulsive and related disorder, With moderate or severe use disorder 
+ F15.988 Amphetamine (or other stimulant)-induced obsessive-compulsive and related disorder, Without use disorder 
+292.9  Amphetamine (or other stimulant)-induced psychotic disorder 
+ F15.159 Amphetamine (or other stimulant)-induced psychotic disorder, With mild use disorder 
+ F15.259 Amphetamine (or other stimulant)-induced psychotic disorder, With moderate or severe use disorder 
+ F15.959 Amphetamine (or other stimulant)-induced psychotic disorder, Without use disorder 
+292.89  Amphetamine (or other stimulant)-induced sexual dysfunction 
+ F15.181 Amphetamine (or other stimulant)-induced sexual dysfunction, With mild use disorder 
+ F15.281 Amphetamine (or other stimulant)-induced sexual dysfunction, With moderate or severe use disorder 
+ F15.981 Amphetamine (or other stimulant)-induced sexual dysfunction, Without use disorder 
+292.85  Amphetamine (or other stimulant)-induced sleep disorder 
+ F15.182 Amphetamine (or other stimulant)-induced sleep disorder, With mild use disorder 
+ F15.282 Amphetamine (or other stimulant)-induced sleep disorder, With moderate or severe use disorder 
+ F15.982 Amphetamine (or other stimulant)-induced sleep disorder, Without use disorder 
+292.89  Amphetamine or other stimulant intoxication 
+  Amphetamine or other stimulant intoxication, With perceptual disturbances 
+ F15.122 Amphetamine or other stimulant intoxication, With perceptual disturbances, With mild use disorder 
+ F15.222 Amphetamine or other stimulant intoxication, With perceptual disturbances, With moderate or severe use disorder 
+ F15.922 Amphetamine or other stimulant intoxication, With perceptual disturbances, Without use disorder 
+  Amphetamine or other stimulant intoxication, Without perceptual disturbances 
+ F15.129 Amphetamine or other stimulant intoxication, Without perceptual disturbances, With mild use disorder 
+ F15.229 Amphetamine or other stimulant intoxication, Without perceptual disturbances, With moderate or severe use disorder 
+ F15.929 Amphetamine or other stimulant intoxication, Without perceptual disturbances, Without use disorder 
+292.0 F15.23 Amphetamine or other stimulant withdrawal 
+  Amphetamine-type substance use disorder 
+305.70 F15.10 Amphetamine-type substance use disorder, Mild 
+304.40 F15.20 Amphetamine-type substance use disorder, Moderate 
+304.40 F15.20 Amphetamine-type substance use disorder, Severe 
+307.1  Anorexia nervosa 
+ F50.02 Anorexia nervosa, Binge-eating/purging type 
+ F50.01 Anorexia nervosa, Restricting type 
+  Antidepressant discontinuation syndrome 
+995.29 T43.205A Antidepressant discontinuation syndrome, Initial encounter 
+995.29 T43.205S Antidepressant discontinuation syndrome, Sequelae 
+995.29 T43.205D Antidepressant discontinuation syndrome, Subsequent encounter 
+301.7 F60.2 Antisocial personality disorder 
+293.84 F06.4 Anxiety disorder due to another medical condition 
+  Attention-deficit/hyperactivity disorder 
+314.01 F90.2 Attention-deficit/hyperactivity disorder, Combined presentation 
+314.01 F90.1 Attention-deficit/hyperactivity disorder, Predominantly hyperactive/impulsive presentation 
+314.00 F90.0 Attention-deficit/hyperactivity disorder, Predominantly inattentive presentation 
+299.00 F84.0 Autism spectrum disorder 
+347.00 G47.419 Autosomal dominant cerebellar ataxia, deafness, and narcolepsy 
+347.00 G47.419 Autosomal dominant narcolepsy, obesity, and type 2 diabetes 
+301.82 F60.6 Avoidant personality disorder 
+307.59 F50.8 Avoidant/restrictive food intake disorder 
+307.51 F50.8 Binge-eating disorder 
+293.83  Bipolar and related disorder due to another medical condition 
+ F06.33 Bipolar and related disorder due to another medical condition, With manic features 
+ F06.33 Bipolar and related disorder due to another medical condition, With manic- or hypomanic-like episodes 
+ F06.34 Bipolar and related disorder due to another medical condition, With mixed features 
+  Bipolar I disorder, Current or most recent episode depressed 
+296.56 F31.76 Bipolar I disorder, Current or most recent episode depressed, In full remission 
+296.55 F31.75 Bipolar I disorder, Current or most recent episode depressed, In partial remission 
+296.51 F31.31 Bipolar I disorder, Current or most recent episode depressed, Mild 
+296.52 F31.32 Bipolar I disorder, Current or most recent episode depressed, Moderate 
+296.53 F31.4 Bipolar I disorder, Current or most recent episode depressed, Severe 
+296.50 F31.9 Bipolar I disorder, Current or most recent episode depressed, Unspecified 
+296.54 F31.5 Bipolar I disorder, Current or most recent episode depressed, With psychotic features 
+296.40 F31.0 Bipolar I disorder, Current or most recent episode hypomanic 
+296.46 F31.74 Bipolar I disorder, Current or most recent episode hypomanic, In full remission 
+296.45 F31.73 Bipolar I disorder, Current or most recent episode hypomanic, In partial remission 
+296.40 F31.9 Bipolar I disorder, Current or most recent episode hypomanic, Unspecified 
+  Bipolar I disorder, Current or most recent episode manic 
+296.46 F31.74 Bipolar I disorder, Current or most recent episode manic, In full remission 
+296.45 F31.73 Bipolar I disorder, Current or most recent episode manic, In partial remission 
+296.41 F31.11 Bipolar I disorder, Current or most recent episode manic, Mild 
+296.42 F31.12 Bipolar I disorder, Current or most recent episode manic, Moderate 
+296.43 F31.13 Bipolar I disorder, Current or most recent episode manic, Severe 
+296.40 F31.9 Bipolar I disorder, Current or most recent episode manic, Unspecified 
+296.44 F31.2 Bipolar I disorder, Current or most recent episode manic, With psychotic features 
+296.7 F31.9 Bipolar I disorder, Current or most recent episode unspecified 
+296.89 F31.81 Bipolar II disorder 
+300.7 F45.22 Body dysmorphic disorder 
+V62.89 R41.83 Borderline intellectual functioning 
+301.83 F60.3 Borderline personality disorder 
+298.8 F23 Brief psychotic disorder 
+307.51 F50.2 Bulimia nervosa 
+305.90 F15.929 Caffeine intoxication 
+292.0 F15.93 Caffeine withdrawal 
+292.89  Caffeine-induced anxiety disorder 
+ F15.180 Caffeine-induced anxiety disorder, With mild use disorder 
+ F15.280 Caffeine-induced anxiety disorder, With moderate or severe use disorder 
+ F15.980 Caffeine-induced anxiety disorder, Without use disorder 
+292.85  Caffeine-induced sleep disorder 
+ F15.182 Caffeine-induced sleep disorder, With mild use disorder 
+ F15.282 Caffeine-induced sleep disorder, With moderate or severe use disorder 
+ F15.982 Caffeine-induced sleep disorder, Without use disorder 
+292.89  Cannabis intoxication 
+292.81  Cannabis intoxication delirium 
+ F12.121 Cannabis intoxication delirium, With mild use disorder 
+ F12.221 Cannabis intoxication delirium, With moderate or severe use disorder 
+ F12.921 Cannabis intoxication delirium, Without use disorder 
+  Cannabis intoxication, With perceptual disturbances 
+ F12.122 Cannabis intoxication, With perceptual disturbances, With mild use disorder 
+ F12.222 Cannabis intoxication, With perceptual disturbances, With moderate or severe use disorder 
+ F12.922 Cannabis intoxication, With perceptual disturbances, Without use disorder 
+  Cannabis intoxication, Without perceptual disturbances 
+ F12.129 Cannabis intoxication, Without perceptual disturbances, With mild use disorder 
+ F12.229 Cannabis intoxication, Without perceptual disturbances, With moderate or severe use disorder 
+ F12.929 Cannabis intoxication, Without perceptual disturbances, Without use disorder 
+  Cannabis use disorder 
+305.20 F12.10 Cannabis use disorder, Mild 
+304.30 F12.20 Cannabis use disorder, Moderate 
+304.30 F12.20 Cannabis use disorder, Severe 
+292.0 F12.288 Cannabis withdrawal 
+292.89  Cannabis-induced anxiety disorder 
+ F12.180 Cannabis-induced anxiety disorder, With mild use disorder 
+ F12.280 Cannabis-induced anxiety disorder, With moderate or severe use disorder 
+ F12.980 Cannabis-induced anxiety disorder, Without use disorder 
+292.9  Cannabis-induced psychotic disorder 
+ F12.159 Cannabis-induced psychotic disorder, With mild use disorder 
+ F12.259 Cannabis-induced psychotic disorder, With moderate or severe use disorder 
+ F12.959 Cannabis-induced psychotic disorder, Without use disorder 
+292.85  Cannabis-induced sleep disorder 
+ F12.188 Cannabis-induced sleep disorder, With mild use disorder 
+ F12.288 Cannabis-induced sleep disorder, With moderate or severe use disorder 
+ F12.988 Cannabis-induced sleep disorder, Without use disorder 
+293.89 F06.1 Catatonia associated with another mental disorder (catatonia specifier) 
+293.89 F06.1 Catatonic disorder due to another medical condition 
+  Central sleep apnea 
+780.57 G47.37 Central sleep apnea comorbid with opioid use 
+786.04 R06.3 Cheyne-Stokes breathing 
+V61.29 Z62.898 Child affected by parental relationship distress 
+  Child neglect, Confirmed 
+995.52 T74.02XA Child neglect, Confirmed, Initial encounter 
+995.52 T74.02XD Child neglect, Confirmed, Subsequent encounter 
+  Child neglect, Suspected 
+995.52 T76.02XA Child neglect, Suspected, Initial encounter 
+995.52 T76.02XD Child neglect, Suspected, Subsequent encounter 
+V71.02 Z72.810 Child or adolescent antisocial behavior 
+  Child physical abuse, Confirmed 
+995.54 T74.12XA Child physical abuse, Confirmed, Initial encounter 
+995.54 T74.12XD Child physical abuse, Confirmed, Subsequent encounter 
+  Child physical abuse, Suspected 
+995.54 T76.12XA Child physical abuse, Suspected, Initial encounter 
+995.54 T76.12XD Child physical abuse, Suspected, Subsequent encounter 
+  Child psychological abuse, Confirmed 
+995.51 T74.32XA Child psychological abuse, Confirmed, Initial encounter 
+995.51 T74.32XD Child psychological abuse, Confirmed, Subsequent encounter 
+  Child psychological abuse, Suspected 
+995.51 T76.32XA Child psychological abuse, Suspected, Initial encounter 
+995.51 T76.32XD Child psychological abuse, Suspected, Subsequent encounter 
+  Child sexual abuse, Confirmed 
+995.53 T74.22XA Child sexual abuse, Confirmed, Initial encounter 
+995.53 T74.22XD Child sexual abuse, Confirmed, Subsequent encounter 
+  Child sexual abuse, Suspected 
+995.53 T76.22XA Child sexual abuse, Suspected, Initial encounter 
+995.53 T76.22XD Child sexual abuse, Suspected, Subsequent encounter 
+315.35 F80.81 Childhood-onset fluency disorder (stuttering) 
+  Circadian rhythm sleep-wake disorders 
+307.45 G47.22 Circadian rhythm sleep-wake disorders, Advanced sleep phase type 
+307.45 G47.21 Circadian rhythm sleep-wake disorders, Delayed sleep phase type 
+307.45 G47.23 Circadian rhythm sleep-wake disorders, Irregular sleep-wake type 
+307.45 G47.24 Circadian rhythm sleep-wake disorders, Non-24-hour sleep-wake type 
+307.45 G47.26 Circadian rhythm sleep-wake disorders, Shift work type 
+307.45 G47.20 Circadian rhythm sleep-wake disorders, Unspecified type 
+292.89  Cocaine intoxication 
+292.81  Cocaine intoxication delirium 
+ F14.121 Cocaine intoxication delirium, With mild use disorder 
+ F14.221 Cocaine intoxication delirium, With moderate or severe use disorder 
+ F14.921 Cocaine intoxication delirium, Without use disorder 
+  Cocaine intoxication, With perceptual disturbances 
+ F14.122 Cocaine intoxication, With perceptual disturbances, With mild use disorder 
+ F14.222 Cocaine intoxication, With perceptual disturbances, With moderate or severe use disorder 
+ F14.922 Cocaine intoxication, With perceptual disturbances, Without use disorder 
+  Cocaine intoxication, Without perceptual disturbances 
+ F14.129 Cocaine intoxication, Without perceptual disturbances, With mild use disorder 
+ F14.229 Cocaine intoxication, Without perceptual disturbances, With moderate or severe use disorder 
+ F14.929 Cocaine intoxication, Without perceptual disturbances, Without use disorder 
+  Cocaine use disorder 
+305.60 F14.10 Cocaine use disorder, Mild 
+304.20 F14.20 Cocaine use disorder, Moderate 
+304.20 F14.20 Cocaine use disorder, Severe 
+292.0 F14.23 Cocaine withdrawal 
+292.89  Cocaine-induced anxiety disorder 
+ F14.180 Cocaine-induced anxiety disorder, With mild use disorder 
+ F14.280 Cocaine-induced anxiety disorder, With moderate or severe use disorder 
+ F14.980 Cocaine-induced anxiety disorder, Without use disorder 
+292.84  Cocaine-induced bipolar and related disorder 
+ F14.14 Cocaine-induced bipolar and related disorder, With mild use disorder 
+ F14.24 Cocaine-induced bipolar and related disorder, With moderate or severe use disorder 
+ F14.94 Cocaine-induced bipolar and related disorder, Without use disorder 
+292.84  Cocaine-induced depressive disorder 
+ F14.14 Cocaine-induced depressive disorder, With mild use disorder 
+ F14.24 Cocaine-induced depressive disorder, With moderate or severe use disorder 
+ F14.94 Cocaine-induced depressive disorder, Without use disorder 
+292.89  Cocaine-induced obsessive-compulsive and related disorder 
+ F14.188 Cocaine-induced obsessive-compulsive and related disorder, With mild use disorder 
+ F14.288 Cocaine-induced obsessive-compulsive and related disorder, With moderate or severe use disorder 
+ F14.988 Cocaine-induced obsessive-compulsive and related disorder, Without use disorder 
+292.9  Cocaine-induced psychotic disorder 
+ F14.159 Cocaine-induced psychotic disorder, With mild use disorder 
+ F14.259 Cocaine-induced psychotic disorder, With moderate or severe use disorder 
+ F14.959 Cocaine-induced psychotic disorder, Without use disorder 
+292.89  Cocaine-induced sexual dysfunction 
+ F14.181 Cocaine-induced sexual dysfunction, With mild use disorder 
+ F14.281 Cocaine-induced sexual dysfunction, With moderate or severe use disorder 
+ F14.981 Cocaine-induced sexual dysfunction, Without use disorder 
+292.85  Cocaine-induced sleep disorder 
+ F14.182 Cocaine-induced sleep disorder, With mild use disorder 
+ F14.282 Cocaine-induced sleep disorder, With moderate or severe use disorder 
+ F14.982 Cocaine-induced sleep disorder, Without use disorder 
+327.26 G47.36 Comorbid sleep-related hypoventilation 
+  Conduct disorder 
+312.82 F91.2 Conduct disorder, Adolescent-onset type 
+312.81 F91.1 Conduct disorder, Childhood-onset type 
+312.89 F91.9 Conduct disorder, Unspecified onset 
+327.25 G47.35 Congenital central alveolar hypoventilation 
+300.11  Conversion disorder (functional neurological symptom disorder) 
+ F44.4 Conversion disorder (functional neurological symptom disorder), With abnormal movement 
+ F44.6 Conversion disorder (functional neurological symptom disorder), With anesthesia or sensory loss 
+ F44.5 Conversion disorder (functional neurological symptom disorder), With attacks or seizures 
+ F44.7 Conversion disorder (functional neurological symptom disorder), With mixed symptoms 
+ F44.6 Conversion disorder (functional neurological symptom disorder), With special sensory symptoms 
+ F44.4 Conversion disorder (functional neurological symptom disorder), With speech symptoms 
+ F44.4 Conversion disorder (functional neurological symptom disorder), With swallowing symptoms 
+ F44.4 Conversion disorder (functional neurological symptom disorder), With weakness/paralysis 
+V62.5 Z65.0 Conviction in civil or criminal proceedings without imprisonment 
+301.13 F34.0 Cyclothymic disorder 
+302.74 F52.32 Delayed ejaculation 
+  Delirium 
+293.0 F05 Delirium due to another medical condition 
+293.0 F05 Delirium due to multiple etiologies 
+297.1 F22 Delusional disorder 
+301.6 F60.7 Dependent personality disorder 
+300.6 F48.1 Depersonalization/derealization disorder 
+293.83  Depressive disorder due to another medical condition 
+ F06.31 Depressive disorder due to another medical condition, With depressive features 
+ F06.32 Depressive disorder due to another medical condition, With major depressive-like episode 
+ F06.34 Depressive disorder due to another medical condition, With mixed features 
+315.4 F82 Developmental coordination disorder 
+V60.89 Z59.2 Discord with neighbor, lodger, or landlord 
+V62.89 Z64.4 Discord with social service provider, including probation officer, case manager, or social services worker 
+313.89 F94.2 Disinhibited social engagement disorder 
+V61.03 Z63.5 Disruption of family by separation or divorce 
+296.99 F34.8 Disruptive mood dysregulation disorder 
+300.12 F44.0 Dissociative amnesia 
+300.13 F44.1 Dissociative amnesia, with dissociative fugue 
+300.14 F44.81 Dissociative identity disorder 
+307.7 F98.1 Encopresis 
+307.6 F98.0 Enuresis 
+302.72 F52.21 Erectile disorder 
+698.4 L98.1 Excoriation (skin-picking) disorder 
+302.4 F65.2 Exhibitionistic disorder 
+V62.22 Z65.5 Exposure to disaster, war, or other hostilities 
+V60.2 Z59.5 Extreme poverty 
+300.19 F68.10 Factitious disorder 
+302.73 F52.31 Female orgasmic disorder 
+302.72 F52.22 Female sexual interest/arousal disorder 
+302.81 F65.0 Fetishistic disorder 
+302.89 F65.81 Frotteuristic disorder 
+312.31 F63.0 Gambling disorder 
+302.85 F64.1 Gender dysphoria in adolescents and adults 
+302.6 F64.2 Gender dysphoria in children 
+300.02 F41.1 Generalized anxiety disorder 
+302.76 F52.6 Genito-pelvic pain/penetration disorder 
+315.8 F88 Global developmental delay 
+292.89 F16.983 Hallucinogen persisting perception disorder 
+V61.8 Z63.8 High expressed emotion level within family 
+301.50 F60.4 Histrionic personality disorder 
+300.3 F42 Hoarding disorder 
+V60.0 Z59.0 Homelessness 
+780.54 G47.10 Hypersomnolence disorder 
+327.21 G47.31 Idiopathic central sleep apnea 
+327.24 G47.34 Idiopathic hypoventilation 
+300.7 F45.21 Illness anxiety disorder 
+V62.5 Z65.1 Imprisonment or other incarceration 
+V60.1 Z59.1 Inadequate housing 
+292.89  Inhalant intoxication 
+292.81  Inhalant intoxication delirium 
+ F18.121 Inhalant intoxication delirium, With mild use disorder 
+ F18.221 Inhalant intoxication delirium, With moderate or severe use disorder 
+ F18.921 Inhalant intoxication delirium, Without use disorder 
+ F18.129 Inhalant intoxication, With mild use disorder 
+ F18.229 Inhalant intoxication, With moderate or severe use disorder 
+ F18.929 Inhalant intoxication, Without use disorder 
+  Inhalant use disorder 
+305.90 F18.10 Inhalant use disorder, Mild 
+304.60 F18.20 Inhalant use disorder, Moderate 
+304.60 F18.20 Inhalant use disorder, Severe 
+292.89  Inhalant-induced anxiety disorder 
+ F18.180 Inhalant-induced anxiety disorder, With mild use disorder 
+ F18.280 Inhalant-induced anxiety disorder, With moderate or severe use disorder 
+ F18.980 Inhalant-induced anxiety disorder, Without use disorder 
+292.84  Inhalant-induced depressive disorder 
+ F18.14 Inhalant-induced depressive disorder, With mild use disorder 
+ F18.24 Inhalant-induced depressive disorder, With moderate or severe use disorder 
+ F18.94 Inhalant-induced depressive disorder, Without use disorder 
+292.82  Inhalant-induced major neurocognitive disorder 
+ F18.17 Inhalant-induced major neurocognitive disorder, With mild use disorder 
+ F18.27 Inhalant-induced major neurocognitive disorder, With moderate or severe use disorder 
+ F18.97 Inhalant-induced major neurocognitive disorder, Without use disorder 
+292.89  Inhalant-induced mild neurocognitive disorder 
+ F18.188 Inhalant-induced mild neurocognitive disorder, With mild use disorder 
+ F18.288 Inhalant-induced mild neurocognitive disorder, With moderate or severe use disorder 
+ F18.988 Inhalant-induced mild neurocognitive disorder, Without use disorder 
+292.9  Inhalant-induced psychotic disorder 
+ F18.159 Inhalant-induced psychotic disorder, With mild use disorder 
+ F18.259 Inhalant-induced psychotic disorder, With moderate or severe use disorder 
+ F18.959 Inhalant-induced psychotic disorder, Without use disorder 
+780.52 G47.00 Insomnia disorder 
+V60.2 Z59.7 Insufficient social insurance or welfare support 
+319  Intellectual disability (intellectual developmental disorder) 
+317 F70 Intellectual disability (intellectual developmental disorder), Mild 
+318.0 F71 Intellectual disability (intellectual developmental disorder), Moderate 
+318.2 F73 Intellectual disability (intellectual developmental disorder), Profound 
+318.1 F72 Intellectual disability (intellectual developmental disorder), Severe 
+312.34 F63.81 Intermittent explosive disorder 
+312.32 F63.2 Kleptomania 
+V60.2 Z59.4 Lack of adequate food or safe drinking water 
+315.39 F80.9 Language disorder 
+V60.2 Z59.6 Low income 
+  Major depressive disorder, Recurrent episode 
+296.36 F33.42 Major depressive disorder, Recurrent episode, In full remission 
+296.35 F33.41 Major depressive disorder, Recurrent episode, In partial remission 
+296.31 F33.0 Major depressive disorder, Recurrent episode, Mild 
+296.32 F33.1 Major depressive disorder, Recurrent episode, Moderate 
+296.33 F33.2 Major depressive disorder, Recurrent episode, Severe 
+296.30 F33.9 Major depressive disorder, Recurrent episode, Unspecified 
+296.34 F33.3 Major depressive disorder, Recurrent episode, With psychotic features 
+  Major depressive disorder, Single episode 
+296.26 F32.5 Major depressive disorder, Single episode, In full remission 
+296.25 F32.4 Major depressive disorder, Single episode, In partial remission 
+296.21 F32.0 Major depressive disorder, Single episode, Mild 
+296.22 F32.1 Major depressive disorder, Single episode, Moderate 
+296.23 F32.2 Major depressive disorder, Single episode, Severe 
+296.20 F32.9 Major depressive disorder, Single episode, Unspecified 
+296.24 F32.3 Major depressive disorder, Single episode, With psychotic features 
+331.9 G31.9 Major frontotemporal neurocognitive disorder, Possible 
+  [Frontotemporal disease +] Major frontotemporal neurocognitive disorder, Probable 
+[331.19 +] 294.11 [G31.09 +] F02.81 [Frontotemporal disease +] Major frontotemporal neurocognitive disorder, Probable, With behavioral disturbance 
+[331.19 +] 294.10 [G31.09 +] F02.80 [Frontotemporal disease +] Major frontotemporal neurocognitive disorder, Probable, Without behavioral disturbance 
+[331.19 +] 331.9 [G31.09 +] G31.9 Major neurocognitive disorder due to Alzheimer's disease, Possible 
+  [Alzheimer's disease +] Major neurocognitive disorder due to Alzheimer's disease, Probable 
+[331.0 +] 294.11 [G30.9 +] F02.81 [Alzheimer's disease +] Major neurocognitive disorder due to Alzheimer's disease, Probable, With behavioral disturbance 
+[331.0 +] 294.10 [G30.9 +] F02.80 [Alzheimer's disease +] Major neurocognitive disorder due to Alzheimer's disease, Probable, Without behavioral disturbance 
+  Major neurocognitive disorder due to another medical condition 
+294.11 F02.81 Major neurocognitive disorder due to another medical condition, With behavioral disturbance 
+294.10 F02.80 Major neurocognitive disorder due to another medical condition, Without behavioral disturbance 
+  [HIV infection +] Major neurocognitive disorder due to HIV infection 
+[042 +] 294.11 [B20 +] F02.81 [HIV infection +] Major neurocognitive disorder due to HIV infection, With behavioral disturbance 
+[042 +] 294.10 [B20 +] F02.80 [HIV infection +] Major neurocognitive disorder due to HIV infection, Without behavioral disturbance 
+  [Huntington's disease +] Major neurocognitive disorder due to Huntington's disease 
+[333.4 +] 294.11 [G10 +] F02.81 [Huntington's disease +] Major neurocognitive disorder due to Huntington's disease, With behavioral disturbance 
+[333.4 +] 294.10 [G10 +] F02.80 [Huntington's disease +] Major neurocognitive disorder due to Huntington's disease, Without behavioral disturbance 
+  Major neurocognitive disorder due to multiple etiologies 
+294.11 F02.81 Major neurocognitive disorder due to multiple etiologies, With behavioral disturbance 
+294.10 F02.80 Major neurocognitive disorder due to multiple etiologies, Without behavioral disturbance 
+331.9 G31.9 Major neurocognitive disorder due to Parkinson's disease, Possible 
+  [Parkinson's disease +] Major neurocognitive disorder due to Parkinson's disease, Probable 
+[332.0 +] 294.11 [G20 +] F02.81 [Parkinson's disease +] Major neurocognitive disorder due to Parkinson's disease, Probable, With behavioral disturbance 
+[332.0 +] 294.10 [G20 +] F02.80 [Parkinson's disease +] Major neurocognitive disorder due to Parkinson's disease, Probable, Without behavioral disturbance 
+  [Prion disease +] Major neurocognitive disorder due to prion disease 
+[046.79 +] 294.11 [A81.9 +] F02.81 [Prion disease +] Major neurocognitive disorder due to prion disease, With behavioral disturbance 
+[046.79 +] 294.10 [A81.9 +] F02.80 [Prion disease +] Major neurocognitive disorder due to prion disease, Without behavioral disturbance 
+  [Late effect of intracranial injury without skull fracture (ICD-9-CM) / Diffuse traumatic brain injury with loss of consciousness of unspecified duration, sequela (ICD-10-CM) +] Major neurocognitive disorder due to traumatic brain injury 
+[907.0 +] 294.11 [S06.2X9S +] F02.81 [Late effect of intracranial injury without skull fracture (ICD-9-CM) / Diffuse traumatic brain injury with loss of consciousness of unspecified duration, sequela (ICD-10-CM) +] Major neurocognitive disorder due to traumatic brain injury, With behavioral disturbance 
+[907.0 +] 294.10 [S06.2X9S +] F02.80 [Late effect of intracranial injury without skull fracture (ICD-9-CM) / Diffuse traumatic brain injury with loss of consciousness of unspecified duration, sequela (ICD-10-CM) +] Major neurocognitive disorder due to traumatic brain injury, Without behavioral disturbance 
+331.9 G31.9 Major neurocognitive disorder with Lewy bodies, Possible 
+  [Lewy body disease +] Major neurocognitive disorder with Lewy bodies, Probable 
+[331.82 +] 294.11 [G31.83 +] F02.81 [Lewy body disease +] Major neurocognitive disorder with Lewy bodies, Probable, With behavioral disturbance 
+[331.82 +] 294.10 [G31.83 +] F02.80 [Lewy body disease +] Major neurocognitive disorder with Lewy bodies, Probable, Without behavioral disturbance 
+331.9 G31.9 Major vascular neurocognitive disorder, Possible 
+  Major vascular neurocognitive disorder, Probable 
+290.40 F01.51 Major vascular neurocognitive disorder, Probable, With behavioral disturbance 
+290.40 F01.50 Major vascular neurocognitive disorder, Probable, Without behavioral disturbance 
+302.71 F52.0 Male hypoactive sexual desire disorder 
+V65.2 Z76.5 Malingering 
+333.99 G2571 Medication-induced acute akathisia 
+333.72 G24.02 Medication-induced acute dystonia 
+292.81 see specific substances Medication-induced delirium 
+292.81 see specific substances Medication-induced delirium 
+333.1 G25.1 Medication-induced postural tremor 
+331.83 G31.84 Mild frontotemporal neurocognitive disorder 
+331.83 G31.84 Mild neurocognitive disorder due to Alzheimer's disease 
+331.83 G31.84 Mild neurocognitive disorder due to another medical condition 
+331.83 G31.84 Mild neurocognitive disorder due to HIV infection 
+331.83 G31.84 Mild neurocognitive disorder due to Huntington's disease 
+331.83 G31.84 Mild neurocognitive disorder due to multiple etiologies 
+331.83 G31.84 Mild neurocognitive disorder due to Parkinson's disease 
+331.83 G31.84 Mild neurocognitive disorder due to prion disease 
+331.83 G31.84 Mild neurocognitive disorder due to traumatic brain injury 
+331.83 G31.84 Mild neurocognitive disorder with Lewy bodies 
+331.83 G31.84 Mild vascular neurocognitive disorder 
+301.81 F60.81 Narcissistic personality disorder 
+  Narcolepsy 
+347.10 G47.429 Narcolepsy secondary to another medical condition 
+347.01 G47.411 Narcolepsy with cataplexy but without hypocretin deficiency 
+347.00 G47.419 Narcolepsy without cataplexy but with hypocretin deficiency 
+333.92 G21.0 Neuroleptic malignant syndrome 
+332.1 G21.11 Neuroleptic-induced parkinsonism 
+307.47 F51.5 Nightmare disorder 
+V15.81 Z91.19 Nonadherence to medical treatment 
+  Non-rapid eye movement sleep arousal disorders 
+307.46 F51.4 Non-rapid eye movement sleep arousal disorders, Sleep terror type 
+307.46 F51.3 Non-rapid eye movement sleep arousal disorders, Sleepwalking type 
+294.8 F06.8 Obsessive-compulsive and related disorder due to another medical condition 
+300.3 F42 Obsessive-compulsive disorder 
+301.4 F60.5 Obsessive-compulsive personality disorder 
+327.23 G47.33 Obstructive sleep apnea hypopnea 
+292.89  Opioid intoxication 
+292.81  Opioid intoxication delirium 
+ F11.121 Opioid intoxication delirium, With mild use disorder 
+ F11.221 Opioid intoxication delirium, With moderate or severe use disorder 
+ F11.921 Opioid intoxication delirium, Without use disorder 
+  Opioid intoxication, With perceptual disturbances 
+ F11.122 Opioid intoxication, With perceptual disturbances, With mild use disorder 
+ F11.222 Opioid intoxication, With perceptual disturbances, With moderate or severe use disorder 
+ F11.922 Opioid intoxication, With perceptual disturbances, Without use disorder 
+  Opioid intoxication, Without perceptual disturbances 
+ F11.129 Opioid intoxication, Without perceptual disturbances, With mild use disorder 
+ F11.229 Opioid intoxication, Without perceptual disturbances, With moderate or severe use disorder 
+ F11.929 Opioid intoxication, Without perceptual disturbances, Without use disorder 
+  Opioid use disorder 
+305.50 F11.10 Opioid use disorder, Mild 
+304.00 F11.20 Opioid use disorder, Moderate 
+304.00 F11.20 Opioid use disorder, Severe 
+292.0 F11.23 Opioid withdrawal 
+292.0 F11.23 Opioid withdrawal delirium 
+292.89  Opioid-induced anxiety disorder 
+ F11.188 Opioid-induced anxiety disorder, With mild use disorder 
+ F11.288 Opioid-induced anxiety disorder, With moderate or severe use disorder 
+ F11.988 Opioid-induced anxiety disorder, Without use disorder 
+ F11.921 Opioid-induced delirium 
+292.84  Opioid-induced depressive disorder 
+ F11.14 Opioid-induced depressive disorder, With mild use disorder 
+ F11.24 Opioid-induced depressive disorder, With moderate or severe use disorder 
+ F11.94 Opioid-induced depressive disorder, Without use disorder 
+292.89  Opioid-induced sexual dysfunction 
+ F11.181 Opioid-induced sexual dysfunction, With mild use disorder 
+ F11.281 Opioid-induced sexual dysfunction, With moderate or severe use disorder 
+ F11.981 Opioid-induced sexual dysfunction, Without use disorder 
+292.85  Opioid-induced sleep disorder 
+ F11.182 Opioid-induced sleep disorder, With mild use disorder 
+ F11.282 Opioid-induced sleep disorder, With moderate or severe use disorder 
+ F11.982 Opioid-induced sleep disorder, Without use disorder 
+313.81 F91.3 Oppositional defiant disorder 
+292.89  Other (or unknown) substance intoxication 
+292.81  Other (or unknown) substance intoxication delirium 
+ F19.121 Other (or unknown) substance intoxication delirium, With mild use disorder 
+ F19.221 Other (or unknown) substance intoxication delirium, With moderate or severe use disorder 
+ F19.921 Other (or unknown) substance intoxication delirium, Without use disorder 
+ F19.129 Other (or unknown) substance intoxication, With mild use disorder 
+ F19.229 Other (or unknown) substance intoxication, With moderate or severe use disorder 
+ F19.929 Other (or unknown) substance intoxication, Without use disorder 
+  Other (or unknown) substance use disorder 
+305.90 F19.10 Other (or unknown) substance use disorder, Mild 
+304.90 F19.20 Other (or unknown) substance use disorder, Moderate 
+304.90 F19.20 Other (or unknown) substance use disorder, Severe 
+292.0 F19.239 Other (or unknown) substance withdrawal 
+292.0 F19.231 Other (or unknown) substance withdrawal delirium 
+292.89  Other (or unknown) substance-induced anxiety disorder 
+ F19.180 Other (or unknown) substance-induced anxiety disorder, With mild use disorder 
+ F19.280 Other (or unknown) substance-induced anxiety disorder, With moderate or severe use disorder 
+ F19.980 Other (or unknown) substance-induced anxiety disorder, Without use disorder 
+292.84  Other (or unknown) substance-induced bipolar and related disorder 
+ F19.14 Other (or unknown) substance-induced bipolar and related disorder, With mild use disorder 
+ F19.24 Other (or unknown) substance-induced bipolar and related disorder, With moderate or severe use disorder 
+ F19.94 Other (or unknown) substance-induced bipolar and related disorder, Without use disorder 
+ F19.921 Other (or unknown) substance-induced delirium 
+292.84  Other (or unknown) substance-induced depressive disorder 
+ F19.14 Other (or unknown) substance-induced depressive disorder, With mild use disorder 
+ F19.24 Other (or unknown) substance-induced depressive disorder, With moderate or severe use disorder 
+ F19.94 Other (or unknown) substance-induced depressive disorder, Without use disorder 
+292.82  Other (or unknown) substance-induced major neurocognitive disorder 
+ F19.17 Other (or unknown) substance-induced major neurocognitive disorder, With mild use disorder 
+ F19.27 Other (or unknown) substance-induced major neurocognitive disorder, With moderate or severe use disorder 
+ F19.97 Other (or unknown) substance-induced major neurocognitive disorder, Without use disorder 
+292.89  Other (or unknown) substance-induced mild neurocognitive disorder 
+ F19.188 Other (or unknown) substance-induced mild neurocognitive disorder, With mild use disorder 
+ F19.288 Other (or unknown) substance-induced mild neurocognitive disorder, With moderate or severe use disorder 
+ F19.988 Other (or unknown) substance-induced mild neurocognitive disorder, Without use disorder 
+292.89  Other (or unknown) substance-induced obsessive-compulsive and related disorder 
+ F19.188 Other (or unknown) substance-induced obsessive-compulsive and related disorder, With mild use disorder 
+ F19.288 Other (or unknown) substance-induced obsessive-compulsive and related disorder, With moderate or severe use disorder 
+ F19.988 Other (or unknown) substance-induced obsessive-compulsive and related disorder, Without use disorder 
+292.9  Other (or unknown) substance-induced psychotic disorder 
+ F19.159 Other (or unknown) substance-induced psychotic disorder, With mild use disorder 
+ F19.259 Other (or unknown) substance-induced psychotic disorder, With moderate or severe use disorder 
+ F19.959 Other (or unknown) substance-induced psychotic disorder, Without use disorder 
+292.89  Other (or unknown) substance-induced sexual dysfunction 
+ F19.181 Other (or unknown) substance-induced sexual dysfunction, With mild use disorder 
+ F19.281 Other (or unknown) substance-induced sexual dysfunction, With moderate or severe use disorder 
+ F19.981 Other (or unknown) substance-induced sexual dysfunction, Without use disorder 
+292.85  Other (or unknown) substance-induced sleep disorder 
+ F19.182 Other (or unknown) substance-induced sleep disorder, With mild use disorder 
+ F19.282 Other (or unknown) substance-induced sleep disorder, With moderate or severe use disorder 
+ F19.982 Other (or unknown) substance-induced sleep disorder, Without use disorder 
+  Other adverse effect of medication 
+995.20 T50.905A Other adverse effect of medication, Initial encounter 
+995.20 T50.905S Other adverse effect of medication, Sequelae 
+995.20 T50.905D Other adverse effect of medication, Subsequent encounter 
+  Other circumstances related to adult abuse by nonspouse or nonpartner 
+V62.83 Z69.82 Other circumstances related to adult abuse by nonspouse or nonpartner, Encounter for mental health services for perpetrator of nonspousal adult abuse 
+V65.49 Z69.81 Other circumstances related to adult abuse by nonspouse or nonpartner, Encounter for mental health services for victim of nonspousal adult abuse 
+  Other circumstances related to child neglect 
+V62.83 Z69.021 Other circumstances related to child neglect, Encounter for mental health services for perpetrator of nonparental child neglect 
+V61.22 Z69.011 Other circumstances related to child neglect, Encounter for mental health services for perpetrator of parental child neglect 
+V61.21 Z69.010 Other circumstances related to child neglect, Encounter for mental health services for victim of child neglect by parent 
+V61.21 Z69.020 Other circumstances related to child neglect, Encounter for mental health services for victim of nonparental child neglect 
+  Other circumstances related to child physical abuse 
+V62.83 Z69.021 Other circumstances related to child physical abuse, Encounter for mental health services for perpetrator of nonparental child abuse 
+V61.22 Z69.011 Other circumstances related to child physical abuse, Encounter for mental health services for perpetrator of parental child abuse 
+V61.21 Z69.010 Other circumstances related to child physical abuse, Encounter for mental health services for victim of child abuse by parent 
+V61.21 Z69.020 Other circumstances related to child physical abuse, Encounter for mental health services for victim of nonparental child abuse 
+  Other circumstances related to child psychological abuse 
+V62.83 Z69.021 Other circumstances related to child psychological abuse, Encounter for mental health services for perpetrator of nonparental child psychological abuse 
+V61.22 Z69.011 Other circumstances related to child psychological abuse, Encounter for mental health services for perpetrator of parental child psychological abuse 
+V61.21 Z69.010 Other circumstances related to child psychological abuse, Encounter for mental health services for victim of child psychological abuse by parent 
+V61.21 Z69.020 Other circumstances related to child psychological abuse, Encounter for mental health services for victim of nonparental child psychological abuse 
+  Other circumstances related to child sexual abuse 
+V62.83 Z69.021 Other circumstances related to child sexual abuse, Encounter for mental health services for perpetrator of nonparental child sexual abuse 
+V61.22 Z69.011 Other circumstances related to child sexual abuse, Encounter for mental health services for perpetrator of parental child sexual abuse 
+V61.21 Z69.010 Other circumstances related to child sexual abuse, Encounter for mental health services for victim of child sexual abuse by parent 
+V61.21 Z69.020 Other circumstances related to child sexual abuse, Encounter for mental health services for victim of nonparental child sexual abuse 
+  Other circumstances related to spouse or partner abuse, Psychological 
+V61.12 Z69.12 Other circumstances related to spouse or partner abuse, Psychological, Encounter for mental health services for perpetrator of spouse or partner psychological abuse 
+V61.11 Z69.11 Other circumstances related to spouse or partner abuse, Psychological, Encounter for mental health services for victim of spouse or partner psychological abuse 
+  Other circumstances related to spouse or partner neglect 
+V61.12 Z69.12 Other circumstances related to spouse or partner neglect, Encounter for mental health services for perpetrator of spouse or partner neglect 
+V61.11 Z69.11 Other circumstances related to spouse or partner neglect, Encounter for mental health services for victim of spouse or partner neglect 
+  Other circumstances related to spouse or partner violence, Physical 
+V61.12 Z69.12 Other circumstances related to spouse or partner violence, Physical, Encounter for mental health services for perpetrator of spouse or partner violence 
+V61.11 Z69.11 Other circumstances related to spouse or partner violence, Physical, Encounter for mental health services for victim of spouse or partner violence 
+  Other circumstances related to spouse or partner violence, Sexual 
+V61.12 Z69.12 Other circumstances related to spouse or partner violence, Sexual, Encounter for mental health services for perpetrator of spouse or partner violence 
+V61.11 Z69.81 Other circumstances related to spouse or partner violence, Sexual, Encounter for mental health services for victim of spouse or partner violence 
+V65.40 Z71.9 Other counseling or consultation 
+292.89  Other hallucinogen intoxication 
+292.81  Other hallucinogen intoxication delirium 
+ F16.121 Other hallucinogen intoxication delirium, With mild use disorder 
+ F16.221 Other hallucinogen intoxication delirium, With moderate or severe use disorder 
+ F16.921 Other hallucinogen intoxication delirium, Without use disorder 
+ F16.129 Other hallucinogen intoxication, With mild use disorder 
+ F16.229 Other hallucinogen intoxication, With moderate or severe use disorder 
+ F16.929 Other hallucinogen intoxication, Without use disorder 
+  Other hallucinogen use disorder 
+305.30 F16.10 Other hallucinogen use disorder, Mild 
+304.50 F16.20 Other hallucinogen use disorder, Moderate 
+304.50 F16.20 Other hallucinogen use disorder, Severe 
+292.89  Other hallucinogen-induced anxiety disorder 
+ F16.180 Other hallucinogen-induced anxiety disorder, With mild use disorder 
+ F16.280 Other hallucinogen-induced anxiety disorder, With moderate or severe use disorder 
+ F16.980 Other hallucinogen-induced anxiety disorder, Without use disorder 
+292.84  Other hallucinogen-induced bipolar and related disorder 
+ F16.14 Other hallucinogen-induced bipolar and related disorder, With mild use disorder 
+ F16.24 Other hallucinogen-induced bipolar and related disorder, With moderate or severe use disorder 
+ F16.94 Other hallucinogen-induced bipolar and related disorder, Without use disorder 
+292.84  Other hallucinogen-induced depressive disorder 
+ F16.14 Other hallucinogen-induced depressive disorder, With mild use disorder 
+ F16.24 Other hallucinogen-induced depressive disorder, With moderate or severe use disorder 
+ F16.94 Other hallucinogen-induced depressive disorder, Without use disorder 
+292.9  Other hallucinogen-induced psychotic disorder 
+ F16.159 Other hallucinogen-induced psychotic disorder, With mild use disorder 
+ F16.259 Other hallucinogen-induced psychotic disorder, With moderate or severe use disorder 
+ F16.959 Other hallucinogen-induced psychotic disorder, Without use disorder 
+333.99 G25.79 Other medication-induced movement disorder 
+332.1 G21.19 Other medication-induced parkinsonism 
+  Other or unspecified stimulant use disorder 
+305.70 F15.10 Other or unspecified stimulant use disorder, Mild 
+304.40 F15.20 Other or unspecified stimulant use disorder, Moderate 
+304.40 F15.20 Other or unspecified stimulant use disorder, Severe 
+V15.49 Z91.49 Other personal history of psychological trauma 
+V15.89 Z91.89 Other personal risk factors 
+V62.29 Z56.9 Other problem related to employment 
+V62.89 Z65.8 Other problem related to psychosocial circumstances 
+300.09 F41.8 Other specified anxiety disorder 
+314.01 F90.8 Other specified attention-deficit/hyperactivity disorder 
+296.89 F31.89 Other specified bipolar and related disorder 
+780.09 R41.0 Other specified delirium 
+311 F32.8 Other specified depressive disorder 
+312.89 F91.8 Other specified disruptive, impulse-control, and conduct disorder 
+300.15 F44.89 Other specified dissociative disorder 
+  Other specified elimination disorder 
+787.60 R15.9 Other specified elimination disorder, With fecal symptoms 
+788.39 N39.498 Other specified elimination disorder, With urinary symptoms 
+307.59 F50.8 Other specified feeding or eating disorder 
+302.6 F64.8 Other specified gender dysphoria 
+780.54 G47.19 Other specified hypersomnolence disorder 
+780.52 G47.09 Other specified insomnia disorder 
+300.9 F99 Other specified mental disorder 
+294.8 F06.8 Other specified mental disorder due to another medical condition 
+315.8 F88 Other specified neurodevelopmental disorder 
+300.3 F42 Other specified obsessive-compulsive and related disorder 
+302.89 F65.89 Other specified paraphilic disorder 
+301.89 F60.89 Other specified personality disorder 
+298.8 F28 Other specified schizophrenia spectrum and other psychotic disorder 
+302.79 F52.8 Other specified sexual dysfunction 
+780.59 G47.8 Other specified sleep-wake disorder 
+300.89 F45.8 Other specified somatic symptom and related disorder 
+307.20 F95.8 Other specified tic disorder 
+309.89 F43.8 Other specified trauma- and stressor-related disorder 
+278.00 E66.9 Overweight or obesity 
+  Panic attack specifier 
+300.01 F41.0 Panic disorder 
+301.0 F60.0 Paranoid personality disorder 
+V61.20 Z62.820 Parent-child relational problem 
+302.2 F65.4 Pedophilic disorder 
+307.22 F95.1 Persistent (chronic) motor or vocal tic disorder 
+300.4 F34.1 Persistent depressive disorder (dysthymia) 
+V15.42 Z62.812 Personal history (past history) of neglect in childhood 
+V15.41 Z62.810 Personal history (past history) of physical abuse in childhood 
+V15.42 Z62.811 Personal history (past history) of psychological abuse in childhood 
+V15.41 Z62.810 Personal history (past history) of sexual abuse in childhood 
+V15.42 Z91.412 Personal history (past history) of spouse or partner neglect 
+V15.42 Z91.411 Personal history (past history) of spouse or partner psychological abuse 
+V15.41 Z91.410 Personal history (past history) of spouse or partner violence, Physical 
+V15.41 Z91.410 Personal history (past history) of spouse or partner violence, Sexual 
+V62.22 Z91.82 Personal history of military deployment 
+V15.59 Z91.5 Personal history of self-harm 
+310.1 F07.0 Personality change due to another medical condition 
+V62.89 Z60.0 Phase of life problem 
+292.89  Phencyclidine intoxication 
+292.81  Phencyclidine intoxication delirium 
+ F16.121 Phencyclidine intoxication delirium, With mild use disorder 
+ F16.221 Phencyclidine intoxication delirium, With moderate or severe use disorder 
+ F16.911 Phencyclidine intoxication delirium, Without use disorder 
+ F16.129 Phencyclidine intoxication, With mild use disorder 
+ F16.229 Phencyclidine intoxication, With moderate or severe use disorder 
+ F16.929 Phencyclidine intoxication, Without use disorder 
+  Phencyclidine use disorder 
+305.90 F16.10 Phencyclidine use disorder, Mild 
+304.60 F16.20 Phencyclidine use disorder, Moderate 
+304.60 F16.20 Phencyclidine use disorder, Severe 
+292.89  Phencyclidine-induced anxiety disorder 
+ F16.180 Phencyclidine-induced anxiety disorder, With mild use disorder 
+ F16.280 Phencyclidine-induced anxiety disorder, With moderate or severe use disorder 
+ F16.980 Phencyclidine-induced anxiety disorder, Without use disorder 
+292.84  Phencyclidine-induced bipolar and related disorder 
+ F16.14 Phencyclidine-induced bipolar and related disorder, With mild use disorder 
+ F16.24 Phencyclidine-induced bipolar and related disorder, With moderate or severe use disorder 
+ F16.94 Phencyclidine-induced bipolar and related disorder, Without use disorder 
+292.84  Phencyclidine-induced depressive disorder 
+ F16.14 Phencyclidine-induced depressive disorder, With mild use disorder 
+ F16.24 Phencyclidine-induced depressive disorder, With moderate or severe use disorder 
+ F16.94 Phencyclidine-induced depressive disorder, Without use disorder 
+292.9  Phencyclidine-induced psychotic disorder 
+ F16.159 Phencyclidine-induced psychotic disorder, With mild use disorder 
+ F16.259 Phencyclidine-induced psychotic disorder, With moderate or severe use disorder 
+ F16.959 Phencyclidine-induced psychotic disorder, Without use disorder 
+307.52  Pica 
+ F50.8 Pica, In adults 
+ F98.3 Pica, In children 
+309.81 F43.10 Posttraumatic stress disorder 
+302.75 F52.4 Premature (early) ejaculation 
+625.4 N94.3 Premenstrual dysphoric disorder 
+V62.21 Z56.82 Problem related to current military deployment status 
+V69.9 Z72.9 Problem related to lifestyle 
+V60.3 Z60.2 Problem related to living alone 
+V60.6 Z59.3 Problem related to living in a residential institution 
+V61.5 Z64.1 Problems related to multiparity 
+V62.5 Z65.3 Problems related to other legal circumstances 
+V62.5 Z65.2 Problems related to release from prison 
+V61.7 Z64.0 Problems related to unwanted pregnancy 
+307.21 F95.0 Provisional tic disorder 
+316 F54 Psychological factors affecting other medical conditions 
+  Psychotic disorder due to another medical condition 
+293.81 F06.2 Psychotic disorder due to another medical condition, With delusions 
+293.82 F06.0 Psychotic disorder due to another medical condition, With hallucinations 
+312.33 F63.1 Pyromania 
+327.42 G47.52 Rapid eye movement sleep behavior disorder 
+313.89 F94.1 Reactive attachment disorder 
+V61.10 Z63.0 Relationship distress with spouse or intimate partner 
+V62.89 Z65.8 Religious or spiritual problem 
+333.94 G25.81 Restless legs syndrome 
+307.53 F98.21 Rumination disorder 
+  Schizoaffective disorder 
+295.70 F25.0 Schizoaffective disorder, Bipolar type 
+295.70 F25.1 Schizoaffective disorder, Depressive type 
+301.20 F60.1 Schizoid personality disorder 
+295.90 F20.9 Schizophrenia 
+295.40 F20.81 Schizophreniform disorder 
+301.22 F21 Schizotypal personality disorder 
+292.89  Sedative, hypnotic, or anxiolytic intoxication 
+292.81  Sedative, hypnotic, or anxiolytic intoxication delirium 
+ F13.121 Sedative, hypnotic, or anxiolytic intoxication delirium, With mild use disorder 
+ F13.221 Sedative, hypnotic, or anxiolytic intoxication delirium, With moderate or severe use disorder 
+ F13.921 Sedative, hypnotic, or anxiolytic intoxication delirium, Without use disorder 
+ F13.129 Sedative, hypnotic, or anxiolytic intoxication, With mild use disorder 
+ F13.229 Sedative, hypnotic, or anxiolytic intoxication, With moderate or severe use disorder 
+ F13.929 Sedative, hypnotic, or anxiolytic intoxication, Without use disorder 
+  Sedative, hypnotic, or anxiolytic use disorder 
+305.40 F13.10 Sedative, hypnotic, or anxiolytic use disorder, Mild 
+304.10 F13.20 Sedative, hypnotic, or anxiolytic use disorder, Moderate 
+304.10 F13.20 Sedative, hypnotic, or anxiolytic use disorder, Severe 
+292.0  Sedative, hypnotic, or anxiolytic withdrawal 
+292.0 F13.231 Sedative, hypnotic, or anxiolytic withdrawal delirium 
+ F13.232 Sedative, hypnotic, or anxiolytic withdrawal, With perceptual disturbances 
+ F13.239 Sedative, hypnotic, or anxiolytic withdrawal, Without perceptual disturbances 
+292.89  Sedative-, hypnotic-, or anxiolytic-induced anxiety disorder 
+ F13.180 Sedative-, hypnotic-, or anxiolytic-induced anxiety disorder, With mild use disorder 
+ F13.280 Sedative-, hypnotic-, or anxiolytic-induced anxiety disorder, With moderate or severe use disorder 
+ F13.980 Sedative-, hypnotic-, or anxiolytic-induced anxiety disorder, Without use disorder 
+292.84  Sedative-, hypnotic-, or anxiolytic-induced bipolar and related disorder 
+ F13.14 Sedative-, hypnotic-, or anxiolytic-induced bipolar and related disorder, With mild use disorder 
+ F13.24 Sedative-, hypnotic-, or anxiolytic-induced bipolar and related disorder, With moderate or severe use disorder 
+ F13.94 Sedative-, hypnotic-, or anxiolytic-induced bipolar and related disorder, Without use disorder 
+ F13.921 Sedative-, hypnotic-, or anxiolytic-induced delirium 
+292.84  Sedative-, hypnotic-, or anxiolytic-induced depressive disorder 
+ F13.14 Sedative-, hypnotic-, or anxiolytic-induced depressive disorder, With mild use disorder 
+ F13.24 Sedative-, hypnotic-, or anxiolytic-induced depressive disorder, With moderate or severe use disorder 
+ F13.94 Sedative-, hypnotic-, or anxiolytic-induced depressive disorder, Without use disorder 
+292.82  Sedative-, hypnotic-, or anxiolytic-induced major neurocognitive disorder 
+ F13.27 Sedative-, hypnotic-, or anxiolytic-induced major neurocognitive disorder, With moderate or severe use disorder 
+ F13.97 Sedative-, hypnotic-, or anxiolytic-induced major neurocognitive disorder, Without use disorder 
+292.89  Sedative-, hypnotic-, or anxiolytic-induced mild neurocognitive disorder 
+ F13.288 Sedative-, hypnotic-, or anxiolytic-induced mild neurocognitive disorder, With moderate or severe use disorder 
+ F13.988 Sedative-, hypnotic-, or anxiolytic-induced mild neurocognitive disorder, Without use disorder 
+292.9  Sedative-, hypnotic-, or anxiolytic-induced psychotic disorder 
+ F13.159 Sedative-, hypnotic-, or anxiolytic-induced psychotic disorder, With mild use disorder 
+ F13.259 Sedative-, hypnotic-, or anxiolytic-induced psychotic disorder, With moderate or severe use disorder 
+ F13.959 Sedative-, hypnotic-, or anxiolytic-induced psychotic disorder, Without use disorder 
+292.89  Sedative-, hypnotic-, or anxiolytic-induced sexual dysfunction 
+ F13.181 Sedative-, hypnotic-, or anxiolytic-induced sexual dysfunction, With mild use disorder 
+ F13.281 Sedative-, hypnotic-, or anxiolytic-induced sexual dysfunction, With moderate or severe use disorder 
+ F13.981 Sedative-, hypnotic-, or anxiolytic-induced sexual dysfunction, Without use disorder 
+292.85  Sedative-, hypnotic-, or anxiolytic-induced sleep disorder 
+ F13.182 Sedative-, hypnotic-, or anxiolytic-induced sleep disorder, With mild use disorder 
+ F13.282 Sedative-, hypnotic-, or anxiolytic-induced sleep disorder, With moderate or severe use disorder 
+ F13.982 Sedative-, hypnotic-, or anxiolytic-induced sleep disorder, Without use disorder 
+313.23 F94.0 Selective mutism 
+309.21 F93.0 Separation anxiety disorder 
+V65.49 Z70.9 Sex counseling 
+302.83 F65.51 Sexual masochism disorder 
+302.84 F65.52 Sexual sadism disorder 
+V61.8 Z62.891 Sibling relational problem 
+  Sleep-related hypoventilation 
+315.39 F80.89 Social (pragmatic) communication disorder 
+300.23 F40.10 Social anxiety disorder (social phobia) 
+V62.4 Z60.4 Social exclusion or rejection 
+300.82 F45.1 Somatic symptom disorder 
+  Specific learning disorder 
+315.1 F81.2 Specific learning disorder, With impairment in mathematics 
+315.00 F81.0 Specific learning disorder, With impairment in reading 
+315.2 F81.81 Specific learning disorder, With impairment in written expression 
+  Specific phobia 
+300.29 F40.218 Specific phobia, Animal 
+300.29  Specific phobia, Blood-injection-injury 
+ F40.230 Specific phobia, Fear of blood 
+ F40.231 Specific phobia, Fear of injections and transfusions 
+ F40.233 Specific phobia, Fear of injury 
+ F40.232 Specific phobia, Fear of other medical care 
+300.29 F40.228 Specific phobia, Natural environment 
+300.29 F40.298 Specific phobia, Other 
+300.29 F40.248 Specific phobia, Situational 
+315.39 F80.0 Speech sound disorder 
+  Spouse or partner abuse, Psychological, Confirmed 
+995.82 T74.31XA Spouse or partner abuse, Psychological, Confirmed, Initial encounter 
+995.82 T74.31XD Spouse or partner abuse, Psychological, Confirmed, Subsequent encounter 
+  Spouse or partner abuse, Psychological, Suspected 
+995.82 T76.31XA Spouse or partner abuse, Psychological, Suspected, Initial encounter 
+995.82 T76.31XD Spouse or partner abuse, Psychological, Suspected, Subsequent encounter 
+  Spouse or partner neglect, Confirmed 
+995.85 T74.01XA Spouse or partner neglect, Confirmed, Initial encounter 
+995.85 T74.01XD Spouse or partner neglect, Confirmed, Subsequent encounter 
+  Spouse or partner neglect, Suspected 
+995.85 T76.01XA Spouse or partner neglect, Suspected, Initial encounter 
+995.85 T76.01XD Spouse or partner neglect, Suspected, Subsequent encounter 
+  Spouse or partner violence, Physical, Confirmed 
+995.81 T74.11XA Spouse or partner violence, Physical, Confirmed, Initial encounter 
+995.81 T74.11XD Spouse or partner violence, Physical, Confirmed, Subsequent encounter 
+  Spouse or partner Violence, Physical, Suspected 
+995.81 T76.11XA Spouse or partner Violence, Physical, Suspected, Initial encounter 
+995.81 T76.11XD Spouse or partner Violence, Physical, Suspected, Subsequent encounter 
+  Spouse or partner Violence, Sexual, Confirmed 
+995.83 T74.21XA Spouse or partner Violence, Sexual, Confirmed, Initial encounter 
+995.83 T74.21XD Spouse or partner Violence, Sexual, Confirmed, Subsequent encounter 
+  Spouse or partner Violence, Sexual, Suspected 
+995.83 T76.21XA Spouse or partner Violence, Sexual, Suspected, Initial encounter 
+995.83 T76.21XD Spouse or partner Violence, Sexual, Suspected, Subsequent encounter 
+307.3 F98.4 Stereotypic movement disorder 
+see specific substances see specific substances Stimulant intoxication 
+see specific substances see specific substances Stimulant use disorder 
+see specific substances see specific substances Stimulant withdrawal 
+see specific substances see specific substances Substance intoxication delirium 
+see specific substances see specific substances Substance intoxication delirium 
+see specific substances see specific substances Substance withdrawal delirium 
+see specific substances see specific substances Substance withdrawal delirium 
+see specific substances see specific substances Substance/medication-induced anxiety disorder 
+see specific substances see specific substances Substance/medication-induced bipolar and related disorder 
+see specific substances see specific substances Substance/medication-induced depressive disorder 
+see specific substances see specific substances Substance/medication-induced major or mild neurocognitive disorder 
+see specific substances see specific substances Substance/medication-induced obsessive-compulsive and related disorder 
+see specific substances see specific substances Substance/medication-induced psychotic disorder 
+see specific substances see specific substances Substance/medication-induced sexual dysfunction 
+see specific substances see specific substances Substance/medication-induced sleep disorder 
+333.99 G25.71 Tardive akathisia 
+333.85 G24.01 Tardive dyskinesia 
+333.72 G24.09 Tardive dystonia 
+V62.4 Z60.5 Target of (perceived) adverse discrimination or persecution 
+  Tobacco use disorder 
+305.1 Z72.0 Tobacco use disorder, Mild 
+305.1 F17.200 Tobacco use disorder, Moderate 
+305.1 F17.200 Tobacco use disorder, Severe 
+292.0 F17.203 Tobacco withdrawal 
+292.85  Tobacco-induced sleep disorder 
+ F17.208 Tobacco-induced sleep disorder, With moderate or severe use disorder 
+307.23 F95.2 Tourette's disorder 
+302.3 F65.1 Transvestic disorder 
+312.39 F63.3 Trichotillomania (hair-pulling disorder) 
+V63.9 Z75.3 Unavailability or inaccessibility of health care facilities 
+V63.8 Z75.4 Unavailability or inaccessibility of other helping agencies 
+V62.82 Z63.4 Uncomplicated bereavement 
+291.9 F10.99 Unspecified alcohol-related disorder 
+ F15.99 Unspecified amphetamine or other stimulant-related disorder 
+300.00 F41.9 Unspecified anxiety disorder 
+314.01 F90.9 Unspecified attention-deficit/hyperactivity disorder 
+296.80 F31.9 Unspecified bipolar and related disorder 
+292.9 F15.99 Unspecified caffeine-related disorder 
+292.9 F12.99 Unspecified cannabis-related disorder 
+[781.99 +] 293.89 [R29.818] + F06.1 [Other symptoms involving nervous and musculoskeletal systems +] Unspecified catatonia 
+ F14.99 Unspecified cocaine-related disorder 
+307.9 F80.9 Unspecified communication disorder 
+780.09 R41.0 Unspecified delirium 
+311 F32.9 Unspecified depressive disorder 
+312.9 F91.9 Unspecified disruptive, impulse-control, and conduct disorder 
+300.15 F44.9 Unspecified dissociative disorder 
+  Unspecified elimination disorder 
+787.60 R15.9 Unspecified elimination disorder, With fecal symptoms 
+788.30 R32 Unspecified elimination disorder, With urinary symptoms 
+307.50 F50.9 Unspecified feeding or eating disorder 
+302.6 F64.9 Unspecified gender dysphoria 
+292.9 F16.99 Unspecified hallucinogen-related disorder 
+V60.9 Z59.9 Unspecified housing or economic problem 
+780.54 G47.10 Unspecified hypersomnolence disorder 
+292.9 F18.99 Unspecified inhalant-related disorder 
+780.52 G47.00 Unspecified insomnia disorder 
+319 F79 Unspecified intellectual disability (intellectual developmental disorder) 
+300.9 F99 Unspecified mental disorder 
+294.9 F09 Unspecified mental disorder due to another medical condition 
+799.59 R41.9 Unspecified neurocognitive disorder 
+315.9 F89 Unspecified neurodevelopmental disorder 
+300.3 F42 Unspecified obsessive-compulsive and related disorder 
+292.9 F11.99 Unspecified opioid-related disorder 
+292.9 F19.99 Unspecified other (or unknown) substance-related disorder 
+302.9 F65.9 Unspecified paraphilic disorder 
+301.9 F60.9 Unspecified personality disorder 
+292.9 F16.99 Unspecified phencyclidine-related disorder 
+V62.9 Z60.9 Unspecified problem related to social environment 
+V62.9 Z65.9 Unspecified problem related to unspecified psychosocial circumstances 
+298.9 F29 Unspecified schizophrenia spectrum and other psychotic disorder 
+292.9 F13.99 Unspecified sedative-, hypnotic-, or anxiolytic-related disorder 
+302.70 F52.9 Unspecified sexual dysfunction 
+780.59 G47.9 Unspecified sleep-wake disorder 
+300.82 F45.9 Unspecified somatic symptom and related disorder 
+292.9  Unspecified stimulant-related disorder 
+307.20 F95.9 Unspecified tic disorder 
+292.9 F17.209 Unspecified tobacco-related disorder 
+309.9 F43.9 Unspecified trauma- and stressor-related disorder 
+V61.8 Z62.29 Upbringing away from parents 
+V62.89 Z65.4 Victim of crime 
+V62.89 Z65.4 Victim of terrorism or torture 
+302.82 F65.3 Voyeuristic disorder 
+V40.31 Z91.83 Wandering associated with a mental disorder 
