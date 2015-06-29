@@ -9,3 +9,6 @@ var fs=require("fs");
 
 console.log("\ncrdimporter.js - PseudoVet :: Core Reference Database Importer");
 console.log("\tWritten by: Will BC Collins IV for Dept Veterans Affairs\n");
+
+//
+// mongoimport --db crd --collection diagnosis --drop --file primer-dataset.json
