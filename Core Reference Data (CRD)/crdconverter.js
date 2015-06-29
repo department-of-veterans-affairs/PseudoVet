@@ -18,69 +18,64 @@ var delimiter='';
 
 // process.argv
 process.argv.forEach(function (val, index, array) {
-		
+	// set up regular expression pattern matching for
+	// command line arguments		
 	var inputPattern = new RegExp(/^\-\-i$/); // --i <input file>
 	var outputPattern = new RegExp(/^\-\-o$/); // --o <output json file>
 	var fieldPattern = new RegExp(/^\-\-f$/); // --f <list of fields>
 	var delimiterPattern = new RegExp(/^\-\-d$/); // --d <delimiter: comma space tab>
 	var fieldSkipPattern = new RegExp(/^\-\-x$/); // --x <fields to skip>
 	var helpPattern = new RegExp(/^\-\-h$/); // --h help
-
+	var consoleLabel=''; var value=process.argv[index+1];
+	// set global variables for file conversion
 	if(val.match(helpPattern) == "--h"){ help(); } 
     if(val.match(inputPattern) == "--i"){
-		input = fs.createReadStream(process.argv[index+1]);
-		console.log("input file: " + process.argv[index+1]);
+		consoleLabel='input file'; input = fs.createReadStream(value);
 	}
 	if(val.match(outputPattern) == "--o"){
-		output = fs.createWriteStream(process.argv[index+1]);
-		console.log("output file: " + process.argv[index+1]);
+		consoleLabel='output file'; output = fs.createWriteStream(value);
 	}
 	if(val.match(fieldPattern) == "--f"){
-		fields=process.argv[index+1];
-		console.log("fields: " + fields);
+		consoleLabel='fields'; fields=value;
 	}
 	if(val.match(fieldSkipPattern) == "--x"){
-		skip=process.argv[index+1];
-		console.log("skip fields: "+ skip);
+		consoleLabel='skip fields'; skip=value;
 	}
 	if(val.match(delimiterPattern) == "--d"){
-		delimiter=process.argv[index+1];
-		console.log("delimiter: "+ delimiter);
+		consoleLabel='delimiter'; delimiter=value;
 	}
-	
+	if(consoleLabel != ''){console.log(consoleLabel + ": " + value);}
 });
-
 
 //readLines(input, func);
 
-// this is a placeholder for writing files
-function writeFile (outputFileName, inputData) {
-	fs.writeFile (savPath, data, function(err) {
-		if (err) throw err;
-		console.log('complete');
-	});
-}
-
 // -------------- functions ---------------
-function readLines(input, func) {
+function readLines(input, append) {
 	var remaining = '';
 	input.on('data', function(data) {
 		remaining += data;
+		// need to deal with both unix and windows line endings...
 		var index = remaining.indexOf('\n');
 		while (index > 1) {
 			var line = remaining.substring(0, index);
 			remaining = remaining.substring(index + 1);
-			func(line);
+			append(line);
 			index = remaining.indexOf('\n');
 		}
 	});
 	input.on('end', function() {
 		if (remaining.length > 0){
-			func(remaining);
+			// func(remaining);
+			append(remaining);
 		}
 	});
 }
 
+function append(data){
+	fs.appendFile(output,data,function(err){
+		
+	});
+}
 function func(data){
 	console.log('Line:' + data);
 }
