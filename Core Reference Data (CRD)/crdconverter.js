@@ -59,6 +59,12 @@ process.argv.forEach(function (val, index, array) {
 	if(consoleLabel != ''){console.log(consoleLabel + ": " + value);}
 });
 
+// delete output file if it exists
+fs.exists(output, function(exists){
+	//fs.delete(output);
+	console.log(output + " exists? " + exists);
+});
+
 // todo: check parameters to make sure we have enough information to proceed
 
 // split skip and fields into arrays and get the number of fields
@@ -66,12 +72,12 @@ var fieldArray=fields.split(','); var numFields=fieldArray.length;
 var skipArray=''; if(skip != null){skipArray=skip.split(',');}
 
 // todo: get number of lines of input file
-fs.createReadStream(input).on('data',function readStreamOnData(chunk){
-	numLines += chunk
-		.toString('utf8')
-		.split(/\r\n|[\n\r\u0085\u2028\u2029]/g)
-		.length-1;
-});
+//fs.createReadStream(input).on('data',function readStreamOnData(chunk){
+//	numLines += chunk
+//		.toString('utf8')
+//		.split(/\r\n|[\n\r\u0085\u2028\u2029]/g)
+//		.length-1;
+//});
 
 // setup output file to be json
 var prependlabel=''; if(label != null){ prependlabel='\t\"'+label+'\": {\n'; }
@@ -81,7 +87,7 @@ var postpendlabel=''; if(label != null){ postpendlabel='\t}\n'; }
 fs.appendFile(output,"{\n"+prependlabel,function(err){ if(err) throw err; });
 
 // process input file
-readLines(input, append);
+//readLines(input, append);
 
 // -------------- functions ---------------
 function readLines(input, append) {
