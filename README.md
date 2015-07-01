@@ -1,5 +1,5 @@
 # PseudoVet
-
+![PseudoVet Logo](https://github.com/VHAINNOVATIONS/PseudoVet/blob/master/branding/PseudoVet.png)
 # VHA Innovation Project ID 407
 
 ## Introduction
