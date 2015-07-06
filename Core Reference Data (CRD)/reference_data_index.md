@@ -1,7 +1,9 @@
-States
+=locations
+|locationType|
+|States|
+|Territories|
+|Islands|
 
-Territories
-Islands
 Cities
 Streets
 Zip/Postal Codes
@@ -24,6 +26,6 @@ Current Procedural Terminology Data (CPT) codes
 Formulary data such as VA Class, Restriction, Generic Medication Names, Dosage Form
 Laboratory Tests and Reference Ranges
 Radiological test types and Reference Ranges
-World Health Organization’s (WHO) Disability Assessment Schedule (WHODAS 2.0)
+World Health Organizationï¿½s (WHO) Disability Assessment Schedule (WHODAS 2.0)
 Service-Connected Disability Types
 Social Security Numbers
