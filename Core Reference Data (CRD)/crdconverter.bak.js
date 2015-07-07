@@ -6,7 +6,8 @@
 //			for the PseudoVet Core Reference Database
 // Date:	last modified: 2015-06-29
 
-var fs=require("graceful-fs");
+var fs=require("fs");
+//var LineByLine=require("line-by-line");
 
 console.log("\ncrdconverter.js - PseudoVet :: Core Reference Database Converter");
 console.log("\tWritten by: Will BC Collins IV for Dept Veterans Affairs\n");
@@ -17,7 +18,6 @@ var fields='';
 var skip='';
 var label='';
 var delimiter=''; var delimiterName='';
-var close='';
 
 // process.argv
 process.argv.forEach(function (val, index, array) {
@@ -32,23 +32,17 @@ process.argv.forEach(function (val, index, array) {
 	var consoleLabel=''; var value=process.argv[index+1];
 
 	// set global variables for file conversion
-	if(val.match(helpPattern) == "--h"){ 
-		help();
-	}
-  if(val.match(inputPattern) == "--i"){
+	if(val.match(helpPattern) == "--h"){ help(); } 
+    if(val.match(inputPattern) == "--i"){
 		consoleLabel='input file'; input = value;
 	}
 	if(val.match(outputPattern) == "--o"){
-		consoleLabel='output file'; output = value;
+		consoleLabel='output file'; output = value; 
+		// auto set delimeter if csv file
 		var csvpattern = new RegExp(/\.csv$/);
 		if(output.match(csvpattern) == '.csv'){
 			delimiter=',';
 		}
-		// delete output file if it exists
-		//fs.exists(output, function(exists){
-		//	console.log("File Exists.  Deleting: "+ output);
-		//	fs.unlink(output);
-		//});
 	}
 	if(val.match(labelPattern) == "--l"){
 		consoleLabel='label'; label=value;
@@ -76,7 +70,9 @@ process.argv.forEach(function (val, index, array) {
 var fieldArray=fields.split(','); var numFields=fieldArray.length;
 var skipArray=''; if(skip != null){skipArray=skip.split(',');}
 
+
 // process input file
+
 gobble(input);
 
 // -------------- functions ---------------
@@ -85,60 +81,59 @@ function gobble(input){
   var fileContent=fs.readFileSync(input).toString();
   var lineArray=fileContent.split('\n');
   for(var i=0; i<lineArray.length; i++){
-		if(lineArray[i].toString() != ''){
-      append(lineArray[i].toString()); 
-		}
+    append(lineArray[i].toString()); 
   }	
   // put closing tags into output json document
-  fs.appendFileSync(output,close);
+  fs.appendFile(output,'\n\t\t]\n\t}\n}',function(err){ if(err) throw err; });
 }
 
 function append(data){
-	++numLines;
-
-	var lineOut='';
-
 	console.log(data);
+	// var jsondata='';
+	// manipulate data to append json format
 
 	// split a line of data by delimiter
 	var dataArray=data.split(delimiter);
 	
+	++numLines;
+
 	// here we care about fields...
-	var allowedFieldsArray=[];
 	for(var i=0; i < fieldArray.length; ++i){
-		var skipfield = false;
-		for(var s=0; s < skipArray.length; s++){
-			if(fieldArray[i] == skipArray[s]){ skipfield = true; }
-		}
-		if(skipfield == false){ allowedFieldsArray.push(i); }
-	}
-	
-	if(allowedFieldsArray.length == 0){ console.log("There is nothing to do because no field data is available to convert."); return; }
-  else if(allowedFieldsArray.length == 1){
-		var field=allowedFieldsArray[0];
-		// todo: add some kind of variable that knows how we close the file
-		if(numLines == 1){lineOut='{\n\t\"'+label+'\": {\n\t\t\"'+fieldArray[field]+'\": [ '; close='\n\t\t]\n\t}\n}';}else{lineOut=',';}
-		lineOut+='\n\t\t\t\"'+dataArray[field]+'\" ';
-	}
-	else{
-		// todo: add some kind of variable that knows how we close the file
-		// todo: add a way to deal with deeper nesting from a comma-delimited label
-		if(numLines == 1){lineOut='{\n\t\"'+label+'\": [\n\t\t{'; close='\n\t]\n}';}else{lineOut=',\n\t\t{';}
-		for(var i=0; i < allowedFieldsArray.length; ++i){
-			if(i > 0){ lineOut+=',';}
-			var data=dataArray[allowedFieldsArray[i]]; data=data.substring(0,data.length -1);
-			lineOut+='\n\t\t\t\"'+fieldArray[allowedFieldsArray[i]]+'\": \"'+ data + '\"';
-		}
-		lineOut+='\n\t\t}';
-	}
-	
-	// here we should have built the lineOut string and can now just output it
-	if(lineOut == null || lineOut == ''){
-		console.log('Nothing to write...');
-	}
-	else{
-		//fs.appendFileSync(output,lineOut,function(err){ if(err) throw err; });	
-		fs.appendFileSync(output,lineOut);
+		//var skipfield=false;
+		//for(var s=0; s < skipArray.length; s++){
+		//	if(fieldArray[i] == skipArray[s]){
+		//		skipfield=true;
+		//	}
+		//}
+		//if(skipfield == false){
+			// if this is the first line we are writing
+			if(numLines == 1){
+				if(i==0){
+					// delete output file if it exists
+					fs.exists(output, function(exists){
+						console.log("File Exists.  Deleting: "+ output);
+						fs.unlink(output);
+					});
+										
+					// put opening json tags into output file
+	  			fs.appendFile(output,'{\n\t\"'+label+'\": {\n\t\t\"'+fieldArray[i]+'\": [ \n\t\t\t"'+dataArray[i]+'\" ',function(err){ if(err) throw err; });
+					//fs.appendFileSync(output,'\t\t\"'+fieldArray[i]+'\": [ \n\t\t\t"'+dataArray[i]+'\" '+numLines,function(err){
+					//	if(err) throw err;
+					//});
+				}
+				// deal with more fields...
+				//else{
+				//	fs.appendFile(output,'\t, {}')
+				//}
+			}
+			else{
+				if(i==0){
+					fs.appendFile(output,',\n\t\t\t"'+dataArray[i]+'\"',function(err){
+						if(err) throw err;
+					});
+				}				
+			}
+		//}
 	}
 }
 

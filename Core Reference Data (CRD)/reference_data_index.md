@@ -5,7 +5,7 @@
 |Islands|
 
 Cities
-Streets
+Streets http://catalog.data.gov/dataset/street-names-1dd13/resource/4f2dcfd5-532c-45f1-b82e-6982eef510ec
 Zip/Postal Codes
 Facility Types
 Clinic Types
@@ -16,7 +16,7 @@ War Eras
 Branches of Armed Services
 Occupations and Incomes
 Last names
-First names
+First names http://www.quietaffiliate.com/free-first-name-and-last-name-databases-csv-and-sql/
 Symptoms
 Diagnosis from ICD-9 DSM-5 http://www.dr-bob.org/tips/dsm5a.html
 icd-10 http://www.cdc.gov/nchs/icd/icd10cm.htm#icd2016
