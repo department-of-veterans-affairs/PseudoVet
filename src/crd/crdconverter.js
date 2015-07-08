@@ -116,12 +116,10 @@ function append(data){
 	if(allowedFieldsArray.length == 0){ console.log("There is nothing to do because no field data is available to convert."); return; }
   else if(allowedFieldsArray.length == 1){
 		var field=allowedFieldsArray[0];
-		// todo: add some kind of variable that knows how we close the file
 		if(numLines == 1){lineOut='{\n\t\"'+label+'\": {\n\t\t\"'+fieldArray[field]+'\": [ '; close='\n\t\t]\n\t}\n}';}else{lineOut=',';}
 		lineOut+='\n\t\t\t\"'+dataArray[field]+'\" ';
 	}
 	else{
-		// todo: add some kind of variable that knows how we close the file
 		// todo: add a way to deal with deeper nesting from a comma-delimited label
 		if(numLines == 1){lineOut='{\n\t\"'+label+'\": [\n\t\t{'; close='\n\t]\n}';}else{lineOut=',\n\t\t{';}
 		for(var i=0; i < allowedFieldsArray.length; ++i){
@@ -131,13 +129,12 @@ function append(data){
 		}
 		lineOut+='\n\t\t}';
 	}
-	
-	// here we should have built the lineOut string and can now just output it
+
+	// output to JSON file	
 	if(lineOut == null || lineOut == ''){
 		console.log('Nothing to write...');
 	}
 	else{
-		//fs.appendFileSync(output,lineOut,function(err){ if(err) throw err; });	
 		fs.appendFileSync(output,lineOut);
 	}
 }
