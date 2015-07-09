@@ -1,3 +1,12 @@
+= testing framework
+jasmine-node is used as the testing framework.
+The test scripts reside in the spec folder and can be ran from this folder using the following command:
+
+jasmine-node spec/
+
+= reference data
+== The following lists reference data as it becomes available to the CRD
+
 =locations
 |locationType|
 |States|
