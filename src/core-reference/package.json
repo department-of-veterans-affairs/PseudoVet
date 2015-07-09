@@ -1,0 +1,29 @@
+{
+	"name": "core-reference",
+	"version": "0.0.40",
+	"description": "PseudoVet Core Reference",
+	"contributors": [{
+		"name": "Will BC Collins IV",
+		"email": "william.collins@va.gov"
+	}],
+	"scripts": {
+		"crdconverter": "node crdconverter.js",
+		"crdrelimiter": "node crdrelimiter.js",
+		"crdimport": "node crdimport.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/VHAINNOVATIONS/PseudoVet"
+	},
+	"bugs": {
+		"url": "https://bugzilla.vaftl.us"
+	},
+	"keywords": [
+		"pseudovet"
+	],
+	"dependencies": {
+		"graceful-fs": ">=4.1.2",
+		"jasmine-node": ">=1.14.5"
+	},
+	"license": "Apache2"
+}
