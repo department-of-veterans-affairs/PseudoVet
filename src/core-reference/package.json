@@ -2,21 +2,19 @@
 	"name": "core-reference",
 	"version": "0.0.40",
 	"description": "PseudoVet Core Reference",
+	"author": "Will BC Collins IV <bcollinsiv@gmail.com>",
 	"contributors": [{
 		"name": "Will BC Collins IV",
 		"email": "william.collins@va.gov"
 	}],
 	"scripts": {
-		"crdconverter": "node crdconverter.js",
-		"crdrelimiter": "node crdrelimiter.js",
-		"crdimport": "node crdimport.js"
 	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/VHAINNOVATIONS/PseudoVet"
 	},
 	"bugs": {
-		"url": "https://bugzilla.vaftl.us"
+		"url": "https://bugzilla.vaftl.us/bugzilla/describecomponents.cgi"
 	},
 	"keywords": [
 		"pseudovet"
