@@ -1,8 +1,8 @@
 {
-  "name": “pi”,
-  "description": “web app for PseudoVet”,
+  "name": "pseudovet",
+  "description": "web app for PseudoVet",
   "version": "0.0.1",
-  "author": “Will BC Collins IV”,
+  "author": "Will BC Collins IV",
   "repository": {
     "type": "git",
     "url": "https://github.com/VHAINNOVATIONS/PseudoVet.git"
@@ -19,7 +19,8 @@
     "mongoose": "~3.8.3",
     "handlebars-runtime": "~1.0.12",
     "express3-handlebars": "~0.5.0",
-    "MD5": "~1.2.0"
+    "MD5": "~1.2.0",
+    "graceful-fs": "~4.1.2"
   },
   "devDependencies": {
     "bower": "~1.2.8",

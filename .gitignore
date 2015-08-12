@@ -1,10 +1,9 @@
 # sensitive
 _sensitive
-src/core-reference/lib/jasmine_examples
-src/core-reference/node_modules
-src/ehr-integration/node_modules
-src/pseudovet-interface/node_modules
-src/pseudovet-interface/bower_components
+src/node_modules
+src/bower_components
+src/reference/raw/*.zip
+src/reference/raw/*.gz
 
 # Windows image file caches
 Thumbs.db
