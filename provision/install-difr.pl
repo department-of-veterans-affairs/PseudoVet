@@ -12,7 +12,7 @@ my $login = (getpwuid $>);
 die "This script must run as root or sudo" if $login ne 'root';
 
 my $wwwroot='/var/www';
-my $app_title='difr';
+my $app_title='pseudovet';
 my $domain_name='localhost';
 # create path under wwwroot and copy files there
 my $app_name='app';

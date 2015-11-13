@@ -7,7 +7,7 @@ Vagrant.configure(2) do |config|
   # config.vm.network "forwarded_port", guest: 443, host: 8081
   
   config.vm.provider :virtualbox do |vb|
-      vb.name = "difr"
+      vb.name = "pseudovet"
   end
   
   config.vm.provision :shell, path: "provision/setup-deb.sh"
