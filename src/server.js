@@ -20,8 +20,6 @@ app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 // use sessions
-//app.use(express.session());
-//app.use(express.cookieParser());
 app.use(express.cookieParser('some-secret-value-here'));
 app.use(express.session());
 //app.use(express.cookieSession({
@@ -55,7 +53,7 @@ function restrict(req, res, next) {
     next();
   } else {
     req.session.error = 'Access denied!';
-    res.redirect('/login');
+    res.redirect('/restrict');
   }
 }
  
