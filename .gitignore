@@ -5,6 +5,9 @@ src/bower_components
 src/reference/raw/*.zip
 src/reference/raw/*.gz
 
+# ignore real configuration for demo
+config/demo.config
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
