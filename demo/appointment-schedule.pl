@@ -1,12 +1,6 @@
 #!/usr/bin/perl -w
 use Expect;
 
-#my $username='bciv';
-#my $password='at0mic!!';
-#my $servername='pseudovista.vaftl.us';
-#my $timeout=1500;
-#my $command="ssh $servername";
-
 my $configuration_file='../config/demo.config';
 
 configure($configuration_file);
