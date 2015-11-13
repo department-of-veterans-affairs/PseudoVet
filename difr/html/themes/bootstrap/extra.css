@@ -1,0 +1,12 @@
+.footer
+{
+position: relative;
+margin-top: 0px; /* negative value of footer height */
+height: 50px;
+clear:both;
+padding-top:20px;
+padding-left: 5px;
+color:#fff;
+background-color:#ccc;
+} 
+

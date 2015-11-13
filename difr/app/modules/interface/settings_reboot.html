@@ -1,0 +1,43 @@
+<!-- settings_reboot.html -->
+<center>
+<img src="themes/difr/restart.png" width="90"/>
+<h4>DIFR is in the process of rebooting... </h4>
+  <div id="countdown"></div>
+  <div id="notifier"></div>
+</center>
+
+<script language="javascript"><!--
+<p>Your browser will not redirect automatically once the reboot has completed.<br />
+   Refresh this page in approximately 5 minutes.</p>
+--></script>
+<center>
+<img src="themes/difr/ajax-loader.gif" alt="page is loading indicator is displayed" />
+</center>
+
+<script type="text/javascript">
+
+  var start = 420;
+  Number.prototype.toMinutesAndSeconds = function() {
+	var nbr = Math.floor(this / 60);
+	return (nbr+":")+(((nbr=(this-(nbr*60)))<10)?"0"+nbr:nbr);
+}
+
+function display(seconds, output) {
+	output.innerHTML = (--seconds).toMinutesAndSeconds();
+	if(seconds > 0) {
+		window.setTimeout(function(){display(seconds, output)}, 1000);
+	}
+	
+	if(seconds < 11) {
+		document.getElementById("notifier").innerHTML = "Just 10 seconds to go";
+	}
+	
+	if (seconds == 0) {
+		document.getElementById("notifier").innerHTML = "Loading Settings Module...";
+    window.location='index.pl';
+	}
+}
+display(start, document.getElementById("countdown"));
+
+</script>
+

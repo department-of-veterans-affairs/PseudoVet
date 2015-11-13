@@ -1,0 +1,45 @@
+        <span style="float:center; margin:0; left:230px; right: 0px; top: 100px; width:700px;">
+        <span id="restart" class="popup">
+          <center>
+          <img src="themes/difr/restart.png" width="100" align="center" />
+          <br />
+          <h3>Are you sure you want to reboot DIFR?</h3>
+          <p>If you reboot now, users in the middle of working will be distrupted for approximately 7 minutes.  If someone is in the middle of entering data, they will have to start over once the reboot has completed.  YOU HAVE BEEN WARNED!!</p>
+          <a href="index.pl?function=power&action=reboot&validate=true">Yes</a>
+          <a href="javascript:void(0);" onclick="popup_hide('restart');">No</a>
+          </center>
+        </span>
+        </span>
+
+        <span style="float:center;">
+        <span id="shutdown" class="popup">
+          <center>
+          <img src="themes/difr/shutdown.png" width="100" align="center" />
+          <br />
+          <h3>Are you sure you want to shutdown DIFR?</h3>
+          <p>If you shutdown DIFR, it will have to be manually started backup by an administrator having access to do so.  DIFR cannot be started backup again from this web interface.  YOU HAVE BEEN WARNED!!  Click 'Cancel' to return to DIFR's Power Settings.</p>
+          <a href="index.pl?function=power&action=shutdown&validate=true">Yes</a>
+          <a href="javascript:void(0);" onclick="popup_hide('shutdown');">No</a>
+          </center>
+        </span>
+        </span>
+
+        <div style="width:400px; height:200px; margin:0px auto;">
+          <div style="float:left; width:180px;">
+            <center>
+              <img src="themes/difr/restart.png" width="100" align="center"
+                   title="Restart DIFR Server" alt="Restart DIFR Server" onclick="popup_show('restart');" />
+              <br />
+              <b>Restart DIFR Server</b>
+            </center>
+          </div>
+          <div style="float:right; width:180px;">
+            <center>
+              <img src="themes/difr/shutdown.png" width="100" align="center"
+                   title="Shutdown DIFR Server" alt="Shutdown DIFR Server" onclick="popup_show('shutdown');" />
+              <br />
+              <b>Shutdown DIFR Server</b>
+            </center>
+          </div>
+        </div>
+

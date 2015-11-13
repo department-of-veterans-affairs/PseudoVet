@@ -1,0 +1,60 @@
+
+# check if table exists, if not, create it
+#if($g->{dbh}->selectrow_array("select count(*) from '$table_name' ... if it = 1 it exists...
+#
+# CREATE TABLE `pdc_app`.`charity_venues` (
+# `id` INT( 2 ) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+# `name` VARCHAR( 200 ) NOT NULL ,
+# `description` TEXT NOT NULL ,
+# `image` VARCHAR( 255 ) NOT NULL ,
+# `website` VARCHAR( 255 ) NOT NULL ,
+# `phone` VARCHAR( 10 ) NOT NULL ,
+# `map` TEXT NOT NULL ,
+# `address_line1` VARCHAR( 255 ) NOT NULL ,
+# `address_line2` VARCHAR( 255 ) NOT NULL ,
+# `city` VARCHAR( 100 ) NOT NULL ,
+# `state` VARCHAR( 100 ) NOT NULL ,
+# `zipcode` VARCHAR( 15 ) NOT NULL ,
+# `notes` TEXT NOT NULL
+# ) ENGINE = MYISAM ;
+
+# CREATE TABLE `pdc_app`.`charity_events` (
+# `id` INT( 2 ) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+# `name` VARCHAR( 200 ) NOT NULL ,
+# `description` TEXT NOT NULL ,
+# `image` VARCHAR( 255 ) NOT NULL ,
+# `website` VARCHAR( 255 ) NOT NULL ,
+# `phone` VARCHAR( 10 ) NOT NULL ,
+# `venue_id` INT( 2 ) NOT NULL ,
+# `notes` TEXT NOT NULL
+# ) ENGINE = MYISAM ;
+
+# model data
+# CREATE TABLE `pdc_app`.`charity_tickets` (
+#    `id` INT( 2 ) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+#    `name` VARCHAR( 200 ) NOT NULL ,
+#    `description` TEXT NOT NULL ,
+#    `image` VARCHAR( 255 ) NOT NULL ,
+#    `event_id` INT ( 2 ) NOT NULL ,
+#    `venue_id` INT( 2 ) NOT NULL ,
+#    `participants` TINYINT ( 1 ) NOT NULL,
+#     price` DECIMAL ( 5,0 ) NOT NULL
+#    ) ENGINE = MYISAM ;
+
+# CREATE TABLE `pdc_app`.`charity_sponsors` (
+# `id` INT( 2 ) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+# `username` VARCHAR( 200 ) NOT NULL ,
+# `ticket_id` INT ( 2 ) NOT NULL ,
+# `name_or_group` TEXT NOT NULL,
+# `logo` VARCHAR ( 255 ) NULL,
+# `description` VARCHAR ( 255 ) NULL,
+# `url` VARCHAR ( 255 ) NULL
+# ) ENGINE = MYISAM ;
+
+# CREATE TABLE `pdc_app`.`charity_players` (
+# `id` INT( 2 ) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+# `name_or_group` TEXT NOT NULL,
+# `name` VARCHAR ( 255 ) NOT NULL,
+# `email` VARCHAR ( 255 ) NOT NULL,
+# `hncp` VARCHAR ( 255 ) NOT NULL
+# ) ENGINE = MYISAM ;

@@ -1,0 +1,71 @@
+.droplinebar{
+overflow: hidden;
+border-top: solid black 1px;
+border-bottom: solid black 1px;
+}
+
+.droplinebar label{ padding-left: 4px; } /* added by bciv 20110217 */
+
+.droplinebar ul{
+margin: 0;
+padding: 0;
+float: left;
+width: 100%;
+font: bold 13px Arial;
+background: white;
+/*background: #242c54 url(bluedefault.gif) center center repeat-x;*/ /*default background of menu bar*/
+-moz-linear-gradient(center top, #a4ccec, #72a6d4 25%, #3282c2 45%, #357cbd 85%, #72a6d4); /* mozilla gradient background */
+-webkit-gradient(linear, center top, center bottom, from(#a4ccec), color-stop(25%, #72a6d4), color-stop(45%, #3282c2), color-stop(85%, #357cbd), to(#72a6d4)); /* Webkit gradient background */
+}
+
+.droplinebar ul li{
+display: inline;
+}
+
+.droplinebar ul li a{
+float: left;
+color: black;
+padding: 9px 11px;
+text-decoration: none;
+	/* ie8 */ -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+	/* ie 5-7 */ filter: alpha(opacity=70);
+	/* netscape */ -moz-opacity: 0.7;
+	/* safari */ -khtml-opacity: 0.7;
+	/* good browsers */ opacity: 0.7;
+
+}
+
+.droplinebar ul li a:visited{
+color: black;
+}
+
+.droplinebar ul li a:hover, .droplinebar ul li .current{ /*background of main menu bar links onMouseover*/
+color: red;
+/*background: transparent url(blueactive.gif) center center repeat-x;*/
+}
+
+/* Sub level menus*/
+.droplinebar ul li ul{
+position: absolute;
+z-index: 100;
+left: 0;
+top: 0;
+background: white; /* #303c76; sub menu background color */
+visibility: hidden;
+border-bottom: solid black 1px;
+}
+
+/* Sub level menu links style */
+.droplinebar ul li ul li a{
+font: normal 13px Verdana;
+padding: 6px;
+padding-right: 8px;
+margin: 0;
+color: black;
+/*border-bottom: 1px solid navy;*/
+}
+
+.droplinebar ul li ul li a:hover{ /*sub menu links' background color onMouseover */
+background: white; /*#242c54;*/
+color: red;
+}

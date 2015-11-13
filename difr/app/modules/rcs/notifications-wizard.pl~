@@ -1,0 +1,5 @@
+#!/usr/bin/perl
+# notifications wizard step 1
+
+print "Hello $g->{sys_username}<br />";
+
