@@ -8,31 +8,50 @@ my $configuration_file='../config/demo.config';
 
 configure($configuration_file);
 
-my $exp=Expect->spawn($command,@params) or die "Cannot spawn $command: $!\n";
+my $exp=Expect->spawn("/bin/bash") or die "Cannot spawn $command: $!\n";
 
+$exp->expect($timeout,-re, qw/\$/);
+print "<<<matched prompt>>>\n";
+my @arr=$exp->send("ls\n");
+print $exp->before();
+
+#foreach my $line (@arr){
+#  print "$line"; 
+#}
+
+#if($exp->expect($timeout,-re, "\$")){
+#  print "<<<matched prompt>>>\n";
+#  $exp->print('pwd','\n');
+#}
+
+#if($exp->expect($timeout,-re, "\$")){
+#  print "<<<matched prompt>>>\n";
+#  $exp->print('ls','\n');
+#}
+  
 #login();
 #cmd($exp, "csession cache -U bciv \"^ZU\"\n");
 #xcall('\$',"csession cache -U bciv \"^ZU\"\n");
 
-if($exp->expect($timeout,-re, "[Pp]assword")){
-  print "<<<matched assword>>>\n";
-  $exp->print($password,"\n");
-}
+#if($exp->expect($timeout,-re, "[Pp]assword")){
+#  print "<<<matched assword>>>\n";
+#  $exp->print($password,"\n");
+#}
 
 #xcall('ACCESS CODE:',"$access_code");
 #xcall('VERIFY CODE:',"$verify_code");
-sleep 5;
+#sleep 5;
 #$exp->clear_accum();
 
-if($exp->expect($timeout,-re, "ACCESS CODE")){
-  print "<<<matched ACCESS CODE>>>\n";
-  $exp->print("$access_code",'\r');
-}
+#if($exp->expect($timeout,-re, "ACCESS CODE")){
+#  print "<<<matched ACCESS CODE>>>\n";
+#  $exp->print("$access_code",'\r');
+#}
 
-if($exp->expect($timeout, -re, "VERIFY CODE")){
-  print "<<<matched VERIFY CODE>>>\n";
-  $exp->print("$verify_code",'\r');
-}
+#if($exp->expect($timeout, -re, "VERIFY CODE")){
+#  print "<<<matched VERIFY CODE>>>\n";
+#  $exp->print("$verify_code",'\r');
+#}
 
 #if($exp->before =~ m/ACCESS CODE:/){
 #  $exp->print("$access_code^M");
