@@ -8,6 +8,9 @@ src/reference/raw/*.gz
 # ignore real configuration for demo
 config/demo.config
 
+# ignore vagrant
+.vagrant
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

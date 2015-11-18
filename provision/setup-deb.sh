@@ -6,7 +6,7 @@ sudo apt-get update
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password difr1!'
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password difr1!'
 sudo apt-get -y install mysql-server
-sudo apt-get install -y libapache2-mod-perl2 libcgi-pm-perl vim zip unzip wget curl expect
+sudo apt-get install -y libapache2-mod-perl2 libcgi-pm-perl vim zip unzip wget curl libexpect-perl
 sudo service apache2 stop
 cp /vagrant/provision/default-ssl /etc/apache2/sites-available/
 # sudo mkdir /var/www/html
