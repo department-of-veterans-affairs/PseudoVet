@@ -11,6 +11,7 @@ configure($configuration_file);
 my $exp=Expect->spawn($command) or die "Cannot spawn $command: $!\n";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 $exp->expect($timeout,
   [ qr/The authenticity of host/ => sub {
     my $exp=shift; $exp->send("y\n"); exp_continue;}],
@@ -123,6 +124,34 @@ if($exp->expect($timeout, -re, "VERIFY CODE")){
 }
 >>>>>>> f171571520b5bedf64f052e13758c8932d8097cb
 
+=======
+my $exp=Expect->spawn($command,@params) or die "Cannot spawn $command: $!\n";
+
+#login();
+#cmd($exp, "csession cache -U bciv \"^ZU\"\n");
+#xcall('\$',"csession cache -U bciv \"^ZU\"\n");
+
+if($exp->expect($timeout,-re, "[Pp]assword")){
+  print "<<<matched assword>>>\n";
+  $exp->print($password,"\n");
+}
+
+#xcall('ACCESS CODE:',"$access_code");
+#xcall('VERIFY CODE:',"$verify_code");
+sleep 5;
+#$exp->clear_accum();
+
+if($exp->expect($timeout,-re, "ACCESS CODE")){
+  print "<<<matched ACCESS CODE>>>\n";
+  $exp->print("$access_code",'\r');
+}
+
+if($exp->expect($timeout, -re, "VERIFY CODE")){
+  print "<<<matched VERIFY CODE>>>\n";
+  $exp->print("$verify_code",'\r');
+}
+
+>>>>>>> f171571520b5bedf64f052e13758c8932d8097cb
 #if($exp->before =~ m/ACCESS CODE:/){
 #  $exp->print("$access_code^M");
 #}
