@@ -1,6 +1,27 @@
 # PseudoVet Proof Of Concept
 ![PseudoVet Logo](https://github.com/VHAINNOVATIONS/PseudoVet/blob/master/branding/PseudoVet.png)
 
+# Outline
+The requisite steps that comprise the proof of concept relate to injecting
+synthetic data into a VistA system.  These are the steps most relevant: 
+
+- Assign patient to clinic
+- Create appointment
+- See patient generate progress note
+- Have clinician create outpatient med order 
+- Have pharmacy finish the order (backdoor order entry)
+- Pt label printed ~ considered filled
+- Dispensed to patient
+
+While the steps above are important it is also important to PseudoVet to
+additionally run the LOAD A PATIENT routine to substantiate a record from
+scratch.  Currently, the eHMP MOCKS or related routines for substantiating
+a new patient are broken in the eHMP Silver VistA so this is not possible.
+
+*As soon as the error that occurs when the 'mock' MPI is called, a routine
+that creates a new synthetic patient will be populated within this folder 
+of the codebase.
+
 # Prerequisites to run the appointment-schedule.pl automation script:
 
 # VistA Instance
