@@ -1,6 +1,8 @@
 # PseudoVet
 ![PseudoVet Logo](https://github.com/VHAINNOVATIONS/PseudoVet/blob/master/branding/PseudoVet.png)
 # VHA Innovation Project ID 407
+## Innovator/Architect: Will BC Collins IV
+## Project Manager/COR: Brian Stevenson
 
 ## Introduction
 PseudoVet is an automated patient data fabrication engine.  It’s goal is to provide a set of active synthetic patients that can be used for healthcare software development and testing for applications that are geared towards VA’s VistA and Enterprise Heath Management Platform (eHMP) through the Veterans Health Administrations’ (VHA) Future Technology Laboratory (FTL) a publically accessible development environment.  More information on the VHA Innovation Laboratory and FTL can be found here: http://vaftl.us
@@ -18,3 +20,5 @@ The PseudoVet system is comprised of the following components:
 - PseudoVet Database – A database where all generated synthetic patient resides
 - Automation Services - Back-end services that generate and continuously update synthetic patient data
 - Client EHR System Integration – Integration routines for data synchronization between the PseudoVet system and external Electronic Health Record Systems (EHR’s)
+
+

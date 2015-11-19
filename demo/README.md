@@ -6,8 +6,8 @@ The requisite steps that comprise the proof of concept relate to injecting
 synthetic data into a VistA system.  These are the steps most relevant: 
 
 - Assign patient to clinic
-- Create appointment
-- See patient generate progress note
+- Create appointment (completed)
+- check-in, See patient, and generate progress note
 - Have clinician create outpatient med order 
 - Have pharmacy finish the order (backdoor order entry)
 - Pt label printed ~ considered filled
