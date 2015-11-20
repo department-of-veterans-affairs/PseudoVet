@@ -22,6 +22,7 @@ no warnings 'qw';
 @EXPORT=qw(
   configure,
   new,
+  choose_patient,
   get_next_available_appointment,
 );
 my $VERSION='0.1';
@@ -34,7 +35,7 @@ sub configure{
   open(IN,$file) or die "Cannot read configuration file, $file : $!";
   while(<IN>){
     my $line=$_;
-    unless($line eq '' or $line=~m/^\#/){
+    unless($line!~m/^\w/ or $line=~m/^\#/){
       my($key,$value)=split(/=/,$line); 
       $value=~s/\s*+$//; $value=~s/[\'|\"]//g;
       $self->{$key}=$value;
@@ -49,6 +50,37 @@ sub connect{
   my $command="$self->{command} $self->{username}\@$self->{servername}";
   print "$command\n";
   $self->{exp}=Expect->spawn($command) or die "Cannot spawn $command: $!\n";  
+}
+
+sub choose_patient{
+  my $self=shift;
+  my($input)=@_; my $retval;
+  my @out=split(/\n/,$input);
+  # TODO: If patient is not on first screen for selection need to 
+  # hit return to see more and continue trying to find the patient
+  # not a high priority though because there will hopefully not be
+  # more than 5 BLOBBINS,ROBERT, for example, in a single system...
+  for(my $i=0; $i<@out; ++$i){
+    my $string=$out[$i];
+    #print "<<$string>>\n";
+    # first...
+    # match a MON YEAR such as 'Dec 2015' to build YYYYMM portion of appointment slot
+    #     1   SEVEN,PATIENT        4-7-35    666000007     YES     SC VETERAN               
+    #     2   SEVENTEEN,PATIENT        4-7-35    666000017     YES     SC VETERAN             
+    if($string=~m/^\s*\d.\s*\w*.\,\w/){
+      $string=~s/^\s*//; $string=~s/\s\s*/^/g;
+      my($num,$patient,$dob,$ssn)=split(/\^/,$string);
+      print"num: $num patient: $patient ($self->{patient_name}) dob: $dob ssn: $ssn\n";
+      #print "\n$patient = $patient $self->{patient_name}\n";
+      my $tmp=$self->{patient_name}; $tmp=~s/\s//g;
+      if($tmp eq $patient){
+        print "\npatient: $patient $self->{patient_name}\n";
+        #$self->xsend("$num\n^\r");
+        return $num;
+      }
+    }
+  }
+  #return;
 }
 
 sub xsend{
@@ -73,6 +105,8 @@ sub new{
     patientdob=>"",
     patientssn=>"",
     @_,
+   #$Expect::Debug = 0; # verbose debug
+   #$Expect::Log_Stdout = 1; # show chatter for debugging
   };
   $self->{test}='foo';
   return bless $self, $class;

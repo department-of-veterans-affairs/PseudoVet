@@ -15,8 +15,6 @@ my $pv=new PseudoVistA;
 # see ../config/sample.demo.config for example
 $pv->configure('../config/new.demo.config');
 
-print "username: $pv->{username}\n";
-
 $pv->connect();
 
 $pv->{exp}->expect($pv->{timeout},
@@ -41,6 +39,9 @@ $pv->{exp}->expect($pv->{timeout},
   [ qr/Select Personal Patient List Menu/=>sub{
     $pv->xsend("ad\r");
   }],
+  [ qr/Do you want to continue with the current list?/=>sub{
+    $pv->xsend("Yes\r");
+  }],
   [ qr/Select Build Patient List Menu/=>sub{
     $pv->xsend("on\r");
   }],
@@ -51,18 +52,25 @@ $pv->{exp}->expect($pv->{timeout},
     # let's get fancy and figure out what number is associated with 
     # the patient and choose it...
     my $patient_number=$pv->choose_patient($pv->{exp}->before());    
-    $pv->xsend("$patient_number\n");
+    print "patient_number: $patient_number\n";
+    $pv->xsend("$patient_number\n^\r");
+  }],
+  [ qr/Show your current PATIENT list?/=>sub{
+    $pv->xsend("YES\r^\r");
+  }],
+  [ qr/Do you want to remove patients from this list?/=>sub{
+    $pv->xsend("No\r");
+  }],
+  [ qr/Store list for future reference?/=>sub{
+    $pv->xsend("YES\r");
+  }],
+  [ qr/Enter a name for this list:/=>sub{
+    $pv->xsend("PseudoList\r");
+  }],
+  [ qr/Are you adding \'/=>sub{
+    $pv->xsend("Yes\r");
+  }],
+  [ qr/Do you want to overwrite it?/=>sub{
+    $pv->xsend("No\r^\r");
   }],
 );
-
-sub choose_patient{
-  my($input)=@_; my $retval;
-  my @out=split(/\n/,$input);
-  for(my $i=0; $i<@out; ++$i){
-    my $string=$out[$i];
-    # first...
-    # match a MON YEAR such as 'Dec 2015' to build YYYYMM portion of appointment slot
-    if($string=~m/^\s*\w\w\w\s\d\d\d\d\s*+$/){
-    }
-  }
-}
