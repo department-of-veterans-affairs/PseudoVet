@@ -7,6 +7,7 @@ src/reference/raw/*.gz
 
 # ignore real configuration for demo
 config/demo.config
+config/new.demo.config
 
 # ignore vagrant
 .vagrant
