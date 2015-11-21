@@ -11,7 +11,7 @@ use PseudoVistA;
 my $pv=new PseudoVistA;
 
 # see ../config/sample.demo.config for example
-$pv->configure('../config/new.demo.config');
+$pv->configure('../config/demo.config');
 
 $pv->connect();
 
@@ -38,7 +38,7 @@ $pv->{exp}->expect($pv->{timeout},
     $pv->xsend("NO\r");
   }],
   [ qr/TITLE:/=>sub{
-    $pv->xsend("GENERIC CONSULT NOTE\r"); # will use GENERIC CONSULT NOTE
+    $pv->xsend("PRIMARY CARE GENERAL NOTE\r"); # will use GENERIC CONSULT NOTE
   }],
   [ qr/Std Title: REFERRAL CONSULT ...OK?/=>sub{
     $pv->xsend("YES\r");
@@ -54,8 +54,19 @@ $pv->{exp}->expect($pv->{timeout},
   [ qr/Enter\/Edit PROGRESS NOTE.../=>sub{
     $pv->xsend("YES\r");
   }],
-  [ qr//=>sub{
+  [ qr/1\>/=>sub{
+    $pv->xsend("55 YEAR OLD MALE COMPLAINS OF COLD, FEVER, AND CHILLS\r");
   }],
-  [ qr//=>sub{
+  [ qr/2\>/=>sub{
+    $pv->xsend("This is a test.\r");
+  }],
+  [ qr/3\>/=>sub{
+    $pv->xsend("\r");
+  }],
+  [ qr/EDIT Option:/=>sub{ 
+    $pv->xsend("\r");
+  }],
+  [ qr/Enter your Current Signature Code:/=>sub{
+    $pv->xsend("$pv->{electronic_signature_code}\r");
   }],
 );

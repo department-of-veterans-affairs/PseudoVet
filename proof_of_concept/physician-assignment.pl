@@ -13,7 +13,7 @@ $Expect::Log_Stdout = 1; # show chatter for debugging
 my $pv=new PseudoVistA;
 
 # see ../config/sample.demo.config for example
-$pv->configure('../config/new.demo.config');
+$pv->configure('../config/demo.config');
 
 $pv->connect();
 
