@@ -40,27 +40,48 @@ $pv->{exp}->expect($pv->{timeout},
   [ qr/TITLE:/=>sub{
     $pv->xsend("PRIMARY CARE GENERAL NOTE\r"); # will use GENERIC CONSULT NOTE
   }],
-  [ qr/Std Title: REFERRAL CONSULT ...OK?/=>sub{
+  [ qr/Std Title:/=>sub{
     $pv->xsend("YES\r");
   }],
   [ qr/Is this note for INPATIENT or OUTPATIENT care?/=>sub{
     $pv->xsend("OUTPATIENT\r");
   }],
-  [ qr/The following SCHEDULED VISTS are available:/=>sub{
+  # The following SCHEDULED VISTS are available:
+  [ qr/OR '\^\' TO QUIT:/=>sub{
     #my $scheduled_visit=$pv->select_scheduled_visit();
     # just grab latest one for now
-    $pv->xsend("1\r");
+    $pv->xsend("1\n");
+  }],
+  [ qr/Do you want to create a new record anyway?/=>sub{
+    print "Progress Note already exists.  Finished.\n";
+    $pv->xsend("NO\r");
+    exit;
   }],
   [ qr/Enter\/Edit PROGRESS NOTE.../=>sub{
     $pv->xsend("YES\r");
   }],
-  [ qr/1\>/=>sub{
+  [ qr/Do you wish to view active patient record flag details?/=>sub{
+    $pv->xsend("No\r");
+  }],  
+  [ qr/Would you like to resume editing now?/=>sub{
+    $pv->xsend("Yes\n");
+  }],
+  [ qr/HOSPITAL LOCATION:/=>sub{
+    $pv->xsend("\r");
+  }],
+  [ qr/DATE\/TIME OF NOTE:/=>sub{
+    $pv->xsend("\r");
+  }],
+  [ qr/AUTHOR OF NOTE:/=>sub{
+    $pv->xsend("\r");
+  }],
+  [ qr/\s\s1\>/=>sub{
     $pv->xsend("55 YEAR OLD MALE COMPLAINS OF COLD, FEVER, AND CHILLS\r");
   }],
-  [ qr/2\>/=>sub{
+  [ qr/\s\s2\>/=>sub{
     $pv->xsend("This is a test.\r");
   }],
-  [ qr/3\>/=>sub{
+  [ qr/\s\s3\>/=>sub{
     $pv->xsend("\r");
   }],
   [ qr/EDIT Option:/=>sub{ 

@@ -43,6 +43,9 @@ $pv->{exp}->expect($pv->{timeout},
     print "patient_number: $patient_number\n";
     $pv->xsend("$patient_number\n^\r");
   }],
+  [ qr/Do you wish to view active patient record flag details?/=>sub{
+    $pv->xsend("No\r");
+  }],
   [ qr/CHECKED-IN:/=>sub{
     print "\nPatient already checked in\n";
     exit;

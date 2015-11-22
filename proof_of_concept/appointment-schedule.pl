@@ -39,6 +39,9 @@ $pv->{exp}->expect($pv->{timeout},
   [ qr/Select PATIENT NAME:/=>sub{
     $pv->xsend("$pv->{patient_name}\r");
   }],
+  [ qr/Do you wish to view active patient record flag details?/=>sub{ # next prompt APPOINTMENT TYPE: REGULAR
+    $pv->xsend("N\r");
+  }],
   [ qr/IS THIS APPOINTMENT FOR A SERVICE CONNECTED CONDITION?/=>sub{ # next prompt APPOINTMENT TYPE: REGULAR
     $pv->xsend("N\r");
   }],
