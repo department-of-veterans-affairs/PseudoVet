@@ -77,11 +77,32 @@ $pv->{exp}->expect($pv->{timeout},
   [ qr/\s\s3\>/=>sub{
     $pv->xsend("\r");
   }],
-  [ qr/EDIT Option:/=>sub{$pv->xsend("\r");}],
-  # needed to run ^CLEAR ELECTRONIC SIGNATURE CODE [XUSESIG CLEAR]
-  # since I don't know what the signature code is.  From VISTA>
-  # D ^XUP followed by XUSER and then CLEAR ELECTRONIC SIGNATURE CODE
-  [ qr/Enter your Current Signature Code:/=>sub{
+  [ qr/EDIT Option: /=>sub{
+    # enter <return> followed by electronic signature code...
+    print "entering electronic signature code: $pv->{electronic_signature_code}\n";
+    $pv->xsend("\nEH1234\n");
+    #$pv->{exp}->send_slow(2,"\r"); exp_continue;
+  }],
+  [ qr/Do you wish to enter workload data at this time?/=>sub{
+    $pv->xsend("Yes\r");   
+  }],
+  [ qr/Check out data and time:/=>sub{
+    $pv->xsend("NOW\r");
+  }],
+  [ qr/Enter PROVIDER:/=>sub{
+    print "matched Enter PROVIDER:\n";
+    $pv->xsend("$pv->{provider_name}\r");
+  }],
+  # 
+#  # Enter your Current Signature Code:
+#  [ qr/No changes made.../=>sub{
+#    print "matched 'No changes made...'\n"; # $pv->{electronic_signature_code}
+#    $pv->{exp}->send_slow(1,"EH1234\r"); exp_continue;
+#  }],
+  [ qr/Saving PRIMARY CARE GENERAL NOTE with changes.../=>sub{
+    $pv->{exp}->send_slow(3,"$pv->{electronic_signature_code}\r"); exp_continue;
+  }],
+  [ qr/Enter your Current Signature Code:\s*\?\?/=>sub{
     $pv->xsend("$pv->{electronic_signature_code}\r");
   }],
   [ qr/Print this note?/=>sub{ $pv->xsend("No");}],

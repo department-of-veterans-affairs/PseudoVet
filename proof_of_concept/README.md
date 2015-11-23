@@ -79,6 +79,14 @@ Additionally, the access and verify code used to log into VistA must have
 options and keys assigned necessary to use the APPOINTMENT MENU's, MAKE 
 APPOINTMENT OPTION
 
+## ELECTRONIC SIGNATURE CODE
+If you don't know the electronic signature code, it will be necessary to
+run ^CLEAR ELECTRONIC SIGNATURE CODE [XUSESIG CLEAR]
+To get there from VISTA> (or a different namespace if you are using something
+besides eHMP Silver VistA ...
+D ^XUP followed by XUSER and then CLEAR ELECTRONIC SIGNATURE CODE  
+You will be prompted to select what user you need to clear it for...
+
 ## Configuration file
 See the sample.demo.config file under the ../config folder
 - copy the sample.demo.config file to demo.config (new file)
