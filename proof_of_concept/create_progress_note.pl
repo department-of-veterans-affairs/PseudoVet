@@ -53,9 +53,8 @@ $pv->{exp}->expect($pv->{timeout},
     $pv->xsend("1\n");
   }],
   [ qr/Do you want to create a new record anyway?/=>sub{
-    print "Progress Note already exists.  Finished.\n";
+    #print "Progress Note already exists.  Finished.\n";
     $pv->xsend("NO\r");
-    exit;
   }],
   [ qr/Enter\/Edit PROGRESS NOTE.../=>sub{
     $pv->xsend("YES\r");
@@ -66,15 +65,9 @@ $pv->{exp}->expect($pv->{timeout},
   [ qr/Would you like to resume editing now?/=>sub{
     $pv->xsend("Yes\n");
   }],
-  [ qr/HOSPITAL LOCATION:/=>sub{
-    $pv->xsend("\r");
-  }],
-  [ qr/DATE\/TIME OF NOTE:/=>sub{
-    $pv->xsend("\r");
-  }],
-  [ qr/AUTHOR OF NOTE:/=>sub{
-    $pv->xsend("\r");
-  }],
+  [ qr/HOSPITAL LOCATION:/=>sub{$pv->xsend("\r");}],
+  [ qr/DATE\/TIME OF NOTE:/=>sub{$pv->xsend("\r");}],
+  [ qr/AUTHOR OF NOTE:/=>sub{$pv->xsend("\r");}],
   [ qr/\s\s1\>/=>sub{
     $pv->xsend("55 YEAR OLD MALE COMPLAINS OF COLD, FEVER, AND CHILLS\r");
   }],
@@ -84,10 +77,12 @@ $pv->{exp}->expect($pv->{timeout},
   [ qr/\s\s3\>/=>sub{
     $pv->xsend("\r");
   }],
-  [ qr/EDIT Option:/=>sub{ 
-    $pv->xsend("\r");
-  }],
+  [ qr/EDIT Option:/=>sub{$pv->xsend("\r");}],
+  # needed to run ^CLEAR ELECTRONIC SIGNATURE CODE [XUSESIG CLEAR]
+  # since I don't know what the signature code is.  From VISTA>
+  # D ^XUP followed by XUSER and then CLEAR ELECTRONIC SIGNATURE CODE
   [ qr/Enter your Current Signature Code:/=>sub{
     $pv->xsend("$pv->{electronic_signature_code}\r");
   }],
+  [ qr/Print this note?/=>sub{ $pv->xsend("No");}],
 );
