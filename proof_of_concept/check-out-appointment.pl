@@ -22,99 +22,49 @@ $pv->{exp}->expect($pv->{timeout},
   [ qr/VERIFY CODE:/=>sub{ $pv->xsend("$pv->{verify_code}\r"); }],
   [ qr/Select TERMINAL TYPE NAME:/=>sub{ $pv->xsend("\r"); }],
   [ qr/Select Systems Manager Menu <TEST ACCOUNT> Option:/=>sub{
-    $pv->xsend("^^CLINICIAN MENU\r");
+    $pv->xsend("^^APPOINTMENT CHECK-IN\r");
   }],
-  [ qr/Select Clinician Menu/=>sub{
-    $pv->xsend("^^PROGRESS NOTES USER MENU\r");
+  [ qr/Select Appointment Check In or Check Out:/=>sub{
+    $pv->xsend("CO\r");
   }],
-  [ qr/Select Progress Notes User Menu/=>sub{
-    $pv->xsend("1\r"); # Selects Entry of Progress Note
+  [ qr/Appointment Date:/=>sub{
+    $pv->xsend("TODAY\r");
   }],
-  [ qr/Select PATIENT NAME:/=>sub{
+  [ qr/Select Clinic:/=>sub{
+    $pv->xsend("$pv->{clinic_name}\r");
+  }],
+  [ qr/Select Patient/=>sub{
     $pv->xsend("$pv->{patient_name}\r");
   }],
-  # notes exist for patient
-  [ qr/Do you wish to see any of these notes?/=>sub{
-    $pv->xsend("NO\r");
-  }],
-  [ qr/TITLE:/=>sub{
-    $pv->xsend("PRIMARY CARE GENERAL NOTE\r"); # will use GENERIC CONSULT NOTE
-  }],
-  [ qr/Std Title:/=>sub{
-    $pv->xsend("YES\r");
-  }],
-  [ qr/Is this note for INPATIENT or OUTPATIENT care?/=>sub{
-    $pv->xsend("OUTPATIENT\r");
-  }],
-  # The following SCHEDULED VISTS are available:
-  [ qr/OR '\^\' TO QUIT:/=>sub{
-    #my $scheduled_visit=$pv->select_scheduled_visit();
-    # just grab latest one for now
-    $pv->xsend("1\n");
-  }],
-  [ qr/Do you want to create a new record anyway?/=>sub{
-    #print "Progress Note already exists.  Finished.\n";
-    $pv->xsend("NO\r");
-  }],
-  [ qr/Enter\/Edit PROGRESS NOTE.../=>sub{
-    $pv->xsend("YES\r");
+  [ qr/CHOOSE/=>sub{
+    # let's get fancy and figure out what number is associated with 
+    # the patient and choose it...
+    my $patient_number=$pv->choose_patient($pv->{exp}->before());    
+    print "patient_number: $patient_number\n";
+    $pv->xsend("$patient_number\n^\r");
   }],
   [ qr/Do you wish to view active patient record flag details?/=>sub{
-    $pv->xsend("No\r");
-  }],  
-  [ qr/Would you like to resume editing now?/=>sub{
-    $pv->xsend("Yes\n");
+    $pv->xsend("NO\r");
   }],
-  [ qr/HOSPITAL LOCATION:/=>sub{$pv->xsend("\r");}],
-  [ qr/DATE\/TIME OF NOTE:/=>sub{$pv->xsend("\r");}],
-  [ qr/AUTHOR OF NOTE:/=>sub{$pv->xsend("\r");}],
-  [ qr/\s\s1\>/=>sub{
-    $pv->xsend("55 YEAR OLD MALE COMPLAINS OF COLD, FEVER, AND CHILLS\r");
-  }],
-  [ qr/\s\s2\>/=>sub{
-    $pv->xsend("This is a test.\r");
-  }],
-  [ qr/\s\s3\>/=>sub{
-    $pv->xsend("\r");
-  }],
-  [ qr/EDIT Option: /=>sub{
-    # enter <return> followed by electronic signature code...
-    print "entering electronic signature code: $pv->{electronic_signature_code}\n";
-    $pv->xsend("\nEH1234\n");
-    #$pv->{exp}->send_slow(2,"\r"); exp_continue;
-  }],
-  [ qr/Do you wish to enter workload data at this time?/=>sub{
-    $pv->xsend("Yes\r");   
-  }],
-  [ qr/Check out data and time:/=>sub{
-    $pv->xsend("NOW\r");
-  }],
-  [ qr/Editing Encounter Data.../=>sub{
-    $pv->xsend("NOW\r");
-  }],
-  [ qr/Press the Enter key to continue./=>sub{$pv->xsend("\r");}],
+  [ qr/Continue?/=>sub{$pv->xsend("Y\n");}],
+  [ qr/Check out date and time:/=>sub{$pv->xsend("NOW\r");}],
   [ qr/Enter PROVIDER:/=>sub{
     print "matched Enter PROVIDER:\n";
-    $pv->xsend("$pv->{provider_name}\r");
+    $pv->xsend("PROVIDER,FIFTEEN\r");
+    # Is this the PRIMARY provider for this ENCOUNTER?
+    $pv->xsend("YES\r");
+    # Enter PROVIDER: (loop if we don't skip additional entry)
+    $pv->xsend("\r");
   }],
   [ qr/Select PRIMARY PROVIDER:/=>sub{
     print "matched Select Primary PROVIDER:\n";
     $pv->xsend("$pv->{provider_name}\r");
-  }],
-  [ qr/Select Procedure/=>sub{
-    $pv->xsend("$pv->{procedure}\r");
-    # Ok? 
-    $pv->xsend("\r");
-    # Select Procedure:
-    $pv->xsend("^\r");
-    # Ok?
+    # Is this the PRIMARY provider for this ENCOUNTER?
     $pv->xsend("YES\r");
-    # how many times was the procedure performed?
-    $pv->xsend("1\r"); 
-    # Please specify the number of repetitions for this procedure (1-99)
-    $pv->xsend("3\r");
+    # Enter PROVIDER: (loop if we don't skip additional entry)
+    $pv->xsend("\r");
   }],
-  [ qr/Enter ICD-10 Diagnosis:/=>sub{
+  [ qr/Enter ICD-10 Diagnosis/=>sub{
     $pv->xsend("$pv->{icd_10_diagnosis}\r");
     $pv->xsend("YES\r");
     $pv->xsend("\r");
@@ -124,20 +74,34 @@ $pv->{exp}->expect($pv->{timeout},
     $pv->xsend("YES\r");
     $pv->xsend("\r");
   }],
-  # 
-#  # Enter your Current Signature Code:
-#  [ qr/No changes made.../=>sub{
-#    print "matched 'No changes made...'\n"; # $pv->{electronic_signature_code}
-#    $pv->{exp}->send_slow(1,"EH1234\r"); exp_continue;
+
+
+#  [ qr/Is this the PRIMARY provider for this ENCOUNTER?/=>sub{
+#    $pv->xsend("YES\r");
+#    #$pv->xsend("\r");
 #  }],
- # [ qr/Saving PRIMARY CARE GENERAL NOTE with changes.../=>sub{
- #   $pv->{exp}->send_slow(3,"$pv->{electronic_signature_code}\r"); exp_continue;
- # }],
- 
-  # this should be triggered by what it says but triggers for
-  # Select PRIMARY PROVICER
- # [ qr/Enter your Current Signature Code:\s*\?\?/=>sub{
- #   $pv->xsend("$pv->{electronic_signature_code}\r");
- # }],
-  [ qr/Print this note?/=>sub{ $pv->xsend("No\r");}],
+#  [ qr/Do you wish to enter workload data at this time?/=>sub{
+#    $pv->xsend("Yes\r");   
+#  }],
+#  [ qr/Check out data and time:/=>sub{
+#    $pv->xsend("NOW\r");
+#  }],
+#  [ qr/Editing Encounter Data.../=>sub{
+#    $pv->xsend("NOW\r");
+#  }],
+#  [ qr/Press the Enter key to continue./=>sub{$pv->xsend("\r");}],
+#  [ qr/Select Procedure/=>sub{
+#    $pv->xsend("$pv->{procedure}\r");
+#    # Ok? 
+#    $pv->xsend("\r");
+#    # Select Procedure:
+#    $pv->xsend("^\r");
+#    # Ok?
+#    $pv->xsend("YES\r");
+#    # how many times was the procedure performed?
+#    $pv->xsend("1\r"); 
+#    # Please specify the number of repetitions for this procedure (1-99)
+#    $pv->xsend("3\r");
+#  }],
+#  [ qr/Print this note?/=>sub{ $pv->xsend("No\r");}],
 );

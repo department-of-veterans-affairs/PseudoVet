@@ -23,4 +23,25 @@ The PseudoVet system is comprised of the following components:
 - Automation Services - Back-end services that generate and continuously update synthetic patient data
 - Client EHR System Integration – Integration routines for data synchronization between the PseudoVet system and external Electronic Health Record Systems (EHR’s)
 
+# Building with Vagrant
+PseudoVet can be build using the vagrant up command from the root of a cloned or downloaded repository.  You must have Vagrant Installed to use this command.
 
+```
+vagrant up
+```
+Once the build process completes, connect to the PseudoVet VM by issuing the following command:
+```
+vagrant ssh
+```
+
+The source will be located at /vagrant on the provisioned virtual machine
+
+# Building with Vortex
+Vortex allows provisioning with VirtualBox as well as AWS.  Since FTL is an AWS shop, it makes sense to provide a Vortex build.  To use Vortex, install Node.js as well as Vortex by issuing the following command:
+```
+sudo npm install -g vortex
+```
+To build the system, you will need to copy vortex.sample.json to vortex.json and edit the Vortex configuration file entering your AWS account data such as: 
+
+# Proof of Concept
+See the proof_of_concept folder in the source for documentation on prerequisites, configuring, and running the scripts for that process.

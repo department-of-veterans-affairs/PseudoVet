@@ -87,6 +87,11 @@ besides eHMP Silver VistA ...
 D ^XUP followed by XUSER and then CLEAR ELECTRONIC SIGNATURE CODE  
 You will be prompted to select what user you need to clear it for...
 
+## VALID ROLES
+You must have clinicial staff in your VistA that have valid roles otherwise,
+there will be errors when a selection is made to assign a provider and other
+parts of various processes that occur.
+
 ## Configuration file
 See the sample.demo.config file under the ../config folder
 - copy the sample.demo.config file to demo.config (new file)

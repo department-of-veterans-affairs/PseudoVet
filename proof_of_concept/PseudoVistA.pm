@@ -178,7 +178,7 @@ sub get_next_available_appointment{
       $string=~s/^\w\w\s//;
       $string=~s/\[|\]//g;
       # 0 out blocked out hours from assignment
-      $string=~s/\|\s\s\s\s\s\s/0 0/g; $string=~s/^\d.\s//;
+      $string=~s/\|\s\s\s\s\s\s/0 0/g; $string=~s/^\d.\s//; $string=~s/^\s//;
       print "\n3 >>> slots: '$string'\n";
       my @slots=split(/\s/,$string);
 

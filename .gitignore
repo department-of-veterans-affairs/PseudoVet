@@ -5,6 +5,9 @@ src/bower_components
 src/reference/raw/*.zip
 src/reference/raw/*.gz
 
+# ignore actual vortex configuration
+vortex.json
+
 # ignore real configuration for demo
 config/demo.config
 config/new.demo.config
