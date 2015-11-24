@@ -47,7 +47,7 @@ $pv->{exp}->expect($pv->{timeout},
     $pv->xsend("No\r");
   }],
   [ qr/CHECKED-IN:/=>sub{
-    print "\nPatient already checked in\n";
+    print "\nPatient checked in\n";
     exit;
   }],
   # there may be additional inputs when the patient has more than

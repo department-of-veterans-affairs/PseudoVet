@@ -70,6 +70,7 @@ $pv->{exp}->expect($pv->{timeout},
   [ qr/ISSUE REQUEST FOR RECORDS?/=>sub{
     # this would be cool but, we won't bother with this right now...
     $pv->xsend("NO\r");
+    $pv->xsend("NO\r");
     print "Patient appointment has been scheduled.  Process completed.\n";
   }],
   [ qr/DISPLAY PENDING APPOINTMENTS:/=>sub{

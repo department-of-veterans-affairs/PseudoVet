@@ -81,47 +81,63 @@ $pv->{exp}->expect($pv->{timeout},
     # enter <return> followed by electronic signature code...
     print "entering electronic signature code: $pv->{electronic_signature_code}\n";
     $pv->xsend("\nEH1234\n");
-    #$pv->xsend("\r");
     #$pv->{exp}->send_slow(2,"\r"); exp_continue;
   }],
   [ qr/Do you wish to enter workload data at this time?/=>sub{
-    $pv->xsend("No\r");   
+    $pv->xsend("Yes\r");   
   }],
-  
-#  [ qr/Select PRIMARY PROVIDER:/=>sub{
-#    print "matched Select Primary PROVIDER:\n";
-#    $pv->xsend("$pv->{provider_name}\r");
-##      [ qr/Select Diagnosis/=>sub{
-#    $pv->xsend("$pv->{icd_10_diagnosis}\r");
-#    $pv->xsend("YES\r");
-#    $pv->xsend("\r");
-#  }],
-#  [ qr/Select Procedure/=>sub{
-#    $pv->xsend("$pv->{procedure}\r");
-#    # Ok? 
-#    $pv->xsend("\r");
-#    # Select Procedure:
-#    $pv->xsend("^\r");
-#    # how many times was the procedure performed?
-#    $pv->xsend("1\r"); 
-#    # Select CPT MODIFIER:
-#    $pv->xsend("\r");
-#    # Please specify the number of repetitions for this procedure (1-99)
-#    $pv->xsend("3\r");
-#  }],
-#  [ qr/Service Connected Condition?/=>sub{
-#    $pv->xsend("N\r"); $pv->xsend("YES\r");
-#  }],
-#  [ qr/Was the encounter related to any of the following:/=>sub{
-#    # service connected condition
-#    $pv->xsend("No\r");
-#  }],
-#  
-  [ qr/Print this note?/=>sub{ 
-    $pv->xsend("No\r");
-    $pv->xsend("^\r");
-    $pv->xsend("^\r");
-    print "Progress Note Completed...\n";
-    exit;
+  [ qr/Check out data and time:/=>sub{
+    $pv->xsend("NOW\r");
   }],
+  [ qr/Editing Encounter Data.../=>sub{
+    $pv->xsend("NOW\r");
+  }],
+  [ qr/Press the Enter key to continue./=>sub{$pv->xsend("\r");}],
+  [ qr/Enter PROVIDER:/=>sub{
+    print "matched Enter PROVIDER:\n";
+    $pv->xsend("$pv->{provider_name}\r");
+  }],
+  [ qr/Select PRIMARY PROVIDER:/=>sub{
+    print "matched Select Primary PROVIDER:\n";
+    $pv->xsend("$pv->{provider_name}\r");
+  }],
+  [ qr/Select Procedure/=>sub{
+    $pv->xsend("$pv->{procedure}\r");
+    # Ok? 
+    $pv->xsend("\r");
+    # Select Procedure:
+    $pv->xsend("^\r");
+    # Ok?
+    $pv->xsend("YES\r");
+    # how many times was the procedure performed?
+    $pv->xsend("1\r"); 
+    # Please specify the number of repetitions for this procedure (1-99)
+    $pv->xsend("3\r");
+  }],
+  [ qr/Enter ICD-10 Diagnosis:/=>sub{
+    $pv->xsend("$pv->{icd_10_diagnosis}\r");
+    $pv->xsend("YES\r");
+    $pv->xsend("\r");
+  }],
+  [ qr/Select Diagnosis/=>sub{
+    $pv->xsend("$pv->{icd_10_diagnosis}\r");
+    $pv->xsend("YES\r");
+    $pv->xsend("\r");
+  }],
+  # 
+#  # Enter your Current Signature Code:
+#  [ qr/No changes made.../=>sub{
+#    print "matched 'No changes made...'\n"; # $pv->{electronic_signature_code}
+#    $pv->{exp}->send_slow(1,"EH1234\r"); exp_continue;
+#  }],
+ # [ qr/Saving PRIMARY CARE GENERAL NOTE with changes.../=>sub{
+ #   $pv->{exp}->send_slow(3,"$pv->{electronic_signature_code}\r"); exp_continue;
+ # }],
+ 
+  # this should be triggered by what it says but triggers for
+  # Select PRIMARY PROVICER
+ # [ qr/Enter your Current Signature Code:\s*\?\?/=>sub{
+ #   $pv->xsend("$pv->{electronic_signature_code}\r");
+ # }],
+  [ qr/Print this note?/=>sub{ $pv->xsend("No\r");}],
 );

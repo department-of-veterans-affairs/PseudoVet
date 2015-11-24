@@ -3,12 +3,12 @@
 # proof of concept.
 
 print "executing appointment scheduing routine...\n";
-eval `appointment-schedule.pl`
+system("perl appointment-schedule.pl");
 
 print "executing appointment check-in routine...\n";
-eval `appointment-check-in.pl`
+system("appointment-check-in.pl");
 
 print "executing progress note creation routine...\n";
-eval `create-progress-note.pl`
+system("create-progress-note.pl");
 
 exit;
