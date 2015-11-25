@@ -87,36 +87,6 @@ $pv->{exp}->expect($pv->{timeout},
   [ qr/Do you wish to enter workload data at this time?/=>sub{
     $pv->xsend("No\r");   
   }],
-  
-#  [ qr/Select PRIMARY PROVIDER:/=>sub{
-#    print "matched Select Primary PROVIDER:\n";
-#    $pv->xsend("$pv->{provider_name}\r");
-##      [ qr/Select Diagnosis/=>sub{
-#    $pv->xsend("$pv->{icd_10_diagnosis}\r");
-#    $pv->xsend("YES\r");
-#    $pv->xsend("\r");
-#  }],
-#  [ qr/Select Procedure/=>sub{
-#    $pv->xsend("$pv->{procedure}\r");
-#    # Ok? 
-#    $pv->xsend("\r");
-#    # Select Procedure:
-#    $pv->xsend("^\r");
-#    # how many times was the procedure performed?
-#    $pv->xsend("1\r"); 
-#    # Select CPT MODIFIER:
-#    $pv->xsend("\r");
-#    # Please specify the number of repetitions for this procedure (1-99)
-#    $pv->xsend("3\r");
-#  }],
-#  [ qr/Service Connected Condition?/=>sub{
-#    $pv->xsend("N\r"); $pv->xsend("YES\r");
-#  }],
-#  [ qr/Was the encounter related to any of the following:/=>sub{
-#    # service connected condition
-#    $pv->xsend("No\r");
-#  }],
-#  
   [ qr/Print this note?/=>sub{ 
     $pv->xsend("No\r");
     $pv->xsend("^\r");

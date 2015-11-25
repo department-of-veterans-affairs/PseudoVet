@@ -36,12 +36,23 @@ vagrant ssh
 
 The source will be located at /vagrant on the provisioned virtual machine
 
-# Building with Vortex
+# Building with Vortex (under development)
 Vortex allows provisioning with VirtualBox as well as AWS.  Since FTL is an AWS shop, it makes sense to provide a Vortex build.  To use Vortex, install Node.js as well as Vortex by issuing the following command:
 ```
 sudo npm install -g vortex
 ```
-To build the system, you will need to copy vortex.sample.json to vortex.json and edit the Vortex configuration file entering your AWS account data such as: 
+
+The default provider is VirtualBox.
+```
+vortex up
+```
+To build the system for AWS EC2, you will need to copy vortex.sample.json to vortex.json and edit the Vortex configuration file entering your AWS account data.
+
+```
+vortex --provider=Amazon boot
+```
+
+*More information on Vortex can be found here: https://github.com/websecurify/node-vortex/ 
 
 # Proof of Concept
 See the proof_of_concept folder in the source for documentation on prerequisites, configuring, and running the scripts for that process.

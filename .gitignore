@@ -1,5 +1,6 @@
 # sensitive
 _sensitive
+node_modules
 src/node_modules
 src/bower_components
 src/reference/raw/*.zip

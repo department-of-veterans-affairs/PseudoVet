@@ -65,6 +65,7 @@ $pv->{exp}->expect($pv->{timeout},
     $pv->xsend("\r");
   }],
   [ qr/Enter ICD-10 Diagnosis/=>sub{
+    # EHMP Silver VistA throws ZERROR when entering an ICD_10 diagnosis code
     $pv->xsend("$pv->{icd_10_diagnosis}\r");
     $pv->xsend("YES\r");
     $pv->xsend("\r");

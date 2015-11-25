@@ -54,6 +54,9 @@ $pv->{exp}->expect($pv->{timeout},
   [ qr/Select RACE:/=>sub{ # who cares
     $pv->xsend("\r");
   }],  
+  [ qr/THIS APPOINTMENT IS MARKED AS 'NEXT AVAILABLE', IS THIS CORRECT?/=>sub{
+    $pv->xsend("Y\r");
+  }],
   [ qr/IS THIS A 'NEXT AVAILABLE' APPOINTMENT REQUEST?/=>sub{
     $pv->xsend("Y\r");
   }],
