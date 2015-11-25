@@ -1,0 +1,22 @@
+{
+    ...
+
+    "nodes": {
+        "ubuntu": {
+            "amazon": {
+                "imageId": "ami-2fb3201f",
+                "securityGroups": ["default"],
+                "keyName": "my-key",
+                "privateKey": "path/to/my-key.pem",
+                "username": "ubuntu"
+            },
+
+            "virtualbox": {
+                "username": "ubuntu",
+                "password": "ubuntu",
+                "vmId": "baseimage",
+                "vmUrl": "http://path/to/baseimage.ova"
+            }
+        }
+    },
+

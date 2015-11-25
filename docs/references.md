@@ -10,3 +10,13 @@ http://stats.stackexchange.com/questions/17039/what-are-some-standard-practices-
 
 ## Data-driven approach for creating synthetic electronic medical records
 http://www.biomedcentral.com/1472-6947/10/59
+
+
+# From National Institute of Diabetes and Digestive and Kidney Diseases; Includes cost data (donated by Peter Turney)
+http://archive.ics.uci.edu/ml/datasets/Pima+Indians+Diabetes
+
+# 
+http://archive.ics.uci.edu/ml/datasets.html?sort=nameUp&view=list
+
+# Machine Learning Repository
+http://archive.ics.uci.edu/ml/datasets.html?sort=nameUp&view=list
