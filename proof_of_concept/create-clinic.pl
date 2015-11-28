@@ -39,11 +39,11 @@ $pv->{exp}->expect($pv->{timeout},
     # SERVICE: MEDICINE// 
     $pv->xsend("MEDICINE\r");
     # NON-COUNT CLINIC? (Y OR N): NO// 
-    $pv->xsend("NO\r");
+    $pv->xsend("N\r");
     # DIVISION: VEHU DIVISION// ~take default
     $pv->xsend("\r");
     # STOP CODE NUMBER: PRIMARY CARE/MEDICINE// 
-    $pv->xsend("\r");
+    $pv->xsend("PRIMARY CARE\/MEDICINE\r");
     # DEFAULT APPOINTMENT TYPE: REGULAR// 
     $pv->xsend("REGULAR\r");
     # ADMINISTER INPATIENT MEDS?: YES// 
