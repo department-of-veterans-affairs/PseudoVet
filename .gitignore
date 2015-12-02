@@ -8,6 +8,7 @@ src/reference/raw/*.gz
 
 # ignore actual vortex configuration
 vortex.json
+Vagrantfile
 
 # ignore real configuration for demo
 config/demo.config

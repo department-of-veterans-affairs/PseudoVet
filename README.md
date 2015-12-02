@@ -26,9 +26,23 @@ The PseudoVet system is comprised of the following components:
 # Building with Vagrant
 PseudoVet can be build using the vagrant up command from the root of a cloned or downloaded repository.  You must have Vagrant Installed to use this command.
 
+- Rename Vagrant.sample to Vagrantfile
+
 ```
 vagrant up
 ```
+
+## Deploy in AWS
+- Edit Vagrantfile 
+- set your access id and secret key
+- set your keypair and login username information
+- you may want to choose a different ami file.  
+  ~here is a good place to look: https://cloud-images.ubuntu.com/precise/current/
+
+```
+vagrant up --provider=aws
+```
+
 Once the build process completes, connect to the PseudoVet VM by issuing the following command:
 ```
 vagrant ssh

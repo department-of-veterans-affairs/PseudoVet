@@ -20,3 +20,6 @@ http://archive.ics.uci.edu/ml/datasets.html?sort=nameUp&view=list
 
 # Machine Learning Repository
 http://archive.ics.uci.edu/ml/datasets.html?sort=nameUp&view=list
+
+# Outpatient Pharmacy Automation Interface Expansion
+pso_7_p354_psa_1_156_rn.doc

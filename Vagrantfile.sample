@@ -11,13 +11,13 @@ Vagrant.configure(2) do |config|
   end
   
   config.vm.provider :aws do |aws, override|
-    aws.access_key_id = "”
-    aws.secret_access_key = "”
-    aws.keypair_name = "keypair"    
+    aws.access_key_id = "your_aws_access_key_id”
+    aws.secret_access_key = "your_aws_secret_access_key”
+    aws.keypair_name = "your_keypair_name"    
     aws.ami = "ami-494dc825"
-    override.ssh.username = "ec2-user"
-    override.ssh.private_key_path = "~/keypair.pem"
-  end  
+    override.ssh.username = "username"
+    override.ssh.private_key_path = "~/your_keypair_name.pem"
+  end
   
   config.vm.provision :shell, path: "provision/setup-deb.sh"
   
