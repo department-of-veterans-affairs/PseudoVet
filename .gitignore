@@ -6,6 +6,9 @@ src/bower_components
 src/reference/raw/*.zip
 src/reference/raw/*.gz
 
+provision/cache/CACHE.DAT
+provision/cache/cache*tar.gz
+
 # ignore actual vortex configuration
 vortex.json
 Vagrantfile
