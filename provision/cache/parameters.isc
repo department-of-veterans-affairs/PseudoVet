@@ -32,7 +32,7 @@ unicode_selection.binary_type: eightbit
 unicode_selection.install_unicode: N
 security_settings.cache_user: cacheusr
 security_settings.cache_group: cacheusr
-security_settings.manager_user: ec2-user
+security_settings.manager_user: vagrant
 security_settings.manager_group: cacheserver
 security_settings.dbencrypted: 0
 security_settings.dbenckeyfile:
@@ -57,7 +57,7 @@ csp_gateway.apache_use32bit:
 csp_gateway.sunone_server:
 csp_gateway.directory:
 license_key.enter_key: Y
-license_key.license_file: /$myusername/provision/cache/cache.key
+license_key.license_file: /vagrant/provision/cache/cache.key
 agent.user_account: iscagent
 agent.user_group: iscagent
 agent.install: Y
