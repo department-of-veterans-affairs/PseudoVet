@@ -52,6 +52,13 @@ sub connect{
   $self->{exp}=Expect->spawn($command) or die "Cannot spawn $command: $!\n";  
 }
 
+sub csession{
+  my $self=shift;
+  my $command="$self->{command}";
+  print "$command\n";
+  $self->{exp}=Expect->spawn($command) or die "Cannot spawn $command: $!\n";
+}
+
 sub choose_patient{
   my $self=shift;
   my($input)=@_; my $retval;

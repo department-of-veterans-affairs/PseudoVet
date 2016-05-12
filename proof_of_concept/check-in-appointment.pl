@@ -11,9 +11,9 @@ use PseudoVistA;
 my $pv=new PseudoVistA;
 
 # see ../config/sample.demo.config for example
-$pv->configure('../config/demo.config');
+$pv->configure('../config/dev.config');
 
-$pv->connect();
+$pv->csession(); # or $pv->connect(); for ssh connections
 
 $pv->{exp}->expect($pv->{timeout},
   [ qr/The authenticity of host/ => sub { $pv->xsend("y\n"); }],
