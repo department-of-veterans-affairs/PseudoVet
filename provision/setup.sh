@@ -25,9 +25,11 @@ sudo yum -y install vim zip unzip wget dos2unix
 
 # install VistA with Intersystems' Cache' database
 #sudo chmod a+x provision/install-vista.sh
+dos2unix /vagrant/provision/install-vista.sh 
 sudo sh /vagrant/provision/install-vista.sh
 
 # install PseudoVet Proof Of Concept prerequisites
+dos2unix /vagrant/provision/install-pseudovet.sh
 sudo sh /vagrant/provision/install-pseudovet.sh
 
 ## EWD.js and Federator installation ############################

@@ -53,6 +53,7 @@ fi
 
 # install from parameters file
 sudo cp $cacheInstallerPath/parameters.isc ~/
+sudo dos2unix ~/parameters.isc 
 sudo $cacheInstallTargetPath/tmp/package/installFromParametersFile ~/parameters.isc
 
 echo "enable Cache OS authentication and %Service_CallIn required by EWD.js" 
