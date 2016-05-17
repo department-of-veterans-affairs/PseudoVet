@@ -30,6 +30,9 @@ $pv->{exp}->expect($pv->{timeout},
   [ qr/Select Scheduling Manager's Menu <TEST ACCOUNT> Option:/=>sub{
     $pv->xsend("APPOINTMENT MENU\r");
   }],
+  [ qr/Press \'RETURN\' to continue/=>sub{
+    $pv->xsend("\r");
+  }],  
   [ qr/Select Appointment Menu <TEST ACCOUNT> Option:/=>sub{
     $pv->xsend("MAKE APPOINTMENT\r");
   }],

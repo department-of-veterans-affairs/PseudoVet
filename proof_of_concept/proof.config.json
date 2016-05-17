@@ -1,0 +1,17 @@
+{
+    "username": "vagrant",
+    "password": "innovate",
+    "servername": "localhost",
+    "timeout": "2000",
+    "command": "csession CACHE -UVISTA '^ZU'",
+    "access_code": "innovat3",
+    "verify_code": "innovat3.",
+    "clinic_name": "PRIMARY CARE",
+    "provider_name": "ANALYST, PAT",
+    "patient_name": "EIGHT, PATIENT",
+    "electronic_signature_code": "cprs1234",
+    "icd_10_diagnosis": "J20.0",
+    "icd_10_description": "Acute Bronchitis due to Mycoplasma Pneumoniae",
+    "procedure": "Lung Function Test for Maximum Breathing Capacity (MBC) and Maximal Voluntary Ventilation (MVV) (CPT-4 94200)"
+}
+       

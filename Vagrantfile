@@ -31,25 +31,26 @@ Vagrant.configure("2") do |config|
   end
 
  # # Amazon EC2 configuration
- # config.vm.provider :aws do |aws, override|
- #   config.vm.hostname="RAPTOR-bciv"
- #   config.ssh.pty = "true"
- #   aws.user_data = "#!/bin/bash\nsed -i -e 's/^Defaults.*requiretty/# Defaults requiretty/g' /etc/sudoers"    
- #   aws.access_key_id = ENV['access_key_id']
- #   aws.secret_access_key = ENV['secret_access_key']
- #   aws.keypair_name = ENV['aws_keyname']
- #   aws.ami = "ami-b191efd4"
- #   aws.security_groups = ["VistA"]
- #   aws.region = "us-east-1"
- #   aws.instance_type = "m3.medium"
- #   override.vm.box = "dummy"
- #   override.ssh.username = "ec2-user"
- #   override.ssh.private_key_path = ENV['aws_keypath']
- #
- #    #aws.access_key_id = ENV['AWS_ACCESS_KEY_ID']
- #    #aws.secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
- #    #aws.keypair_name = ENV['AWS_KEYPAIR_NAME']
- #  end
+ config.vm.provider :aws do |aws, override|
+    config.vm.hostname="PSEUDOVET-bciv"
+    config.ssh.pty = "true"
+    aws.user_data = "#!/bin/bash\nsed -i -e 's/^Defaults.*requiretty/# Defaults requiretty/g' /etc/sudoers"    
+    aws.access_key_id = ENV['access_key_id']
+    aws.secret_access_key = ENV['secret_access_key']
+    aws.keypair_name = ENV['aws_keyname']
+    aws.ami = "ami-b191efd4" # ami must have CentOS 6.x 
+    aws.security_groups = ["VistA"]
+    aws.region = "us-east-1"
+    aws.instance_type = "m3.medium"
+    aws.elastic_ip = ENV['elastic_ip']
+    override.vm.box = "dummy"
+    override.ssh.username = "ec2-user"
+    override.ssh.private_key_path = ENV['aws_keypath']
+ 
+    #aws.access_key_id = ENV['AWS_ACCESS_KEY_ID']
+    #aws.secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
+    #aws.keypair_name = ENV['AWS_KEYPAIR_NAME']
+ end
 
   # Rackspace Cloud configuration
   config.vm.provider :rackspace do |rs, override|

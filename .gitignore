@@ -9,6 +9,10 @@ src/reference/raw/*.gz
 provision/cache/CACHE.DAT
 provision/cache/cache*tar.gz
 
+awsconfig.sh
+
+.vscode
+
 # ignore actual vortex configuration
 vortex.json
 Vagrantfile

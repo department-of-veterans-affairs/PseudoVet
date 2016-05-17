@@ -1,0 +1,10 @@
+#!/usr/bin/bash 
+
+# set this file to contain your credentials for AWS and rename as awsconfig.sh
+# run it with 'source awsconfig.sh' prior to running 'vagrant up --provider=aws'
+
+export access_key_id=''
+export secret_access_key=''
+export aws_keyname=''
+export aws_keypath=''
+export elastic_ip=''
