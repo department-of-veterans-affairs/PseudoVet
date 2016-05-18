@@ -1,15 +1,17 @@
 #!/usr/bin/ruby
+# If you don't know the code, don't mess around below -BCIV
+# Purpose: programatically create a clinic in the Department of Veterans Affairs VistA EHR
+# Written by: Will BC Collins IV {a.k.a., 'BCIV' follow me on GitHub ~ I'm super cool.}
+# Email: william.collins@va.gov
 
 require 'pty'
 require 'expect'
-# If you don't know the code, don't mess around below -BCIV
-# Purpose: programatically create a clinic in  
-# The Department of Veterans Affairs VistA EHR
-# Written by: Will BC Collins IV {a.k.a., 'BCIV' follow me on GitHub ~ I'm super cool.}
-# Email: william.collins@va.gov
-# Created: 20160516
+require 'json'
 
-PTY.spawn("csession cache -UVISTA '^ZU'") do |r_f,w_f,pid|
+file = File.read('proof.config.json')
+config=JSON.parse(file)
+
+PTY.spawn(config['command']) do |r_f,w_f,pid|
   w_f.sync = true
   $expect_verbose = true
 
@@ -18,11 +20,11 @@ PTY.spawn("csession cache -UVISTA '^ZU'") do |r_f,w_f,pid|
   #end
 
   r_f.expect(/^ACCESS CODE: /) do
-    w_f.print "innovat3\r"
+    w_f.print config['access_code']+"\r"
   end
 
   r_f.expect(/^VERIFY CODE: /) do
-    w_f.print "innovat3.\r"
+    w_f.print config['verify_code']+"\r"
   end
 
   r_f.expect(/^Select TERMINAL TYPE NAME: /) do
@@ -50,7 +52,7 @@ PTY.spawn("csession cache -UVISTA '^ZU'") do |r_f,w_f,pid|
     w_f.print "ALP\r" # ABBREVIATION: PCM//
   end
   
-  r_f.expect(/CLINIC MEETS AT THIS FACILITY?:/) do
+  r_f.expect(/CLINIC MEETS AT THIS FACILITY\?:/) do
     w_f.print "YES\r" # CLINIC MEETS AT THIS FACILITY?: YES// 
   end
   
@@ -58,7 +60,7 @@ PTY.spawn("csession cache -UVISTA '^ZU'") do |r_f,w_f,pid|
     w_f.print "MEDICINE\r" # SERVICE: MEDICINE//
   end  
   
-  r_f.expect(/NON-COUNT CLINIC\? (Y OR N):/) do
+  r_f.expect(/NON-COUNT CLINIC\? \(Y OR N\):/) do
     w_f.print "N\r" # NON-COUNT CLINIC? (Y OR N): NO//
   end  
   
@@ -126,7 +128,7 @@ PTY.spawn("csession cache -UVISTA '^ZU'") do |r_f,w_f,pid|
     w_f.print "\r" # Select PROVIDER:
   end  
   
-  r_f.expect(/DEFAULT TO PC PRACTITIONER?:/) do
+  r_f.expect(/DEFAULT TO PC PRACTITIONER\?:/) do
     w_f.print "NO\r" # DEFAULT TO PC PRACTITIONER?: NO//
   end  
   
@@ -142,7 +144,7 @@ PTY.spawn("csession cache -UVISTA '^ZU'") do |r_f,w_f,pid|
     w_f.print "99\r" # ALLOWABLE CONSECUTIVE NO-SHOWS: 99//
   end  
   
-  r_f.expect(/MAX # DAYS FOR FUTURE BOOKING:/) do
+  r_f.expect(/MAX \# DAYS FOR FUTURE BOOKING:/) do
     w_f.print "367\r" # MAX # DAYS FOR FUTURE BOOKING: 367//
   end  
   
@@ -162,7 +164,7 @@ PTY.spawn("csession cache -UVISTA '^ZU'") do |r_f,w_f,pid|
     w_f.print "PRIMARY CARE\/MEDICINE\r" # CREDIT STOP CODE: PRIMARY CARE/MEDICINE// 
   end  
   
-  r_f.expect(/PROHIBIT ACCESS TO CLINIC?:/) do
+  r_f.expect(/PROHIBIT ACCESS TO CLINIC\?:/) do
     w_f.print "\r" # PROHIBIT ACCESS TO CLINIC?:
   end  
   

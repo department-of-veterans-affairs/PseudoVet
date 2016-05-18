@@ -5,11 +5,10 @@ myusername=vagrant
 LOG=~/pseudovet-install.log
 #$USER
 # set up base box through vagrant file with these commands
-cacheInstallerPath=/vagrant/provision/cache 
 cacheInstaller=cache-2014.1.3.775.14809-lnxrhx64.tar.gz
-parametersIsc=parameters.isc 
-cacheDatabase=VISTA.zip
+cacheInstallerPath=/vagrant/provision/cache 
 cacheInstallTargetPath=/srv 
+parametersIsc=parameters.isc
 
 # install prerequisites
 sudo yum -y install wget dos2unix

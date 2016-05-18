@@ -33,13 +33,15 @@ vagrant up
 ```
 
 ## Deploy in AWS
-- Edit Vagrantfile 
-- set your access id and secret key
-- set your keypair and login username information
-- you may want to choose a different ami file.  
-  ~here is a good place to look: https://cloud-images.ubuntu.com/precise/current/
+- Edit awsconfig.sh 
+- set your access id, secret key, and all other parameters
+- save your changes to awsconfig.sh
+- next run the commands below
+
+Note: If you don't want to use a parameter such as aws_elastic_ip, you will need to comment it out in the Vagrantfile
 
 ```
+source awsconfig.sh
 vagrant up --provider=aws
 ```
 
@@ -47,6 +49,8 @@ Once the build process completes, connect to the PseudoVet VM by issuing the fol
 ```
 vagrant ssh
 ```
+
+IMPORTANT: If you close your command prompt, terminal app, or shell, you will need to run 'source awsconfig.sh' again before you can execute 'vagrant ssh'
 
 The source will be located at /vagrant on the provisioned virtual machine
 

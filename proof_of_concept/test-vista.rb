@@ -1,10 +1,18 @@
 #!/usr/bin/ruby
+# If you don't know the code, don't mess around below -BCIV
+# Purpose: programatically test the connection to a VistA Instance  
+# Written by: Will BC Collins IV {a.k.a., 'BCIV' follow me on GitHub ~ I'm super cool.}
+# Email: william.collins@va.gov
 
 require 'pty'
 require 'expect'
+require 'json'
 
-fnames = []
-PTY.spawn("csession cache -UVISTA '^ZU'") do |r_f,w_f,pid|
+file = File.read('proof.config.json')
+config=JSON.parse(file)
+
+fnames = [] # "csession cache -UVISTA '^ZU'"
+PTY.spawn(config['command']) do |r_f,w_f,pid|
    w_f.sync = true
 
    $expect_verbose = true
@@ -14,11 +22,11 @@ PTY.spawn("csession cache -UVISTA '^ZU'") do |r_f,w_f,pid|
    #end
 
    r_f.expect(/^ACCESS CODE: /) do
-     w_f.print "innovat3\r"
+     w_f.print config['access_code']+"\r"
    end
 
    r_f.expect(/^VERIFY CODE: /) do
-     w_f.print "innovat3.\r"
+     w_f.print config['verify_code']+"\r"
    end
 
    r_f.expect(/^Select TERMINAL TYPE NAME: /) do
@@ -26,38 +34,12 @@ PTY.spawn("csession cache -UVISTA '^ZU'") do |r_f,w_f,pid|
    end
 
    r_f.expect(/Option: /) do
-     #w_f.print "innovat3\n"
      print "\n-----------------------\n"
      print "Successfully logged in.\n"
      print "-----------------------\n"
      w_f.print "\r\r\r"
    end
 
-#   if !ENV['USER'].nil?
-#     username = ENV['USER']
-#   elsif !ENV['LOGNAME'].nil?
-#     username = ENV['LOGNAME']
-#   else
-#     username = 'guest'
-#   end
-
-#   r_f.expect('word:') do
-#     w_f.print username+"@\n"
-#   end
-#   r_f.expect("> ") do
-#     w_f.print "cd pub/ruby\n"
-#   end
-#   r_f.expect("> ") do
-#     w_f.print "dir\n"
-#   end
-
-#   r_f.expect("> ") do |output|
-#     for x in output[0].split("\n")
-#       if x =~ /(ruby.*\.tar\.gz)/ then
-#          fnames.push $1
-#       end
-#     end
-#   end
    begin
      w_f.print "quit\n"
    rescue
