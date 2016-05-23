@@ -50,7 +50,13 @@ Once the build process completes, connect to the PseudoVet VM by issuing the fol
 vagrant ssh
 ```
 
-IMPORTANT: If you close your command prompt, terminal app, or shell, you will need to run 'source awsconfig.sh' again before you can execute 'vagrant ssh'
+## Important Notes
+
+- If you close your command prompt, terminal app, or shell, you will need to run 'source awsconfig.sh' again before you can execute 'vagrant ssh'
+- If you reboot, via 'vagrant reload' or other means you will need to restart Cache' when the box comes back up:
+```
+ccontrol start cache
+```
 
 The source will be located at /vagrant on the provisioned virtual machine
 

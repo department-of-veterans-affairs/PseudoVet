@@ -116,16 +116,20 @@ PTY.spawn(config['command']) do |r_f,w_f,pid|
     w_f.print "PROVIDER,ONE\r" # Select PROVIDER: PROVIDER,FIVE//
   end  
   
-  r_f.expect(/PROVIDER:/) do
-    w_f.print "PROVIDER,FIVE\r" # PROVIDER: PROVIDER,FIVE//
-  end  
-  
+  r_f.expect(/CHOOSE 1-5:/) do
+    w_f.print "1\r" # CHOOSE 1-5:
+  end
+
+  r_f.expect(/Are you adding 'PROVIDER,ONE'/) do
+    w_f.print "Yes\r" # Are you adding 'PROVIDER,ONE'
+  end
+
   r_f.expect(/DEFAULT PROVIDER:/) do
-    w_f.print "PROVIDER,ONE\r" # DEFAULT PROVIDER:
+    w_f.print "1\r" # DEFAULT PROVIDER:
   end  
-  
+
   r_f.expect(/Select PROVIDER:/) do
-    w_f.print "\r" # Select PROVIDER:
+    w_f.print "\r" # Select PROVIDER: PROVIDER,ONE//
   end  
   
   r_f.expect(/DEFAULT TO PC PRACTITIONER\?:/) do
@@ -147,9 +151,13 @@ PTY.spawn(config['command']) do |r_f,w_f,pid|
   r_f.expect(/MAX \# DAYS FOR FUTURE BOOKING:/) do
     w_f.print "367\r" # MAX # DAYS FOR FUTURE BOOKING: 367//
   end  
-  
+ 
+  r_f.expect(/HOUR CLINIC DISPLAY BEGINS:/) do
+    w_f.print "8\r"
+  end
+ 
   r_f.expect(/START TIME FOR AUTO REBOOK:/) do
-    w_f.print "0800\r" # START TIME FOR AUTO REBOOK: 
+    w_f.print "8\r" # START TIME FOR AUTO REBOOK: 
   end  
   
   r_f.expect(/MAX \# DAYS FOR AUTO-REBOOK:/) do
@@ -185,57 +193,57 @@ PTY.spawn(config['command']) do |r_f,w_f,pid|
   end  
   
   r_f.expect(/LENGTH OF APP\'T:/) do
-    w_f.print "30\r" # LENGTH OF APP'T: 30//
+    w_f.print "30\rYES\r" # LENGTH OF APP'T: 30//
   end  
   
   r_f.expect(/VARIABLE APP'NTMENT LENGTH:/) do
     w_f.print "YES\r" #VARIABLE APP'NTMENT LENGTH: YES, VARIABLE LENGTH
   end
-   
-  for num_day in 0..6
-    # AVAILABILITY DATE: t  (NOV 25, 2015)
-    if num_day == 0
-      w_f.print "T\r"
-    else
-      w_f.print "T+" + num_day.to_s + "\r"
-    end
-    
-    # TIME: and then NO. SLOTS:
-    w_f.print "0800-0830\r" 
-    w_f.print "4\r"
-    w_f.print "0830-0900\r" 
-    w_f.print "4\r"
-    w_f.print "0900-0930\r" 
-    w_f.print "4\r"
-    w_f.print "0930-1000\r" 
-    w_f.print "4\r"
-    w_f.print "1000-1030\r" 
-    w_f.print "4\r"
-    w_f.print "1030-1100\r" 
-    w_f.print "4\r"
-    w_f.print "1100-1130\r" 
-    w_f.print "4\r"
-    w_f.print "1130-1200\r" 
-    w_f.print "4\r"
-    w_f.print "1300-1330\r" 
-    w_f.print "4\r"
-    w_f.print "1330-1400\r" 
-    w_f.print "4\r"
-    w_f.print "1400-1430\r" 
-    w_f.print "4\r"
-    w_f.print "1430-1500\r" 
-    w_f.print "4\r"
-    w_f.print "1500-1530\r" 
-    w_f.print "4\r"
-    w_f.print "1530-1600\r" 
-    w_f.print "4\r"
-    w_f.print "1600-1630\r" 
-    w_f.print "4\r"
-    w_f.print "\r"
-    # ...PATTERN OK FOR "DAY OF WEEK" INDEFINITELY? no  (No)
-    w_f.print "Y\r"
-    # AVAILABILITY DATE: t  (NOV 25, 2015)
-    w_f.print "T+1\r" 
-  end # end for loop
+  print "finished...\n"   
+#  for num_day in 0..6
+#    # AVAILABILITY DATE: t  (NOV 25, 2015)
+#    if num_day == 0
+#      w_f.print "T\r"
+#    else
+#      w_f.print "T+" + num_day.to_s + "\r"
+#    end
+#    
+#    # TIME: and then NO. SLOTS:
+#    w_f.print "0800-0830\r" 
+#    w_f.print "4\r"
+#    w_f.print "0830-0900\r" 
+#    w_f.print "4\r"
+#    w_f.print "0900-0930\r" 
+#    w_f.print "4\r"
+#    w_f.print "0930-1000\r" 
+#    w_f.print "4\r"
+#    w_f.print "1000-1030\r" 
+#    w_f.print "4\r"
+#    w_f.print "1030-1100\r" 
+#    w_f.print "4\r"
+#    w_f.print "1100-1130\r" 
+#    w_f.print "4\r"
+#    w_f.print "1130-1200\r" 
+#    w_f.print "4\r"
+#    w_f.print "1300-1330\r" 
+#    w_f.print "4\r"
+#    w_f.print "1330-1400\r" 
+#    w_f.print "4\r"
+#    w_f.print "1400-1430\r" 
+#    w_f.print "4\r"
+#    w_f.print "1430-1500\r" 
+#    w_f.print "4\r"
+#    w_f.print "1500-1530\r" 
+#    w_f.print "4\r"
+#    w_f.print "1530-1600\r" 
+#    w_f.print "4\r"
+#    w_f.print "1600-1630\r" 
+#    w_f.print "4\r"
+#    w_f.print "\r"
+#    # ...PATTERN OK FOR "DAY OF WEEK" INDEFINITELY? no  (No)
+#    w_f.print "Y\r"
+#    # AVAILABILITY DATE: t  (NOV 25, 2015)
+#    w_f.print "T+1\r" 
+#  end # end for loop
 
 end # end pty csession invocation
