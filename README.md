@@ -17,7 +17,7 @@ PseudoVet’s fabricated patient records are created by random selection of diag
 
 ## Architectural Overview
 The PseudoVet system is comprised of the following components:
-- Core Reference Database (CRD) – A MongoDB database containing model and template data used for the automatic generation of synthetic patient data
+- Core Reference Database (CRD) – A database containing model and template data used for the automatic generation of synthetic patient data [read more...](https://github.com/VHAINNOVATIONS/PseudoVet/tree/master/reference)
 - PseudoVet Interface (PI) - A web based application and services to support the generation of synthetic patient and supporting data
 - PseudoVet Database – A database where all generated synthetic patient resides
 - Automation Services - Back-end services that generate and continuously update synthetic patient data
