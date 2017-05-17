@@ -10,7 +10,7 @@ config.vm.synced_folder ".", "/vagrant", type: "rsync"
   # More VMs could be added here to build a multi-box install and provision
   # accordingly
     
-  config.vm.hostname="PSEUDOVET-bciv"
+  config.vm.hostname="PSEUDOVET"
   config.vm.box = "CentOS 6.7 x86_64 Minimal (VirtualBox Guest Additions 5.0.8, Chef: 12.5.1, Puppet 3.8.4)"
   config.vm.box_url = "https://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.7-x86_64-v20151108.box"
   
@@ -32,7 +32,7 @@ config.vm.synced_folder ".", "/vagrant", type: "rsync"
 
  # # Amazon EC2 configuration
  config.vm.provider :aws do |aws, override|
-    aws.tags["Name"]="PSEUDOVET-bciv"
+    aws.tags["Name"]="PSEUDOVET"
     #config.ssh.pty = "true"
     #aws.user_data = "#!/bin/bash\nsed -i -e 's/^Defaults.*requiretty/# Defaults requiretty/g' /etc/sudoers"    
     aws.access_key_id = ENV['access_key_id']
