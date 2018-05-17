@@ -1,0 +1,12 @@
+flask==0.12.2
+cerberus==1.1
+click==6.7
+coloredlogs==8.0
+docopt==0.6.2
+humanfriendly==4.6
+Jinja2==2.10
+MarkupSafe==1.0
+monotonic==1.4
+python-dateutil==2.6.1
+six==1.11.0
+flask-cors==3.0.3

@@ -1,0 +1,130 @@
+@import 'variables';
+
+/* preview area */
+.preview-wrapper {
+  width: 100%;
+  padding-left: 16px;
+  padding-right: 16px;
+  .preview-header {
+    width: 100%;
+    margin-top: 21px;
+    h2 {
+      font-family: MyriadPro;
+      font-size: 24px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.8px;
+      text-align: left;
+      color: $primary-text-color;
+      margin: 0;
+      padding: 0;
+    }
+    small {
+      margin: 0;
+      float: left;
+      padding: 4px 0 0 0;
+      opacity: 0.56;
+      font-family: MyriadPro;
+      font-size: 16px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.5px;
+      text-align: left;
+      color: $primary-text-color;
+    }
+    border-bottom: solid 1px $td-border;
+    padding-bottom: 22px;
+    button, a {
+      float: right;
+      width: 108px;
+      margin-left: 16px;
+      margin-top: 10px;
+    }
+  }
+  .preview-block {
+    padding-top: 48px;
+    h4 {
+      margin: 0;
+      padding: 0 0 22px 0;
+      font-family: Georgia;
+      font-size: 20px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.7px;
+      text-align: center;
+      color: $main-color;
+      &.margin-top {
+        margin-top: 40px;
+      }
+    }
+    h5 {
+      font-family: MyriadPro;
+      font-size: 15px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.5px;
+      text-align: center;
+      color: $main-color;
+      margin-top: 28px;
+      margin-bottom: 17px;
+    }
+    .row-element {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      width: 100%;
+      .label {
+        padding-right: 18px;
+        line-height: 20px;
+        float: left;
+        width: 50%;
+        opacity: 0.56;
+        font-family: MyriadPro;
+        font-size: 16px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        letter-spacing: 0.5px;
+        text-align: right;
+        color: $primary-text-color;
+      }
+      .value {
+        padding-left: 18px;
+        line-height: 20px;
+        width: 50%;
+        float: left;
+        font-family: MyriadPro;
+        font-size: 20px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        letter-spacing: 0.7px;
+        text-align: left;
+        color: $primary-text-color;
+      }
+    }
+    table.preview-table {
+      tr {
+        th {
+          color: $th-color;
+        }
+      }
+    }
+  }
+  .last-ele {
+    margin-bottom: 48px;
+  }
+  .action-buttons {
+    text-align: center;
+    button, a {
+      margin: 0 5px;
+    }
+  }
+}

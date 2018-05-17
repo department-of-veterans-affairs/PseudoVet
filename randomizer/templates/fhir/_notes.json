@@ -1,0 +1,47 @@
+{
+  "fullUrl": "Consultation-Notes",
+  "resource": {
+    "resourceType": "Observation",
+    "id": "Consultation-Notes",
+    "text": {
+      "status": "additional",
+      "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Additional information relevant to patient <br/>---<br/>SSN: {{ ssn }}<br/>Occupation: {{ occupation }}<br/>Income: {{ incomes }}<br/>---<br/>Next of kin: {{ nok_first_name }} - {{ nok_relationship }}<br/>Address: {{ nok_home_addr }}<br/>{{ nok_city }}<br/>{{ nok_state }}, {{ nok_zip_code }}<br/>Phone: {{ nok_phone }}<br/>Email: {{ nok_email }}<br/>---<br/>Emergency contact: {{ econ_first_name }} {{ econ_last_name }} - {{ econ_relationship }}<br/>Address: {{ econ_home_addr }}<br/>{{ econ_city }}<br/>{{ econ_state }}, {{ econ_zip_code }}<br/>Phone: {{ econ_phone }}<br/>Email: {{ econ_email }}<br/>---<br/>{% if war != None %}Served in {{ war['war_name'] }}<br/>Military service disabilities: {{ military_service_disabilities }}<br/>{% endif %}{% if date_of_death != None %}Patient died: {{ date_of_death | datetime_format('%B %d, %Y') }}<br/>{% endif %}</div>"
+    },
+    "identifier": [
+      {
+        "system": "urn:oid:2.16.840.1.113883.10.20.22.2.65"
+      }
+    ],
+    "status": "registered",
+    "code": {
+      "extension": [
+        {
+          "url": "statusCode",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "code": "completed"
+              }
+            ],
+            "text": "statusCode"
+          }
+        },
+        {
+          "url": "author",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "code": "{{ my_date | datetime_format('%Y-%m-%d ') }}083215-0500",
+                "display": "time"
+              },
+              {
+                "code": "Dr. Specialist",
+                "display": "assignedAuthor"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

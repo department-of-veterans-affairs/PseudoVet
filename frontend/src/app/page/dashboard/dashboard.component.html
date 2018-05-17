@@ -1,0 +1,173 @@
+<app-header [menu]="menu"></app-header>
+
+<div class="container">
+
+  <!-- Stop Dataset Generation -->
+  <app-modal
+    (close)="deleteInProgress = false"
+    title="Stop Dataset Generation"
+    subtitle="All progress will be lost. This action can’t be undone."
+    type="warning"
+    *ngIf="deleteInProgress"
+    [name]="deleteInProgressObj.name"
+    [progress]="deleteInProgressObj.progress"
+  >
+    <button class="red-button" (click)="removeInProgress()">Stop</button>
+    <button class="cancel-button" (click)="deleteInProgress = false">Cancel</button>
+  </app-modal>
+
+  <!-- Delete Dataset -->
+  <app-modal
+    (close)="deleteGenerated = false"
+    title="Delete Dataset"
+    subtitle="You are about to delete a dataset. This action can’t be undone."
+    type="warning"
+    *ngIf="deleteGenerated"
+    [name]="deleteGeneratedObj.name"
+    [text]="deleteGeneratedObj.text"
+  >
+    <button class="red-button" (click)="onRemoveGeneratedItem()">Delete</button>
+    <button class="cancel-button" (click)="deleteGenerated = false">Cancel</button>
+  </app-modal>
+
+  <!-- export Generation -->
+  <app-modal
+    (close)="exportGenerated = false"
+    title="Export Dataset"
+    subtitle="Exported file will begin download shortly."
+    type="success"
+    *ngIf="exportGenerated"
+    [name]="exportGeneratedObj.name"
+    [text]="exportGeneratedObj.text"
+  >
+    <button class="blue-button" (click)="exportGenerated = false">OK</button>
+  </app-modal>
+
+  <!-- regeneration -->
+  <app-modal
+    (close)="reGenerated = false"
+    title="Regenerate Dataset"
+    subtitle="Current configurations will be altered."
+    type="info"
+    *ngIf="reGenerated"
+    [name]="reGeneratedObj.name"
+    [text]="reGeneratedObj.text"
+  >
+    <button class="blue-button regenerate" (click)="onReGeneratedDataset()">Regenerate</button>
+    <button class="cancel-button" (click)="reGenerated = false">Cancel</button>
+  </app-modal>
+
+  <!-- generate dataset -->
+  <app-modal
+    (close)="generated = false"
+    title="Generate Dataset"
+    subtitle="Current configurations will be altered."
+    type="info"
+    *ngIf="generated"
+    [name]="generatedObj.name"
+    [text]="generatedObj.text"
+  >
+    <button class="blue-button regenerate" (click)="onGeneratedDataset()">Generate Datset</button>
+    <button class="cancel-button" (click)="generated = false">Cancel</button>
+  </app-modal>
+
+  <!-- Delete Dataset Config -->
+  <app-modal
+    (close)="deleteConfigItem = false"
+    title="Delete Dataset Config"
+    subtitle="You are about to delete a dataset configuration. This action can’t be undone."
+    type="warning"
+    *ngIf="deleteConfigItem"
+    [name]="deleteConfigObj.name"
+    [text]="deleteConfigObj.text"
+  >
+    <button class="red-button" (click)="onRemoveConfigItem()">Delete</button>
+    <button class="cancel-button" (click)="deleteConfigItem = false">Cancel</button>
+  </app-modal>
+
+  <h1 class="heading">DATASETS</h1>
+
+
+  <p class="large-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non erat in diam aliquet
+    hendrerit at eget eros. In at metus erat. Nam consequat dapibus nisl, et tempor
+    elit sollicitudin quis. Donec feugiat purus ligula, vel facilisis enim blandit at. Nulla dapibus
+    sapien in libero vulputate accumsan.</p>
+
+
+  <ng-container *ngIf="dashboardData">
+    <h5 class="heading-small first">Configurations</h5>
+    <div class="table-wrapper">
+      <table class="table dashboard-table">
+        <tr>
+          <th>#</th>
+          <th>CONFIGURATION TITLE</th>
+          <th colspan="2" class="with-button">GENERAL DEMOGRAPHICS
+            <small>(War Era / Patients / Gender ratio)</small>
+          </th>
+        </tr>
+        <tr *ngFor="let item of configurations; let $i=index">
+          <td>
+            <a (click)="removeConfigItem($i)" href="javascript:;" class="remove-icon"></a>
+            <span class="number">{{$i + 1}}</span></td>
+          <td>{{item.title}}</td>
+          <td>{{item.warEra.warEra + ' / ' + getPatientsAndRadioLabel(item)}}
+          </td>
+          <td class="action-button">
+            <button (click)="generateDataset($i)" class="small-button large">Generate Dataset</button>
+            <button (click)="onConfigurationEditClick($i)" class="small-button">Edit</button>
+            <button (click)="onExportClick($i)" class="small-button">Export</button>
+          </td>
+        </tr>
+
+        <tr *ngIf="!configurations" class="no-records">
+          <td colspan="4"><div class="text">LOADING RECORDS...</div></td>
+        </tr>
+
+        <tr *ngIf="configurations && configurations.length === 0" class="no-records">
+          <td colspan="4"><div class="text">NO RECORDS FOUND</div></td>
+        </tr>
+      </table>
+
+
+    </div>
+    <h5 class="heading-small">Generated Datasets</h5>
+    <div class="table-wrapper">
+      <table class="table dashboard-table">
+        <tr>
+          <th>#</th>
+          <th>DATATSET TITLE</th>
+          <th>OUTPUT FORMAT</th>
+          <th class="completed-td">COMPLETED ON</th>
+          <th colspan="2" class="with-button generated-table">GENERAL DEMOGRAPHICS
+            <small>(War Era / Patients / Gender ratio)</small>
+          </th>
+        </tr>
+        <tr *ngFor="let dataset of datasets; let $i=index">
+          <td>
+            <a (click)="removeGeneratedItem($i)" href="javascript:;" class="remove-icon"></a>
+            <span class="number">{{$i + 1}}</span>
+          </td>
+          <td>{{dataset.title}}</td>
+          <td>{{dataset.outputFormat}}</td>
+          <td>{{dataset.completedOn | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+          <td>{{dataset.configuration.warEra.warEra + ' / '
+            + dataset.configuration.numberOfPatients.toLocaleString() + ' / '
+            + getPatientsAndRadioLabel(dataset.configuration)}}
+          </td>
+          <td class="action-button">
+            <button (click)="reGeneratedItem($i)" class="small-button large">Regenerate</button>
+            <button (click)="onDatsetEditConfigClick($i)" class="small-button large">Edit Config</button>
+          </td>
+        </tr>
+
+        <tr *ngIf="!datasets" class="no-records">
+          <td colspan="4"><div class="text">LOADING RECORDS...</div></td>
+        </tr>
+
+        <tr *ngIf="datasets && datasets.length === 0" class="no-records">
+          <td colspan="4"><div class="text">NO RECORDS FOUND</div></td>
+        </tr>
+      </table>
+    </div>
+  </ng-container>
+</div>

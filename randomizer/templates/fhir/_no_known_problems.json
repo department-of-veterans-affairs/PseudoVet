@@ -1,0 +1,20 @@
+{
+  "fullUrl": "PROBLEMS",
+  "resource": {
+    "resourceType": "Observation",
+    "id": "PROBLEMS",
+    "text": {
+      "status": "additional",
+      "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"> Problem Concern:<br/> Concern Tracker Start Date: 06/07/2013 16:05:06<br/>Concern Tracker End Date: <br/> Concern Status: Active<br/></div>"
+    },
+    "identifier": [
+      {
+        "system": "urn:oid:2.16.840.1.113883.10.20.22.2.5.1"
+      }
+    ],
+    "status": "registered",
+    "code": {
+      "text": "No known problems."
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "fullUrl": "SOCIAL-HISTORY",
+  "resource": {
+    "resourceType": "Observation",
+    "id": "SOCIAL-HISTORY",
+    "text": {
+      "status": "additional",
+      "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">SOCIAL HISTORY</div>"
+    },
+    "identifier": [
+      {
+        "system": "urn:oid:2.16.840.1.113883.10.20.22.2.17"
+      }
+    ],
+    "status": "registered",
+    "code": {
+      "extension": [
+        {
+          "url": "SocialHistoryObservation",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "code": "Current Smoking Status"
+              },
+              {
+                "code": "Birth Sex"
+              }
+            ],
+            "text": "Social History Observation"
+          }
+        },
+        {
+          "url": "Description",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "code": "Current every day smoker"
+              },
+              {
+                "code": "{{ gender }}"
+              }
+            ]
+          }
+        },
+        {
+          "url": "Dates-Observed",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "code": "Recorded: {{ default_date | datetime_format('%B %d, %Y') }}"
+              },
+              {
+                "code": "{{ default_date | datetime_format('%B %d, %Y') }}"
+              }
+            ],
+            "text": "Dates Observed"
+          }
+        }
+      ],
+      "coding":[ {% include  "fhir/_birth_sex_entry.json" %} ]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+@import "variables";
+
+.configuration-container {
+  background: #fff;
+}
+
+/* file drop down area style */
+.drop-zone {
+  width: 100%;
+  height: calc(100vh - 175px - 80px - 56px);
+  min-height: 466px;
+  padding-top: 68px;
+  background-color: $drop-bg;
+  .drop-area {
+    margin: 0 auto 0 auto;
+    width: 756px;
+    height: 298px;
+    border-radius: 4px;
+    border: dashed 2px $drop-border;
+    padding-top: 101px;
+    padding-left: 137px;
+    .hide-element {
+      display: none;
+    }
+    i {
+      background: url('/assets/i/configuration-icon.png') no-repeat;
+      background-size: 81px 98px;
+      width: 81px;
+      height: 98px;
+      float: left;
+      margin-right: 32px;
+    }
+    .p {
+      float: left;
+      width: 400px;
+      font-family: MyriadPro;
+      font-size: 16px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.5px;
+      text-align: left;
+      color: $gray-text;
+      margin-bottom: 22px;
+    }
+  }
+}

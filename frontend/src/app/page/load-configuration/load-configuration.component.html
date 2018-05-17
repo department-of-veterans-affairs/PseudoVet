@@ -1,0 +1,59 @@
+<app-header [menu]="menu"></app-header>
+
+<div class="container configuration-container">
+
+
+  <!-- load configuration -->
+  <app-modal
+    (close)="fileSelected = false"
+    title="Configuration File Loaded"
+    subtitle="{{filePreviewObject.msg}}"
+    type="{{!filePreviewObject.error ? 'success':'error'}}"
+    *ngIf="fileSelected"
+    name="{{filePreviewObject.name}}"
+    text="{{filePreviewObject.description}}"
+  >
+    <button class="blue-button"
+            (click)="onPreviewClick()"
+            *ngIf="!filePreviewObject.error">Preview
+    </button>
+    <button class="success-button" (click)="onSaveClick()"
+            *ngIf="!filePreviewObject.error">
+      Save
+    </button>
+    <button class="success-button" (click)="fileSelected = false" *ngIf="filePreviewObject.error">Close</button>
+  </app-modal>
+
+  <!-- save configuration -->
+  <app-modal
+    (close)="fileSave = false"
+    title="Configuration File Saved!"
+    subtitle="The loaded configuration file has been successfully saved into server."
+    type="{{!filePreviewObject.error ? 'success':'error'}}"
+    *ngIf="fileSave"
+    name="{{filePreviewObject.name}}"
+    text="{{filePreviewObject.description}}"
+  >
+    <a [routerLink]="'/dashboard'" class="blue-button">OK</a>
+  </app-modal>
+
+  <h1 class="heading">LOAD CONFIGURATION FILE</h1>
+
+
+  <p class="large-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non erat in diam aliquet
+    hendrerit at eget eros. In at metus erat. Nam consequat dapibus nisl, et tempor
+    elit sollicitudin quis. Donec feugiat purus ligula, vel facilisis enim blandit at. Nulla dapibus
+    sapien in libero vulputate accumsan. Guidelines go here.</p>
+</div>
+<div class="drop-zone">
+  <div class="drop-area" appDragNdrop (filesChangeEmiter)="onFilesChange($event)">
+    <input #selectedFile class="hide-element" type="file" (change)="fileChange($event);">
+
+    <i></i>
+
+    <div class="p">Load a configuration file.<br/>
+      Browse or drag-drop in the box to preview your file.
+    </div>
+    <button (click)="showBrowseDlg()" class="blue-button light-blue">Browse</button>
+  </div>
+</div>

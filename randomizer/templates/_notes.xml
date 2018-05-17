@@ -1,0 +1,82 @@
+<!-- Adapted from https://github.com/HL7/C-CDA-Examples/blob/master/Notes/Single%20Consultation%20Note/Single%20Consultation%20Note(C-CDA%20R2.1).xml -->
+
+<section>
+    <!-- Notes Section -->
+    <templateId root="2.16.840.1.113883.10.20.22.2.65" extension="2016-11-01"/>
+    <!-- This Notes Section is not intended to replace a C-CDA Consultation Note Document -->
+    <!-- If your system captures Consultation Note information in Discrete sections it's not recommended to lump all the text together here. -->
+    <!-- This Notes Section could be included in a Consultation Note Document with other discrete sections (Results, Vitals etc.)-->
+    <!-- This Notes Section is most appropriate for an encounter specific document -->
+    <!-- If this Notes section were included in a CCD, each Note Activity entry should be linked to an appropriate Encounter entry in the Encounters section -->
+    <code code="11488-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+        displayName="Consultation note"/>
+    <title>Consultation Notes</title>
+    <text>
+        <list>
+            <item ID="ConsultNote1">
+                <paragraph>Additional information relevant to patient</paragraph>
+                <paragraph>---</paragraph>
+                <paragraph>SSN: {{ ssn }}</paragraph>
+                <paragraph>Occupation: {{ occupation }}</paragraph>
+                <paragraph>Income: {{ incomes }}</paragraph>
+                <paragraph>---</paragraph>
+                <paragraph>Next of kin: {{ nok_first_name }} - {{ nok_relationship }}</paragraph>
+                <paragraph>    Address: {{ nok_home_addr }}</paragraph>
+                <paragraph>             {{ nok_city }}</paragraph>
+                <paragraph>             {{ nok_state }}, {{ nok_zip_code }}</paragraph>
+                <paragraph>    Phone: {{ nok_phone }}</paragraph>
+                <paragraph>    Email: {{ nok_email }}</paragraph>
+                <paragraph>---</paragraph>
+                <paragraph>Emergency contact: {{ econ_first_name }} {{ econ_last_name }} - {{ econ_relationship }}</paragraph>
+                <paragraph>    Address: {{ econ_home_addr }}</paragraph>
+                <paragraph>             {{ econ_city }}</paragraph>
+                <paragraph>             {{ econ_state }}, {{ econ_zip_code }}</paragraph>
+                <paragraph>    Phone: {{ econ_phone }}</paragraph>
+                <paragraph>    Email: {{ econ_email }}</paragraph>
+                <paragraph>---</paragraph>
+                {% if war != None %}
+                    <paragraph>Served in {{ war['war_name'] }}</paragraph>
+                    <paragraph>Military service disabilities: {{ military_service_disabilities }}</paragraph>
+                {% endif %}
+                {% if date_of_death != None %}
+                    <paragraph>Patient died: {{ date_of_death | datetime_format('%B %d, %Y') }}</paragraph>
+                {% endif %}
+            </item>
+        </list>
+    </text>
+    <!-- Note Activity entry -->
+    <entry>
+        <act classCode="ACT" moodCode="EVN">
+            <templateId root="2.16.840.1.113883.10.20.22.4.202" extension="2016-11-01"/>
+            <code code="34109-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+                displayName="Note">
+                <!-- Code must match or be equivalent to section code -->
+                <translation code="11488-4" codeSystem="2.16.840.1.113883.6.1"
+                    codeSystemName="LOINC" displayName="Consultation note"/>
+            </code>
+            <text>
+                <reference value="#ConsultNote1"/>
+            </text>
+            <statusCode code="completed"/>
+            <!-- Clinically-relevant time of the note -->
+            {% set my_date = effective_time | minus_random_days(300,500) %}
+            <effectiveTime value="{{ my_date | datetime_format('%Y%m%d') }}"/>
+            <!-- Author Participation -->
+            <author>
+                <templateId root="2.16.840.1.113883.10.20.22.4.119"/>
+                <!-- Time note was actually written -->
+                <time value="{{ my_date | datetime_format('%Y%m%d') }}083215-0500"/>
+                <assignedAuthor>
+                    <!-- Full author information is elsewhere in the document . -->
+                    <id root="20cf14fb-b65c-4c8c-a54d-b0cca834c18c"/>
+                    <assignedPerson>
+                        <name>
+                            <prefix>Dr.</prefix>
+                            <family>Specialist</family>
+                        </name>
+                    </assignedPerson>
+                </assignedAuthor>
+            </author>
+        </act>
+    </entry>
+</section>

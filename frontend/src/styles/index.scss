@@ -1,0 +1,169 @@
+@import "~ngx-toastr/toastr";
+@import 'variables';
+@import 'fonts';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 1280px;
+  padding-top: 136px;
+}
+
+.toast-container {
+  font-family: MyriadPro;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+.clearfix {
+  display: block;
+}
+
+a, button {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a, button, input, select {
+  outline: none;
+}
+
+/* container */
+.container {
+  padding: 32px 24px;
+}
+
+h1.heading {
+  font-family: Georgia;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0.7px;
+  text-align: left;
+  margin: 0;
+  padding: 0 0 16px 0;
+  color: $main-color;
+}
+
+h5.heading-small {
+  font-family: MyriadPro;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-align: left;
+  margin: 0;
+  padding: 16px 0 8px 16px;
+  color: $main-color;
+  &.first {
+    margin-top: 13px;
+  }
+}
+
+p {
+  font-family: MyriadPro;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-align: left;
+  margin: 0;
+  color: $header-text-color;
+  &.large-text {
+    width: 645px;
+  }
+}
+
+.modal {
+  .progress {
+    margin: 5px 0 27px 40px;
+  }
+  .footer {
+    button, a {
+      margin: 0 6px;
+    }
+    button.cancel-button {
+      width: 60px;
+    }
+  }
+}
+
+input.form-element {
+  width: 502px;
+  height: 40px;
+  padding-left: 16px;
+  background-color: $white-color;
+  border: solid 1px $primary-text-color;
+  outline: none;
+  font-family: MyriadPro;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 40px;
+  letter-spacing: 0.7px;
+  text-align: left;
+  color: $primary-text-color;
+  margin-bottom: 40px;
+}
+
+input.form-element::-ms-clear {
+  display: none;
+}
+
+select.form-element::-ms-expand {
+  display: none;
+}
+
+select.form-element {
+  width: 371px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  box-shadow: none;
+  height: 40px;
+  padding-left: 16px;
+  background-color: $white-color;
+  background-image: url('/assets/i/select.png');
+  background-position: 342px center;
+  background-repeat: no-repeat;
+  border: solid 1px $primary-text-color;
+  outline: none;
+  font-family: MyriadPro;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 40px;
+  letter-spacing: 0.7px;
+  text-align: left;
+  color: $primary-text-color;
+  margin-bottom: 40px;
+  &.empty {
+    background-image: url('/assets/i/select-empty.png');
+  }
+}
+
+label.label-element {
+  font-family: MyriadPro;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: left;
+  padding-bottom: 8px;
+  display: block;
+  color: $primary-text-color;
+}
+
+@import 'table';
+@import 'preview-table';
+@import 'button';

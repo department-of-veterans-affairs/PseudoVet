@@ -1,0 +1,33 @@
+{
+  "femaleRatio": 40,
+  "maleRatio": 60,
+  "morbiditiesData": [
+    {
+      "icd10Code": "R41",
+      "name": "Other symptoms and signs involving cognitive functions and awareness",
+      "numberOfEncounters": 0,
+      "percentOfPopulationWithDiagnosisRisk": 0,
+      "percentOfProbabilityToAcquireDiagnosis": 0
+    }
+  ],
+  "numberOfPatients": 10,
+  "outputFolder": "output/generatedDatasets",
+  "outputFormat": "FHIR-JSON",
+  "relatedConditionsData": [
+    {
+      "icd10Code": "C80",
+      "name": "Malignant neoplasm without specification of site",
+      "numberOfEncounters": 0,
+      "percentOfPopulationWithDiagnosisRisk": 0,
+      "percentOfProbabilityToAcquireDiagnosis": 0
+    }
+  ],
+  "title": "config-02",
+  "warEra": {
+    "warEra": "World War II",
+    "warEraCode": "world_war_ii",
+    "warEraEndDate": "Tue, 31 Dec 1946 00:00:00 GMT",
+    "warEraStartDate": "Sun, 07 Dec 1941 00:00:00 GMT"
+  },
+  "year": 1980
+}

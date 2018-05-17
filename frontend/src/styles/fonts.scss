@@ -1,0 +1,45 @@
+/* fotns */
+@font-face {
+  font-family: 'Georgia';
+  src: url('/assets/fonts/Georgia/Georgia-Bold.eot?#iefix') format('embedded-opentype'),
+  url('/assets/fonts/Georgia/Georgia-Bold.woff') format('woff'),
+  url('/assets/fonts/Georgia/Georgia-Bold.ttf') format('truetype'),
+  url('/assets/fonts/Georgia/Georgia-Bold.svg#Georgia-Bold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Georgia';
+  src: url('/assets/fonts/Georgia/Georgia.eot?#iefix') format('embedded-opentype'),
+  url('/assets/fonts/Georgia/Georgia.woff') format('woff'),
+  url('/assets/fonts/Georgia/Georgia.ttf') format('truetype'),
+  url('/assets/fonts/Georgia/Georgia.svg#Georgia-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src: url('/assets/fonts/MyriadPro/MyriadPro-Regular.eot?#iefix') format('embedded-opentype'),
+  url('/assets/fonts/MyriadPro/MyriadPro-Regular.otf')  format('opentype'),
+  url('/assets/fonts/MyriadPro/MyriadPro-Regular.woff') format('woff'),
+  url('/assets/fonts/MyriadPro/MyriadPro-Regular.ttf')  format('truetype'),
+  url('/assets/fonts/MyriadPro/MyriadPro-Regular.svg#MyriadPro-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'MyriadPro';
+  src: url('/assets/fonts/MyriadPro/MyriadPro-Bold.eot?#iefix') format('embedded-opentype'),
+  url('/assets/fonts/MyriadPro/MyriadPro-Bold.otf')  format('opentype'),
+  url('/assets/fonts/MyriadPro/MyriadPro-Bold.woff') format('woff'),
+  url('/assets/fonts/MyriadPro/MyriadPro-Bold.ttf')  format('truetype'),
+  url('/assets/fonts/MyriadPro/MyriadPro-Bold.svg#MyriadPro-Bold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+

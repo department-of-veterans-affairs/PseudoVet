@@ -1,0 +1,49 @@
+{
+  "femaleRatio": 40,
+  "maleRatio": 60,
+  "morbiditiesData": [
+    {
+      "exclusionRules": "gender == 'Female' and total_age <= 20",
+      "icd10Code": "I25",
+      "name": "Chronic ischemic heart disease",
+      "numberOfEncounters": 2,
+      "percentOfPopulationWithDiagnosisRisk": 0,
+      "percentOfProbabilityToAcquireDiagnosis": 0
+    },
+    {
+      "exclusionRules": "gender == 'Male'",
+      "icd10Code": "F33",
+      "name": "Major depressive disorder, recurrent",
+      "numberOfEncounters": 0,
+      "percentOfPopulationWithDiagnosisRisk": 90,
+      "percentOfProbabilityToAcquireDiagnosis": 90
+    },
+    {
+      "icd10Code": "Z60.2",
+      "name": "Problems related to living alone",
+      "numberOfEncounters": 10,
+      "percentOfPopulationWithDiagnosisRisk": 0,
+      "percentOfProbabilityToAcquireDiagnosis": 0
+    }
+  ],
+  "numberOfPatients": 10,
+  "outputFolder": "output/generatedDatasets",
+  "outputFormat": "FHIR-XML",
+  "relatedConditionsData": [
+    {
+      "icd10Code": "R41",
+      "name": "Other symptoms and signs involving cognitive functions and awareness",
+      "numberOfEncounters": 0,
+      "percentOfPopulationWithDiagnosisRisk": 0,
+      "percentOfProbabilityToAcquireDiagnosis": 0
+    }
+  ],
+  "title": "config-01",
+  "warEra": {
+    "warEra": "World War II",
+    "warEraCode": "world_war_ii",
+    "warEraEndDate": "Tue, 31 Dec 1946 00:00:00 GMT",
+    "warEraStartDate": "Sun, 07 Dec 1941 00:00:00 GMT"
+  },
+  "year": 1980
+}

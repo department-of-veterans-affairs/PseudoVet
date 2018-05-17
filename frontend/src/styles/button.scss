@@ -1,0 +1,118 @@
+/* button style */
+.small-button {
+  width: 91px;
+  height: 32px;
+  border-radius: 16px;
+  background-color: $button-color;
+  font-family: MyriadPro;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: $white-color;
+  border: 0;
+}
+
+a.small-button {
+  line-height: 34px;
+}
+
+.small-button.large {
+  width: 134px;
+}
+
+.blue-button:hover:not(:disabled),
+.success-button:hover:not(:disabled),
+.red-button:hover:not(:disabled),
+.cancel-button:hover:not(:disabled),
+.small-button:hover:not(:disabled) {
+  opacity: $hover-opacity;
+}
+
+.blue-button:disabled,
+.success-button:disabled,
+.red-button:disabled,
+.cancel-button:disabled,
+.small-button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.blue-button {
+  display: inline-block;
+  font-family: MyriadPro;
+  border: 0;
+  background: $accept-button;
+  border-radius: 4px;
+  width: 108px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 16px;
+  color: $white-color;
+  letter-spacing: 0.53px;
+  &.regenerate {
+    width: 143px;
+    font-weight: bold;
+  }
+}
+
+.light-blue {
+  background-color: $button-color;
+  width: 136px;
+  &.long {
+    width: 200px;
+    margin-right: 20px;
+  }
+}
+
+.success-button {
+  display: inline-block;
+  font-family: MyriadPro;
+  border: 0;
+  background: $success-button;
+  border-radius: 4px;
+  width: 108px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 16px;
+  color: $white-color;
+  letter-spacing: 0.53px;
+  &.long {
+    width: 136px;
+  }
+}
+
+.red-button {
+  display: inline-block;
+  font-family: MyriadPro;
+  border: 0;
+  background: $danger-button;
+  border-radius: 4px;
+  width: 136px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 16px;
+  color: $white-color;
+  letter-spacing: 0.53px;
+}
+
+.cancel-button {
+  display: inline-block;
+  font-family: MyriadPro;
+  border: 0;
+  background: $white-color;
+  border-radius: 4px;
+  width: 108px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  color: $cancel-button;
+  letter-spacing: 0.53px;
+}
+

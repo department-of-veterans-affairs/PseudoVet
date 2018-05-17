@@ -1,0 +1,92 @@
+/* preview table */
+.preview-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-family: MyriadPro;
+  margin-bottom: 55px;
+  margin-top: 24px;
+  tr {
+    th {
+      vertical-align: top;
+      font-size: 14px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.5px;
+      text-align: center;
+      color: $primary-text-color;
+      height: 67px;
+      border-right: solid 1px $primary-text-color;
+      border-bottom: solid 1px $primary-text-color;
+      &:first-child,
+      &:last-child {
+        border-right: 0;
+      }
+      &:first-child {
+        width: 55px;
+      }
+      &:first-child,
+      &:nth-child(2) {
+        text-align: left;
+      }
+      &:nth-child(6) {
+        text-align: right;
+      }
+      &:last-child {
+        width: 228px;
+      }
+      span {
+        color: $th-span;
+        font-size: 14px;
+      }
+    }
+    td {
+      font-size: 16px;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: 0.5px;
+      text-align: left;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      color: $primary-text-color;
+      border-right: solid 1px $td-border;
+      border-bottom: solid 1px $td-border;
+      &:first-child,
+      &:last-child {
+        border-right: 0;
+      }
+      &:nth-child(6) {
+        text-align: right;
+      }
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5) {
+        text-align: center;
+      }
+      .span {
+        display: inline-block;
+        width: 56px;
+        height: 40px;
+        border-radius: 2px;
+        background-color: $td-bubble;
+        font-size: 14px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        letter-spacing: 0.5px;
+        line-height: 40px;
+        text-align: center;
+        color: $primary-text-color;
+      }
+    }
+    &:last-child {
+      td {
+        border-bottom: 0;
+      }
+    }
+  }
+}

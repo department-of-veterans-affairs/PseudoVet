@@ -1,0 +1,15 @@
+<header>
+  <a href="javascript:;" [routerLink]="'/dashboard'" class="logo"><img src="/assets/i/logo.png" alt=""/></a>
+</header>
+<nav>
+  <ul class="clearfix">
+    <li *ngFor="let item of menu;">
+      <a [routerLink]="item.url" [ngClass]="{'active' : item.active }">
+        <span [ngClass]="{'sub' : item.subname !== '' }">
+          {{item.name}}
+          <small *ngIf="item.subname !== ''">{{item.subname}}</small>
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>

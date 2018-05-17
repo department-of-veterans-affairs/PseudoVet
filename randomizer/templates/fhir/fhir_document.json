@@ -1,0 +1,1332 @@
+{% set default_date = date_of_birth | plus_random_years(20,40) | plus_random_days(10, 20) %}
+{% set my_date = date_of_birth | plus_random_years(20,40) %}
+{
+  "resourceType": "Bundle",
+  "id": "{{ patient_id }}",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "PATIENT",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "{{ patient_id }}",
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">{% if date_of_death != None %}PseudoVet fictional patient: {{ patient_id }} at age {{ total_age }}. Died {{ date_of_death | datetime_format('%B %d, %Y')}} {% else %} PseudoVet fictional patient: {{ patient_id }} at age {{ total_age }} {% endif %}</div>"
+        },
+        "extension": [
+          {
+            "url": "confidentialityCode",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "N",
+                  "display": "normal"
+                }
+              ],
+              "text": "Confidentiality"
+            }
+          },
+          {
+            "url": "religiousAffiliationCode",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "{{ religion_code }}",
+                  "display": "{{ religion }}"
+                }
+              ],
+              "text": "HL7 Religious Affiliation"
+            }
+          },
+          {
+            "url": "raceCode",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "{{ race_code }}",
+                  "display": "{{ race }}"
+                }
+              ],
+              "text": "Race"
+            }
+          },
+          {
+            "url": "maritalStatusCode",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "M",
+                  "display": "Married"
+                }
+              ],
+              "text": "MaritalStatusCode"
+            }
+          },
+          {
+            "url": "ethnicGroupCode",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "{{ ethnic_group_code }}",
+                  "display": "{{ ethnic_group }}"
+                }
+              ],
+              "text": "Ethnicity"
+            }
+          },
+          {
+            "url": "languageCommunication",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "{{ language_code }}",
+                  "display": "languageCode"
+                },
+                {
+                  "code": "{{ language_ability_mode_code }}",
+                  "display": "{{ language_ability_mode }}"
+                },
+                {
+                  "code": "true",
+                  "display": "preferenceInd"
+                }
+              ]
+            }
+          },
+          {
+            "url": "raceCode",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "{{ race_code }}",
+                  "display": "{{ race }}"
+                }
+              ],
+              "text": "Race"
+            }
+          },
+          {
+            "url": "participant",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "tel:+1(555)-112-1544",
+                  "display": "telecom"
+                },
+                {
+                  "code": "1001 Amber Dr",
+                  "display": "streetAddressLine"
+                },
+                {
+                  "code": "Beaverton",
+                  "display": "city"
+                },
+                {
+                  "code": "OR",
+                  "display": "state"
+                },
+                {
+                  "code": "97006",
+                  "display": "postalCode"
+                },
+                {
+                  "code": "US",
+                  "display": "country"
+                },
+                {
+                  "code": "Mr William Jones",
+                  "display": "associatedPerson"
+                }
+              ]
+            }
+          },
+          {
+            "url": "performer01",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "tel:+1(555)-555-1002",
+                  "display": "telecom"
+                },
+                {
+                  "code": "2472 Rocky place",
+                  "display": "streetAddressLine"
+                },
+                {
+                  "code": "Beaverton",
+                  "display": "city"
+                },
+                {
+                  "code": "OR",
+                  "display": "state"
+                },
+                {
+                  "code": "97006",
+                  "display": "postalCode"
+                },
+                {
+                  "code": "US",
+                  "display": "country"
+                },
+                {
+                  "code": "Dr Albert Davis",
+                  "display": "Name"
+                }
+              ]
+            }
+          },
+          {
+            "url": "performer02",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "code": "tel:+1(555)-555-1002",
+                  "display": "telecom"
+                },
+                {
+                  "code": "2472 Rocky place",
+                  "display": "streetAddressLine"
+                },
+                {
+                  "code": "Beaverton",
+                  "display": "city"
+                },
+                {
+                  "code": "OR",
+                  "display": "state"
+                },
+                {
+                  "code": "97006",
+                  "display": "postalCode"
+                },
+                {
+                  "code": "US",
+                  "display": "country"
+                },
+                {
+                  "code": "Tracy Davis",
+                  "display": "Name"
+                }
+              ]
+            }
+          }
+        ],
+        "identifier": [
+          {
+            "use": "usual",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "MR"
+                }
+              ]
+            },
+            "system": "urn:oid:2.16.840.1.113883.4.1",
+            "value": "{{ patient_id }}"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "{{ first_name }}",
+            "given": [
+              "{{ middle_name }}",
+              "{{ last_name }}"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "+1{{ phone }}"
+          }
+        ],
+        "gender": "{{ gender | lower_case }}",
+        "birthDate": "{{ date_of_birth }}",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "{{ home_addr }}"
+            ],
+            "city": "{{ city }}",
+            "state": "{{ state }}",
+            "postalCode": "{{ zip_code }}",
+            "country": "US"
+          }
+        ],
+        "managingOrganization": {
+          "extension": [
+            {
+              "url": "address",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "tel:+1(555)-555-1002",
+                    "display": "telecom"
+                  },
+                  {
+                    "code": "2472 Rocky place",
+                    "display": "streetAddressLine"
+                  },
+                  {
+                    "code": "Beaverton",
+                    "display": "city"
+                  },
+                  {
+                    "code": "OR",
+                    "display": "state"
+                  },
+                  {
+                    "code": "97006",
+                    "display": "postalCode"
+                  },
+                  {
+                    "code": "US",
+                    "display": "country"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "informationRecipient",
+              "valueCoding": {
+                "code": "Dr Albert Davis",
+                "display": "Name"
+              }
+            },
+            {
+              "url": "receivedOrganization",
+              "valueCoding": {
+                "code": "Neighborhood Physicians Practice"
+              }
+            }
+          ],
+          "reference": "Organization/1",
+          "display": "Neighborhood Physicians Practice"
+        }
+      }
+    },
+            {% include 'fhir/_notes.json' %},
+
+            {% if icd_problems != None %}
+            {% include 'fhir/_problems.json' %},
+            {% else %}
+            {% include 'fhir/_no_known_problems.json' %},
+            {% endif %}
+
+    {
+      "fullUrl": "ALLERGIES",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "ALLERGIES",
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Allergies and adverse reactions</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.10.20.22.2.6.1"
+          }
+        ],
+        "status": "registered",
+        "code": {
+          "extension": [
+            {
+              "url": "Substance",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Penicillin G"
+                  },
+                  {
+                    "code": "Ampicillin"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "Reaction",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Hives"
+                  },
+                  {
+                    "code": "Hives"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "Severity",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Moderate"
+                  },
+                  {
+                    "code": "Moderate"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "Status",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Active"
+                  },
+                  {
+                    "code": "Active"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "MEDICATIONS",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "MEDICATIONS",
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Medications</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.10.20.22.2.1.1"
+          }
+        ],
+        "status": "registered",
+        "code": {
+          "extension": [
+            {
+              "url": "Medication",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Ceftriaxone 100MG/ML"
+                  },
+                  {
+                    "code": "Tylenol 500mg"
+                  },
+                  {
+                    "code": "As needed for 10 days"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "Directions",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Two Times Daily"
+                  },
+                  {
+                    "code": "As needed for 10 days"
+                  },
+                  {
+                    "code": "Once a week"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "StartDate",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{ default_date | datetime_format('%B %d, %Y') }}"
+                  },
+                  {
+                    "code": "{{ default_date | datetime_format('%B %d, %Y') }}"
+                  },
+                  {
+                    "code": "{{ default_date | datetime_format('%B %d, %Y') }}"
+                  }
+                ],
+                "text": "Start Date"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "ENCOUNTERS",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "ENCOUNTERS",
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">ENCOUNTERS</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.10.20.22.2.22.1"
+          }
+        ],
+        "status": "registered",
+        "code": {
+          "extension": [
+            {
+              "url": "EncounterDiagnosis",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Fever"
+                  }
+                ],
+                "text": "Encounter Diagnosis"
+              }
+            },
+            {
+              "url": "Location",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Neighborhood Physicians Practice"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "Date",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{ default_date | datetime_format('%B %d, %Y') }} at 10am EST"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "IMMUNIZATIONS",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "IMMUNIZATIONS",
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">IMMUNIZATIONS</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.10.20.22.2.2.1"
+          }
+        ],
+        "status": "registered",
+        "code": {
+          "extension": [
+            {
+              "url": "Vaccine",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Influenza Virus Vaccine"
+                  },
+                  {
+                    "code": "Tetanus and diphtheria toxoids"
+                  },
+                  {
+                    "code": "influenza, intradermal, quadrivalent, preservative free"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "Date",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "May 10, 2014"
+                  },
+                  {
+                    "code": "January 4, 2012"
+                  },
+                  {
+                    "code": "{{ default_date | datetime_format('%B %d, %Y') }}"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "Status",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Completed"
+                  },
+                  {
+                    "code": "Completed"
+                  },
+                  {
+                    "code": "Refused by Patient"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+
+        {% set template = 'fhir/_' + smoking_status + '.json' %}
+        {% include template %},
+    {
+      "fullUrl": "VITAL-SIGNS",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "VITAL-SIGNS",
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">VITAL SIGNS</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.10.20.22.2.4.1"
+          }
+        ],
+        "status": "registered",
+        "code": {
+          "extension": [
+            {
+              "url": "DateTime",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{  my_date | datetime_format('%Y-%m-%d') }}"
+                  }
+                ],
+                "text": "Date / Time"
+              }
+            },
+            {
+              "url": "Height",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{ height }}",
+                    "display": "m"
+                  }
+                ],
+                "text": "Height"
+              }
+            },
+            {
+              "url": "Weight",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{ weight }}",
+                    "display": "kg"
+                  }
+                ],
+                "text": "Weight"
+              }
+            },
+            {
+              "url": "BloodPressure",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{ vital_signs_blood_pressure }}",
+                    "display": "mm[Hg]"
+                  }
+                ],
+                "text": "Blood Pressure"
+              }
+            },
+            {
+              "url": "HeartRate",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{ vital_signs_heart_rate }}",
+                    "display": "beats per minute"
+                  }
+                ],
+                "text": "Heart Rate"
+              }
+            },
+            {
+              "url": "PercentageBldCOximetry",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{ vital_signs_percentage_oximetry }}",
+                    "display": "percent"
+                  }
+                ],
+                "text": "O2 Percentage BldC Oximetry"
+              }
+            },
+            {
+              "url": "BodyTemperature",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{ vital_signs_body_temperature }}",
+                    "display": "degree celsius"
+                  }
+                ],
+                "text": "Body Temperature"
+              }
+            },
+            {
+              "url": "RespiratoryRate",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{ vital_signs_respiratory_rate }}",
+                    "display": "breaths per minute"
+                  }
+                ],
+                "text": "Respiratory Rate"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "PROCEDURES",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "PROCEDURES",
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">PROCEDURES</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.10.20.22.2.7.1"
+          }
+        ],
+        "status": "registered",
+        "code": {
+          "extension": [
+            {
+              "url": "Procedure",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Nebulizer Therapy"
+                  },
+                  {
+                    "code": "Introduction of cardiac pacemaker system via vein"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "Date",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{ default_date | datetime_format('%B %d, %Y') }}"
+                  },
+                  {
+                    "code": "October 5, 2011"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "IMPLANTS",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "Implants",
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Implants</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.10.20.22.2.23"
+          }
+        ],
+        "status": "registered",
+        "code": {
+          "extension": [
+            {
+              "url": "Implanted",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Cardiac Pacemaker"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "Area",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "ubclavian Vein"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "UDI",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "(01)00643169007222(17)160128(21)BLC200461H"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "RESULTS",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "RESULTS",
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Results</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.10.20.22.2.3.1"
+          }
+        ],
+        "status": "registered",
+        "code": {
+          "extension": [
+            {
+              "url": "ResultType",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Color of Urine"
+                  },
+                  {
+                    "code": "Appearance of Urine"
+                  },
+                  {
+                    "code": "Specific gravity of Urine by Test strip"
+                  },
+                  {
+                    "code": "pH of Urine by Test strip"
+                  },
+                  {
+                    "code": "Glucose [Mass/volume] in urine by test strip"
+                  },
+                  {
+                    "code": "Ketones [Mass/Volume] in urine by test strip"
+                  },
+                  {
+                    "code": "Protein[Mass/Volume] in urine by test strip"
+                  }
+                ],
+                "text": "Result Value"
+              }
+            },
+            {
+              "url": "ResultValue",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "YELLOW"
+                  },
+                  {
+                    "code": "CLEAR"
+                  },
+                  {
+                    "code": "1.015"
+                  },
+                  {
+                    "code": "5.0 [pH]"
+                  },
+                  {
+                    "code": "50 mg/dL"
+                  },
+                  {
+                    "code": "Negative"
+                  },
+                  {
+                    "code": "100 mg/dL"
+                  }
+                ],
+                "text": "Result Value"
+              }
+            },
+            {
+              "url": "RelevantReferenceRange",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "YELLOW"
+                  },
+                  {
+                    "code": "CLEAR"
+                  },
+                  {
+                    "code": "1.005 – 1.030"
+                  },
+                  {
+                    "code": "5.0-8.0"
+                  },
+                  {
+                    "code": "Negative"
+                  },
+                  {
+                    "code": "Negative"
+                  },
+                  {
+                    "code": "Negative"
+                  }
+                ],
+                "text": "Relevant Reference Range"
+              }
+            },
+            {
+              "url": "Interpretation",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Normal"
+                  },
+                  {
+                    "code": "Normal"
+                  },
+                  {
+                    "code": "Normal"
+                  },
+                  {
+                    "code": "Normal"
+                  },
+                  {
+                    "code": "N/A"
+                  },
+                  {
+                    "code": "N/A"
+                  },
+                  {
+                    "code": "N/A"
+                  }
+                ],
+                "text": "Interpretation"
+              }
+            },
+            {
+              "url": "Date",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{ my_date | datetime_format('%m/%d/%Y') }}"
+                  },
+                  {
+                    "code": "{{ my_date | datetime_format('%m/%d/%Y') }}"
+                  },
+                  {
+                    "code": "{{ my_date | datetime_format('%m/%d/%Y') }}"
+                  },
+                  {
+                    "code": "{{ my_date | datetime_format('%m/%d/%Y') }}"
+                  },
+                  {
+                    "code": "{{ my_date | datetime_format('%m/%d/%Y') }}"
+                  },
+                  {
+                    "code": "{{ my_date | datetime_format('%m/%d/%Y') }}"
+                  },
+                  {
+                    "code": "{{ my_date | datetime_format('%m/%d/%Y') }}"
+                  }
+                ],
+                "text": "Date"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "FUNCTIONAL-STATUS",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "FUNCTIONAL-STATUS",
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">FUNCTIONAL STATUS</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.10.20.22.2.14"
+          }
+        ],
+        "status": "registered",
+        "code": {
+          "extension": [
+            {
+              "url": "FunctionalCategory",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Dependence on Cane"
+                  }
+                ],
+                "text": "Functional Category"
+              }
+            },
+            {
+              "url": "EffectiveDates",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "May 01, 2005"
+                  }
+                ],
+                "text": "Effective Dates"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "ASSESSMENTS",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "ASSESSMENTS",
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">ASSESSMENTS</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.10.20.22.2.8"
+          }
+        ],
+        "status": "registered",
+        "code": {
+          "text": "The patient was found to have fever and Dr Davis is suspecting Anemia based on the patient history. So Dr Davis asked the patient to closely monitor the temperature and blood pressure and get admitted to Community Health Hospitals if the fever does not subside within a day."
+        }
+      }
+    },
+    {
+      "fullUrl": "TREATMENT-PLAN",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "TREATMENT-PLAN",
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">TREATMENT PLAN</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.10.20.22.2.10"
+          }
+        ],
+        "status": "registered",
+        "code": {
+          "extension": [
+            {
+              "url": "PlannedCare",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Urinanalysis macro (dipstick) panel"
+                  },
+                  {
+                    "code": "Get an EKG done on 6/23/2015."
+                  },
+                  {
+                    "code": "Get a Chest X-ray done on 6/23/2015 showing the Lower Respiratory Tract Structure."
+                  },
+                  {
+                    "code": "Take Clindamycin 300mg three times a day as needed if pain does not subside."
+                  },
+                  {
+                    "code": "Schedule follow on visit with Neighborhood Physicians Practice on 7/1/2015."
+                  }
+                ],
+                "text": "Planned Care"
+              }
+            },
+            {
+              "url": "StartDate",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "June 29, 2015"
+                  },
+                  {
+                    "code": "June 23, 2015"
+                  },
+                  {
+                    "code": "June 23, 2015"
+                  },
+                  {
+                    "code": "June 23, 2015 three times a day as needed"
+                  },
+                  {
+                    "code": "July 1, 2015"
+                  }
+                ],
+                "text": "Start Date"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "GOALS-SECTION",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "GOALS-SECTION",
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Goals Section</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.10.20.22.2.60"
+          }
+        ],
+        "status": "registered",
+        "code": {
+          "extension": [
+            {
+              "url": "Goal",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Get rid of intermittent fever that is occurring every few weeks (Visual Inspection)"
+                  },
+                  {
+                    "code": "Need to gain more energy to do regular activities (Visual Inspection)"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "Value",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "N/A"
+                  },
+                  {
+                    "code": "N/A"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "Date",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "{{ default_date | datetime_format('%B %d, %Y') }}"
+                  },
+                  {
+                    "code": "{{ default_date | datetime_format('%B %d, %Y') }}"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "HEALTH-CONCERNS-SECTION",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "HEALTH-CONCERNS-SECTION",
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Health Concerns Section</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.10.20.22.2.58"
+          }
+        ],
+        "status": "registered",
+        "code": {
+          "extension": [
+            {
+              "url": "table01",
+              "valueCoding": {
+                "extension": [
+                  {
+                    "url": "Observations",
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "code": "Chronic Sickness exhibited by patient"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "url": "Status",
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "code": "Active"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "url": "Date",
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "code": "{{ default_date | datetime_format('%B %d, %Y') }}"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "url": "table02",
+              "valueCoding": {
+                "extension": [
+                  {
+                    "url": "Concern",
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "code": "Documented HyperTension problem"
+                        },
+                        {
+                          "code": "Documented HypoThyroidism problem"
+                        },
+                        {
+                          "code": "Watch Weight of patient"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "url": "Status",
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "code": "Active"
+                        },
+                        {
+                          "code": "Active"
+                        },
+                        {
+                          "code": "Active"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "url": "Date",
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "code": "{{ default_date | datetime_format('%B %d, %Y') }}"
+                        },
+                        {
+                          "code": "{{ default_date | datetime_format('%B %d, %Y') }}"
+                        },
+                        {
+                          "code": "{{ default_date | datetime_format('%B %d, %Y') }}"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "fullUrl": "REASON-FOR-REFERRAL",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "REASON-FOR-REFERRAL",
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">REASON FOR REFERRAL</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:1.3.6.1.4.1.19376.1.5.3.1.3.1"
+          }
+        ],
+        "status": "registered",
+        "code": {
+          "text": "Ms Kathy Madison is being referred to Community Health Hospitals Inpatient facility because of the high fever noticed and suspected Anemia."
+        }
+      }
+    },
+    {
+      "fullUrl": "MENTAL-STATUS",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "MENTAL-STATUS",
+        "text": {
+          "status": "additional",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">MENTAL STATUS</div>"
+        },
+        "identifier": [
+          {
+            "system": "urn:oid:2.16.840.1.113883.10.20.22.2.56"
+          }
+        ],
+        "status": "registered",
+        "code": {
+          "extension": [
+            {
+              "url": "Status",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "Amnesia"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "Date",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "code": "May 05, 2005"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,405 @@
+swagger: '2.0'
+info:
+  title: PseudoVet Dataset Generation REST API
+  description: |
+    REST API for the PseudoVet Dataset Generation.
+  version: 1.0.0
+host: localhost
+schemes:
+  - https
+basePath: /api/v1
+produces:
+  - application/json
+paths:
+  /datasetConfigurations:
+    put:
+      summary: Save DatasetConfiguration.
+      description: |
+        Save dataset configuration provided in JSON format.
+      tags:
+        - DatasetConfiguration
+      parameters:
+        - name: datasetConfiguration
+          in: body
+          description: The entity
+          required: true
+          schema:
+            $ref: '#/definitions/DatasetConfiguration'
+      responses:
+        '200':
+          description: The operation succeeded.
+          schema:
+            $ref: '#/definitions/DatasetConfiguration'
+        '400':
+          description: >-
+            BAD REQUEST - if there was problem with the request (e.g. malformed
+            or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: >-
+            INTERNAL SERVER ERROR - if the request was properly formatted, but
+            the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'
+    get:
+      summary: Get dataset configuration.
+      description: >
+        Get dataset configuration with the specified title or all dataset
+        configurations.
+      tags:
+        - DatasetConfiguration
+      parameters:
+        - name: title
+          in: query
+          description: The dataset configuration title
+          required: false
+          type: string
+      responses:
+        '200':
+          description: The operation succeeded. The matched entities will be returned.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DatasetConfiguration'
+        '400':
+          description: >-
+            BAD REQUEST - if there was problem with the request (e.g. malformed
+            or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: NOT FOUND - if the resource in request did not exist
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: >-
+            INTERNAL SERVER ERROR - if the request was properly formatted, but
+            the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'
+    delete:
+      summary: delete dataset configuration by title
+      description: delete dataset configuration by title
+      tags:
+        - DatasetConfiguration
+      parameters:
+        - name: title
+          in: query
+          description: The title of the dataset configuration
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The operation succeeded.
+          schema:
+            $ref: '#/definitions/Message'
+        '400':
+          description: >-
+            BAD REQUEST - if there was problem with the request (e.g. malformed
+            or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: >-
+            INTERNAL SERVER ERROR - if the request was properly formatted, but
+            the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'
+  /datasetConfigurationFromFile:
+    post:
+      summary: Parse and save the uploaded dataset configuration file
+      description: |
+        Parse and save the uploaded dataset configuration file
+      tags:
+        - DatasetConfiguration
+      consumes:
+        - multipart/form-data
+      parameters:
+        - in: formData
+          name: datasetConfiguration
+          type: file
+          required: true
+          description: The file to upload
+      responses:
+        '200':
+          description: >-
+            The operation succeeded. The fully populated saved entity is
+            returned.
+          schema:
+            $ref: '#/definitions/DatasetConfiguration'
+        '400':
+          description: >-
+            BAD REQUEST - if there was problem with the request (e.g. malformed
+            or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: >-
+            INTERNAL SERVER ERROR - if the request was properly formatted, but
+            the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'
+  /datasets:
+    get:
+      tags:
+        - Dataset
+      summary: get all datasets
+      description: get all datasets
+      responses:
+        '200':
+          description: The operation succeeded.
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: the dataset title
+              completedOn:
+                type: string
+                description: the dataset completed time
+              outputFormat:
+                type: string
+                description: the dataset output format
+              configuration:
+                $ref: '#/definitions/DatasetConfiguration'
+        '400':
+          description: >-
+            BAD REQUEST - if there was problem with the request (e.g. malformed
+            or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: >-
+            INTERNAL SERVER ERROR - if the request was properly formatted, but
+            the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'
+    delete:
+      summary: delete dataset by folder name
+      description: delete dataset by folder name
+      tags:
+        - Dataset
+      parameters:
+        - name: title
+          in: query
+          description: The folder name of the dataset
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The operation succeeded.
+          schema:
+            $ref: '#/definitions/Message'
+        '400':
+          description: >-
+            BAD REQUEST - if there was problem with the request (e.g. malformed
+            or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: >-
+            INTERNAL SERVER ERROR - if the request was properly formatted, but
+            the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'
+  /generateDatasets:
+    put:
+      summary: Generate dataset.
+      description: |
+        Generate dataset using configuration with the specified title.
+      tags:
+        - Dataset
+      parameters:
+        - name: title
+          in: query
+          description: The title of the dataset configuration
+          required: true
+          type: string
+      responses:
+        '200':
+          description: The operation succeeded.
+          schema:
+            $ref: '#/definitions/Message'
+        '400':
+          description: >-
+            BAD REQUEST - if there was problem with the request (e.g. malformed
+            or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: >-
+            INTERNAL SERVER ERROR - if the request was properly formatted, but
+            the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'
+  /morbidities:
+    get:
+      summary: Get morbidities.
+      description: |
+        Get all morbidities for war era.
+      tags:
+        - DatasourcesData
+      parameters:
+        - name: warEra
+          in: query
+          type: string
+          required: true
+          description: the war era
+      responses:
+        '200':
+          description: The operation succeeded. The entities will be returned.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MorbidityData'
+        '400':
+          description: >-
+            BAD REQUEST - if there was problem with the request (e.g. malformed
+            or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: >-
+            INTERNAL SERVER ERROR - if the request was properly formatted, but
+            the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'
+  /warEras:
+    get:
+      summary: Get all war eras.
+      description: |
+        Get all war eras.
+      tags:
+        - DatasourcesData
+      responses:
+        '200':
+          description: The operation succeeded. The entities will be returned.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/WarEraInfo'
+        '400':
+          description: >-
+            BAD REQUEST - if there was problem with the request (e.g. malformed
+            or some parameters are missing)
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: >-
+            INTERNAL SERVER ERROR - if the request was properly formatted, but
+            the operation failed on the server side
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  DatasetConfiguration:
+    properties:
+      title:
+        type: string
+        description: The title.
+      warEra:
+        $ref: '#/definitions/WarEraInfo'
+      numberOfPatients:
+        type: integer
+        description: The number of patients.
+      maleRatio:
+        type: number
+        format: float
+        description: The male ratio.
+      femaleRatio:
+        type: number
+        format: float
+        description: The female ratio.
+      morbiditiesData:
+        type: array
+        items:
+          $ref: '#/definitions/MorbidityData'
+      relatedConditionsData:
+        type: array
+        items:
+          $ref: '#/definitions/RelatedConditionsData'
+      outputFolder:
+        type: string
+        description: The output folder.
+      outputFormat:
+        type: string
+        description: the output format, must be `CCDA`,`FHIR-XML`,`FHIR-JSON`
+      year:
+        type: integer
+        description: The report end year.
+  WarEraInfo:
+    properties:
+      warEra:
+        type: string
+        description: The name of the war era.
+      warEraCode:
+        type: string
+        description: The code of the war era.
+      warEraStartDate:
+        type: string
+        format: date
+        description: The start date of the war era.
+      warEraEndDate:
+        type: string
+        format: date
+        description: The end date of the war era.
+  MorbidityData:
+    properties:
+      name:
+        type: string
+        description: The name of the morbidity.
+      icd10Code:
+        type: string
+        description: The ICD-10 code of the morbidity.
+      percentOfPopulationWithDiagnosisRisk:
+        type: number
+        format: float
+        description: The percent of population with diagnosis risk.
+      percentOfProbabilityToAcquireDiagnosis:
+        type: number
+        format: float
+        description: The percent of risk group that acquires diagnosis.
+      numberOfEncounters:
+        type: integer
+        description: The number of encounters.
+      exclusionRules:
+        type: string
+        description: >-
+          The morbidity exclusion rules. Should be in Python notation for
+          expressions/logical operators.
+        example: gender == 'Male' or (gender == 'Female' and total_age <= 20)
+  RelatedConditionsData:
+    properties:
+      name:
+        type: string
+        description: The name of the condition.
+      icd10Code:
+        type: string
+        description: The ICD-10 code of the condition.
+      percentOfPopulationWithDiagnosisRisk:
+        type: number
+        format: float
+        description: The percent of population with diagnosis risk.
+      percentOfProbabilityToAcquireDiagnosis:
+        type: number
+        format: float
+        description: The percent of risk group that acquires diagnosis.
+      numberOfEncounters:
+        type: integer
+        description: The number of encounters.
+      exclusionRules:
+        type: string
+        description: >-
+          The related conditions exclusion rules. Should be in Python notation for
+          expressions/logical operators.
+        example: gender == 'Male' or (gender == 'Female' and total_age <= 20)
+  Error:
+    properties:
+      message:
+        type: string
+        description: The error message.
+  Message:
+    properties:
+      message:
+        type: string
+        description: The result text message.

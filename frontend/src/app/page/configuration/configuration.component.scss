@@ -1,0 +1,267 @@
+@import 'variables';
+
+.export-button {
+  float: right;
+  margin-top: 23px;
+  margin-right: 20px;
+  width: 127px;
+}
+
+.float-button {
+  float: right;
+  margin-top: 31px;
+}
+
+.large {
+  float: left;
+  margin-left: 10px;
+}
+
+.field-wrapper {
+  width: 100%;
+  background-color: $drop-bg;
+  padding: 40px;
+}
+
+.preview-header {
+  float: left;
+}
+
+h2 {
+  font-family: MyriadPro;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.8px;
+  text-align: left;
+  color: $primary-text-color;
+  margin: 0;
+  padding: 0;
+}
+
+small {
+  margin: 0;
+  float: left;
+  padding: 4px 0 0 0;
+  opacity: 0.56;
+  font-family: MyriadPro;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  text-align: left;
+  color: $primary-text-color;
+}
+
+/* preview header */
+.preview-header {
+  h2, small {
+    padding-left: 16px;
+  }
+}
+
+/* accordion */
+.accordion-wrapper {
+  .accordion {
+    margin-bottom: 8px;
+    &.completed {
+      .accordion-header {
+        background-color: $button-color;
+      }
+    }
+    &.active, &.done {
+      .accordion-header {
+        background-color: $button-color;
+      }
+      &:not(.done) .accordion-content {
+        display: block;
+      }
+    }
+    &.active {
+      .accordion-header {
+        i.expand {
+          background: url('/assets/i/collapse-icon.png') no-repeat;
+          background-size: 18px 18px;
+        }
+      }
+    }
+    .accordion-header {
+      cursor: pointer;
+      position: relative;
+      height: 48px;
+      line-height: 48px;
+      border-radius: 4px;
+      background-color: $accordion-header;
+      font-family: MyriadPro;
+      font-size: 15px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      letter-spacing: 0.5px;
+      text-align: left;
+      color: $white-color;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      padding-left: 24px;
+      i.done.show {
+        display: block;
+      }
+      span.hide {
+        opacity: 0;
+      }
+      span {
+        font-size: 15px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.5px;
+        text-align: left;
+        color: $white-color;
+        padding-right: 18px;
+      }
+      i.expand {
+        background: url('/assets/i/expanded-icon.png') no-repeat;
+        background-size: 18px 18px;
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        top: 16px;
+        right: 40px;
+      }
+      i.done {
+        display: none;
+        background: url('/assets/i/done-icon.png') no-repeat;
+        background-size: 20px 20px;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 14px;
+        left: 16px;
+      }
+    }
+    .accordion-content {
+      width: 100%;
+      display: none;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-radius: 4px;
+      background-color: $white-color;
+      padding: 32px 40px;
+
+      h5 {
+        font-family: MyriadPro;
+        font-size: 15px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.5px;
+        text-align: left;
+        color: $main-color;
+        margin: 0 0 32px 0;
+        padding: 0;
+        &.padding {
+          padding: 32px 0 27px 0;
+        }
+      }
+      .no-of-patients {
+        width: 147px;
+      }
+      .ratio {
+        width: 84px;
+        margin-right: 20px;
+        padding: 0;
+        text-align: center;
+      }
+      .date {
+        width: 53px;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      .year {
+        width: 93px;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      .percentage {
+        font-size: 14px;
+        font-weight: bold;
+        width: 56px;
+        height: 40px;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      .sec-1 {
+        float: left;
+        width: 204px;
+      }
+      .sec-3 {
+        float: left;
+        width: 428px;
+      }
+      .sec-4 {
+        float: left;
+        width: 294px;
+        span {
+          font-family: MyriadPro;
+          font-size: 16px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          letter-spacing: 0.5px;
+          text-align: left;
+          color: $primary-text-color;
+          line-height: 40px;
+          width: 16px;
+        }
+      }
+    }
+  }
+}
+
+/* preview edit table */
+.preview-edit-table {
+  tr {
+    .small-button {
+      opacity: 0;
+    }
+    td {
+      position: relative;
+      .remove-icon {
+        background: $white-color url('/assets/i/cancel-icon.png') no-repeat;
+        width: 32px;
+        height: 32px;
+        display: none;
+        position: absolute;
+        left: -12px;
+        vertical-align: middle;
+        top: 30%;
+        &:hover {
+          opacity: $hover-opacity;
+        }
+      }
+    }
+    &:hover {
+      .small-button {
+        opacity: 1;
+      }
+      td {
+        .remove-icon {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.gender-button {
+  width: 134px;
+}

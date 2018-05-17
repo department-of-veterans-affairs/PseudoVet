@@ -1,0 +1,48 @@
+<script src="modal.component.ts"></script>
+<div class="modal">
+  <h1 class="h1">{{title}}</h1>
+  <strong>{{name}}</strong>
+  <app-progress *ngIf="progress" [progress]="progress"></app-progress>
+  <small *ngIf="text">{{text}}</small>
+  <div *ngIf="genderModal" class="gender-section">
+    <h5>Gender</h5>
+    <div class="clearfix">
+      <div (click)="selectGender('MALE')" class="radio-wrapper"
+           [ngClass]="{'checked': gender.toUpperCase() === 'MALE'}">
+        <span class="radio-box"></span>
+        MALE
+      </div>
+      <div (click)="selectGender('FEMALE')" class="radio-wrapper"
+           [ngClass]="{'checked': gender.toUpperCase() === 'FEMALE'}">
+        <span class="radio-box"></span>
+        FEMALE
+      </div>
+      <div (click)="selectGender('None')" class="radio-wrapper"
+           [ngClass]="{'checked': gender.toUpperCase() === 'NONE'}">
+        <span class="radio-box"></span>
+        NONE
+      </div>
+    </div>
+
+    <h5 class="age-title">Age(filer by <= this age)</h5>
+    <div class="clearfix">
+      <input [ngModel]="age"
+             (ngModelChange)="ageInput($event)"
+             class="form-element age-input" appNumber maxlength="3"/>
+    </div>
+  </div>
+
+  <div *ngIf="type" class="modal-type {{type}}">
+
+    <i class=""></i>
+
+    <h2>{{type}}</h2>
+    <p>{{subtitle}}</p>
+
+  </div>
+  <div class="footer" [ngClass]="{'gender': genderModal}">
+    <ng-content></ng-content>
+  </div>
+</div>
+
+<div class="modal-overlay" (click)="closeModal()"></div>

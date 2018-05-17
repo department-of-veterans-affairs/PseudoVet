@@ -1,0 +1,21 @@
+{
+  "extension": [
+    {
+      "url": "statusCode",
+      "valueCode": "completed"
+    },
+    {
+      "url": "text",
+      "valueCode": "#BirthSexInfo"
+    },
+    {
+      "url": "effectiveTime",
+      "valueCode": "{{ default_date | datetime_format('%Y-%m-%d') }}"
+    },
+    {
+      "url": "Gender",
+      "valueCode": "{{gender}}"
+    }
+  ],
+  "display": "Sex Assigned At Birth"
+}

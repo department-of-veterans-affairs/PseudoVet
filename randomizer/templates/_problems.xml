@@ -1,0 +1,145 @@
+                    <!-- Adapted from https://github.com/HL7/C-CDA-Examples/blob/master/Problems/Active%20Problem/Active%20Problem(C-CDA2.1).xml -->
+                    <section>
+                        <templateId root="2.16.840.1.113883.10.20.22.2.5.1"/>
+                        <templateId root="2.16.840.1.113883.10.20.22.2.5.1" extension="2015-08-01"/>
+                        <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" displayName="Problem List"/>
+                        <title>Problem List</title>
+                        <text>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Dates</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for p in icd_problems %}
+                                        <tr ID="Problem{{loop.index}}">
+                                            <td>{{ p.name }}</td>
+                                            <td>
+                                                <content>Onset: {{ p.onset | datetime_format('%B %d, %Y') }}</content>
+                                                {% if p.resolved %}
+                                                    <content>Resolved: {{ p.resolved_on | datetime_format('%B %d, %Y') }}</content>
+                                                {% endif %}
+                                            </td>
+
+                                            {% if p.resolved %}
+                                                <td>Resolved</td>
+                                            {% else %}
+                                                <td>Active</td>
+                                            {% endif %}
+
+                                        </tr>
+                                    {% endfor%}
+
+                                    {% if date_of_death != None %}
+                                        <tr ID="ProblemDeath">
+                                            <td>Patient deceased</td>
+                                            <td>
+                                                <content>Onset: {{ date_of_death | datetime_format('%B %d, %Y') }}</content>
+                                                <content>Resolved: {{ date_of_death | datetime_format('%B %d, %Y') }}</content>
+                                            </td>
+                                            <td>Resolved</td>
+                                        </tr>
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                        </text>
+
+                        {% for p in icd_problems %}
+                            <entry>
+                                <act classCode="ACT" moodCode="EVN">
+                                    <templateId root="2.16.840.1.113883.10.20.22.4.3" />
+                                    <templateId root="2.16.840.1.113883.10.20.22.4.3" extension="2015-08-01"/>
+                                    <id root="102ca2e9-884c-4523-a2b4-1b6c3469c397"/>
+                                    <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+
+                                    <!-- Since this is an active problem, the concern status is active. -->
+                                    <!-- While clinicians can track resolved problems, generally active problems will have active concern status and resolved concerns will be completed -->
+                                    {% if p.resolved %}
+                                        <statusCode code="completed"/>
+                                    {% else %}
+                                        <statusCode code="active"/>
+                                    {% endif %}
+
+                                    <effectiveTime>
+                                        <!-- This equates to the time the concern was authored in the patient's chart. This may frequently be an EHR timestamp-->
+                                        <low value="{{effective_time | minus_random_days(50,100) | datetime_format('%Y%m%d') }}"/>
+                                    </effectiveTime>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.22.4.4" />
+                                            <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2015-08-01"/>
+                                            <id extension="10241104348" root="1.3.6.1.4.1.22812.4.111.0.4.1.2.1"/>
+                                            <code code="55607006" displayName="Problem"
+                                                codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT">
+                                                <translation code="75326-9" codeSystem="2.16.840.1.113883.6.1"
+                                                    codeSystemName="LOINC" displayName="Problem"/>
+                                            </code>
+                                            <text>
+                                                <reference value="#Problem{{loop.index}}"/>
+                                            </text>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime>
+                                                <!-- This represents the date of biological onset. -->
+                                                <low value="{{ p.onset | datetime_format('%Y%m%d') }}"/>
+        
+                                                {% if p.resolved %}
+                                                    <!-- The high value reflects when the problem was known to be resolved -->
+                                                    <high value="{{ p.resolved_on | datetime_format('%Y%m%d') }}"/>
+                                                {% endif %}
+        
+                                            </effectiveTime>
+                                            <!-- This is a ICD-10 code as the primary vocabulary for problem lists-->
+                                            <value xsi:type="CD" code="{{ p.code }}" codeSystem="2.16.840.1.113883.6.96"
+                                                codeSystemName="ICD-10" displayName="{{ p.name }}"/>
+                                        </observation>
+                                    </entryRelationship>
+                                </act>
+                            </entry>
+                        {% endfor%}
+
+                        {% if date_of_death != None %}
+                            <entry>
+                                <act classCode="ACT" moodCode="EVN">
+                                    <templateId root="2.16.840.1.113883.10.20.22.4.3" />
+                                    <templateId root="2.16.840.1.113883.10.20.22.4.3" extension="2015-08-01"/>
+                                    <id root="102ca2e9-884c-4523-a2b4-1b6c3469c397"/>
+                                    <code code="CONC" codeSystem="2.16.840.1.113883.5.6"/>
+                                    <statusCode code="completed"/>
+
+                                    <effectiveTime>
+                                        <!-- This equates to the time the concern was authored in the patient's chart. This may frequently be an EHR timestamp-->
+                                        <low value="{{ effective_time | minus_random_days(50,100) | datetime_format('%Y%m%d') }}"/>
+                                    </effectiveTime>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.22.4.4" />
+                                            <templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2015-08-01"/>
+                                            <id extension="10241104348" root="1.3.6.1.4.1.22812.4.111.0.4.1.2.1"/>
+                                            <code code="55607006" displayName="Problem"
+                                                codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT">
+                                                <translation code="75326-9" codeSystem="2.16.840.1.113883.6.1"
+                                                    codeSystemName="LOINC" displayName="Problem"/>
+                                            </code>
+                                            <text>
+                                                <reference value="#ProblemDeath"/>
+                                            </text>
+                                            <statusCode code="completed"/>
+                                            <effectiveTime>
+                                                <!-- This represents the date of biological onset. -->
+                                                <low value="{{ date_of_death | datetime_format('%Y%m%d') }}"/>
+                                                <!-- The high value reflects when the problem was known to be resolved -->
+                                                <high value="{{ date_of_death | datetime_format('%Y%m%d') }}"/>     
+                                            </effectiveTime>
+                                            <!-- This is a ICD-10 code as the primary vocabulary for problem lists-->
+                                            <value xsi:type="CD" code="J202" codeSystem="2.16.840.1.113883.6.96"
+                                                codeSystemName="ICD-10" displayName="Acute bronchitis due to streptococcus"/>
+                                        </observation>
+                                    </entryRelationship>
+                                </act>
+                            </entry>
+                        {% endif %}
+
+                    </section>

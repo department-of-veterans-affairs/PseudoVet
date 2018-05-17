@@ -1,0 +1,367 @@
+<app-header [menu]="menu"></app-header>
+
+<div class="container clearfix">
+
+  <!-- export modal  -->
+  <app-modal
+    (close)="exportModal = false"
+    title="Export Dataset"
+    subtitle="Exported file will begin download shortly."
+    type="success"
+    *ngIf="exportModal"
+    [name]="configurationData.title"
+    [text]="getDialogDescription()"
+  >
+    <button class="blue-button" (click)="exportModal = false">OK</button>
+  </app-modal>
+
+  <!-- save configuration -->
+  <app-modal
+    (close)="configurationSave = false"
+    title="Configuration File Saved!"
+    subtitle="The loaded configuration file has been successfully saved into database."
+    type="success"
+    *ngIf="configurationSave"
+    [name]="configurationData.title"
+    [text]="getDialogDescription()"
+  >
+    <a class="blue-button" [routerLink]="'/dashboard'">OK</a>
+  </app-modal>
+
+  <!-- delete modal  -->
+  <app-modal
+    (close)="deleteModal = false"
+    title="Delete Diagnosis"
+    *ngIf="deleteModal"
+    [name]="deleteIcd10Code + '-' + deleteName"
+  >
+    <button class="red-button" (click)="removeItem()">Delete</button>
+    <button class="cancel-button" (click)="deleteModal = false">Cancel</button>
+  </app-modal>
+
+
+  <!-- gender select modal  -->
+  <app-modal
+    (close)="genderModal = false"
+    title="Exclusions"
+    subtitle="Selected option will be excluded in the generated dataset"
+    type="info"
+    (changeGender)="changeGender($event)"
+    [gender]="gender"
+    [age]="age"
+    (changeAge)="age = $event"
+    [genderModal]="true"
+    *ngIf="genderModal"
+    [name]="genderName"
+    text="Daignosis"
+  >
+
+    <button class="blue-button gender-button" (click)="updateExcludes()">Add Exclusions</button>
+    <button class="cancel-button" (click)="genderModal = false">Cancel</button>
+  </app-modal>
+
+  <h1 class="heading">{{title}}</h1>
+
+  <button *ngIf="!create" [routerLink]="dashboard ? '/dashboard' : '/preview'" class="cancel-button float-button">
+    Cancel
+  </button>
+  <button *ngIf="!create && dashboard" (click)="onSaveClick()"
+          [disabled]="step1Validation() || step2Validation() || step3Validation() || step4Validation()"
+          class="success-button float-button long">
+    Save
+  </button>
+  <button *ngIf="!create && !dashboard" (click)="onSaveClick()"
+          [disabled]="step1Validation() || step2Validation() || step3Validation() || step4Validation()"
+          class="success-button float-button long">
+    Save
+  </button>
+
+  <button *ngIf="create"
+          [disabled]="step1Validation() || step2Validation() || step3Validation() || step4Validation()"
+          class="success-button export-button" (click)="onExportClick()">Export
+  </button>
+  <div *ngIf="!dashboard" class="preview-header">
+    <h2>{{editConfigObj.name}}</h2>
+    <small>Loaded configuration file name</small>
+  </div>
+
+  <p *ngIf="dashboard" class="large-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non erat in
+    diam aliquet
+    hendrerit at eget eros. In at metus erat. Nam consequat dapibus nisl, et tempor
+    elit sollicitudin quis. Donec feugiat purus ligula, vel facilisis enim blandit at. Nulla dapibus
+    sapien in libero vulputate accumsan. Guidelines go here.</p>
+</div>
+<div class="field-wrapper clearfix">
+  <div class="accordion-wrapper">
+    <div [ngClass]="{'active': selectedTab === 1, 'done': selectedTab > 1, 'completed': !create && !dashboard}"
+         class="accordion">
+      <div class="accordion-header"
+           (click)="selectedTab = (selectedTab > 1 || (!create && !dashboard) ) ? 1 : selectedTab">
+        <i class="done" [ngClass]="{'show': selectedTab > 1}"></i>
+        <i class="expand"></i>
+        <span [ngClass]="{'hide': selectedTab > 1}">1.</span>
+        POPULATION AND DATA SCOPE
+      </div>
+      <div class="accordion-content">
+
+
+        <div class="clearfix">
+          <label class="label-element">Dataset Title</label>
+          <input [value]="configurationData.title"
+                 (input)="configurationData.title = $event.target.value"
+                 type="text"
+                 class="form-element"/>
+        </div>
+        <h5>Population Configuration</h5>
+        <div class="clearfix">
+          <div class="sec-1">
+            <label class="label-element">No. of Patients</label>
+            <input appNumber [(ngModel)]= "configurationData.patients"
+                   type="text" minVal="1" class="form-element no-of-patients"/>
+          </div>
+          <div class="sec-2">
+            <label class="label-element">Patient gender Ratio (m / f)</label>
+            <input appNumber roundOff="false" [ngModel]= "configurationData.male"
+                   (ngModelChange)="onRadioChange($event, 'male')"
+                   type="text" class="form-element ratio"/>
+            <input appNumber roundOff="false" [ngModel]= "configurationData.female"
+                   (ngModelChange)="onRadioChange($event, 'female')"
+                   type="text" class="form-element ratio"/>
+          </div>
+        </div>
+        <h5>Data Scope</h5>
+        <div class="clearfix">
+          <div class="sec-3">
+            <label class="label-element">War Era</label>
+            <select
+              [ngClass]="{'empty': configurationData.war === ''}"
+              [value]="configurationData.war"
+              (change)="onWarSelected($event.target.value)"
+              class="form-element">
+              <option value=""></option>
+              <option *ngFor="let war of warEars"
+                      [selected]="configurationData.war===war.warEra"
+                      [value]="war.warEra">{{war.warEra}}
+              </option>
+            </select>
+          </div>
+
+
+          <!-- war start year -->
+          <div class="sec-4">
+            <label class="label-element">Start Date</label>
+            <input appNumber [value]="configurationData.warStart.d"
+                   (input)="configurationData.warStart.d = $event.target.value"
+                   type="text" class="form-element date" maxlength="2" readonly/>
+            <span>/</span>
+            <input appNumber [value]="configurationData.warStart.m"
+                   (input)="configurationData.warStart.m = $event.target.value"
+                   type="text" class="form-element date" maxlength="2" readonly/>
+            <span>/</span>
+            <input [value]="configurationData.warStart.y"
+                   (input)="configurationData.warStart.y = $event.target.value"
+                   type="text" class="form-element year" maxlength="4" readonly/>
+          </div>
+
+          <!-- war end year -->
+          <div class="sec-4">
+            <label class="label-element">End Date</label>
+            <input appNumber [ngModel]="31"
+                   type="text" class="form-element date" minVal="31" maxVal="31" maxlength="2" readonly/>
+            <span>/</span>
+            <input appNumber [ngModel]="12"
+                   type="text" class="form-element date" minVal="12" maxVal="12" maxlength="2" readonly/>
+            <span>/</span>
+            <input appNumber [(ngModel)]="configurationData.year"
+                   type="text" class="form-element year" mustFormat="false" maxlength="4" />
+          </div>
+        </div>
+        <div class="clearfix">
+          <button [disabled]="step1Validation()" class="blue-button light-blue"
+                  (click)="onNextClick()">Next
+          </button>
+        </div>
+      </div>
+    </div>
+    <div [ngClass]="{'active': selectedTab === 2, 'done': selectedTab > 2, 'completed': !create && !dashboard}"
+         class="accordion">
+      <div class="accordion-header"
+           (click)="selectedTab = (selectedTab > 2 || (!create && !dashboard)) ? 2 : selectedTab">
+        <i class="expand"></i>
+        <i class="done" [ngClass]="{'show': selectedTab > 2}"></i>
+        <span [ngClass]="{'hide': selectedTab > 2}">2.</span>
+        MORBIDITY CONFIGURATION
+      </div>
+      <div class="accordion-content">
+
+        <label class="label-element">Add Diagnosis</label>
+        <app-multi-select
+          [selectedOptions]="configurationData.selectedConfigurations"
+          (add)="onAddConfiguration($event)" [options]="morbidities"></app-multi-select>
+
+        <h5 class="padding">Selected Diagnosis</h5>
+        <table class="preview-table preview-edit-table">
+          <tr>
+            <th>#</th>
+            <th>DIAGNOSIS</th>
+            <th>% OF POPULATION<br/>WITH DIAGNOSIS</th>
+            <th>% OF PROBABILITY THE POPULATION ACQUIRES DIAGNOSIS</th>
+            <th>NO. OF ENCOUNTERS/<br/>EPISODES OF CAREPROFILES</th>
+            <th>EXCLUSIONS<br/>
+              <span>(Gender , Age)</span>
+            </th>
+          </tr>
+          <tr *ngFor="let item of configurationData.configurations; let $i=index">
+            <td>
+              <a (click)="deleteItems(item.icd10Code, item.name, 'configurations')" class="remove-icon"></a>
+              {{$i + 1}}
+            </td>
+            <td>{{item.icd10Code + '-' + item.name}}</td>
+            <td>
+              <input appPercentage [(ngModel)]="item.diagnosis"
+                     type="text" class="form-element percentage" maxlength="4"/>
+            </td>
+            <td>
+              <input appPercentage [(ngModel)]="item.acquires"
+                     type="text" class="form-element percentage" maxlength="4"/>
+            </td>
+            <td>
+              <input appNumber [(ngModel)]="item.profiles"
+                     type="text" class="form-element percentage"/>
+            </td>
+            <td>
+              <button (click)="editGender(item, 'configurations')" class="small-button large">Edit
+                Exclusion
+              </button>
+              {{item.gender  + (item.age && item.age.length !== 0 &&  item.age > 0 ? (',' + item.age ) : '') }}
+            </td>
+          </tr>
+          <tr *ngIf="configurationData.configurations && configurationData.configurations.length === 0">
+            <td>-</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+          </tr>
+        </table>
+
+        <div class="clearfix">
+          <button [disabled]="step2Validation()" class="blue-button light-blue"
+                  (click)="onStep2NextClick()">Next
+          </button>
+        </div>
+
+      </div>
+    </div>
+    <div [ngClass]="{'active': selectedTab === 3, 'done': selectedTab > 3, 'completed': !create && !dashboard}" class="accordion">
+      <div class="accordion-header" (click)="selectedTab = (!create && !dashboard) ? 3 : selectedTab">
+        <i class="expand"></i>
+        <i class="done" [ngClass]="{'show': selectedTab > 3}"></i>
+        <span [ngClass]="{'hide': selectedTab > 3}">3.</span>
+        RELATED CONDITION{{selectedTab === 3 ? 'S': ''}}
+      </div>
+      <div class="accordion-content">
+        <label class="label-element">Add Diagnosis</label>
+        <app-multi-select
+          [selectedOptions]="configurationData.selectedConditions"
+          (add)="onAddCondition($event)" [options]="morbidities"></app-multi-select>
+
+        <h5 class="padding">Selected Diagnosis</h5>
+        <table class="preview-table preview-edit-table">
+          <tr>
+            <th>#</th>
+            <th>DIAGNOSIS</th>
+            <th>% OF POPULATION<br/>WITH DIAGNOSIS</th>
+            <th>% OF PROBABILITY THE POPULATION ACQUIRES DIAGNOSIS</th>
+            <th>NO. OF ENCOUNTERS/<br/>EPISODES OF CAREPROFILES</th>
+            <th>EXCLUSIONS<br/></th>
+          </tr>
+          <tr *ngFor="let item of configurationData.conditions; let $i=index">
+            <td>
+              <a (click)="deleteItems(item.name, 'conditions')" class="remove-icon"></a>
+              {{$i + 1}}
+            </td>
+            <td>{{item.icd10Code + '-' + item.name}}</td>
+            <td>
+              <input appPercentage [(ngModel)]="item.diagnosis"
+                     type="text" class="form-element percentage" maxlength="4"/>
+            </td>
+            <td>
+              <input appPercentage [(ngModel)]="item.acquires"
+                     type="text" class="form-element percentage" maxlength="4"/>
+            </td>
+            <td>
+              <input appNumber [(ngModel)]="item.profiles"
+                     type="text" class="form-element percentage"/>
+            </td>
+            <td>
+              <button (click)="editGender(item, 'conditions')" class="small-button large">Edit
+                Exclusion
+              </button>
+              {{item.gender  + (item.age && item.age.length !== 0 &&  item.age > 0 ? (',' + item.age ) : '') }}
+            </td>
+          </tr>
+          <tr *ngIf="configurationData.conditions && configurationData.conditions.length === 0">
+            <td>-</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+          </tr>
+        </table>
+        <div class="clearfix">
+          <button [disabled]="step3Validation()" class="blue-button light-blue"
+                  (click)="onStep3NextClick()">Next
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div [ngClass]="{'active': selectedTab === 4, 'completed': !create && !dashboard}" class="accordion">
+      <div class="accordion-header" (click)="selectedTab = (!create && !dashboard) ? 4 : selectedTab">
+        <i class="expand"></i>
+        <i class="done" [ngClass]="{'show': selectedTab > 4}"></i>
+        <span [ngClass]="{'hide': selectedTab > 4}">4.</span>
+        OUTPUT FORMAT
+      </div>
+      <div class="accordion-content">
+
+        <label class="label-element">OUTPUT FORMAT</label>
+        <select
+          [value]="configurationData.outputFormat"
+          (change)="configurationData.outputFormat=$event.target.value"
+          class="form-element">
+          <option value=""></option>
+          <option value="CCDA">CCDA</option>
+          <option value="FHIR-XML">FHIR-XML</option>
+          <option value="FHIR-JSON">FHIR-JSON</option>
+        </select>
+
+        <div class="clearfix">
+
+          <button *ngIf="!create && !dashboard" (click)="onSaveClick()" [disabled]="step4Validation()"
+                  class="success-button longlong">Save
+          </button>
+          <button *ngIf="!create && dashboard" (click)="onSaveClick()" [disabled]="step4Validation()"
+                  class="success-button long">
+            Save
+          </button>
+
+          <button *ngIf="!create" [routerLink]="dashboard ? '/dashboard' : '/preview'" class="cancel-button">Cancel
+          </button>
+
+          <button *ngIf="create" class="blue-button light-blue long"
+                  (click)="onGenerateClick()"
+                  [disabled]="step4Validation()">
+            Generate Dataset
+          </button>
+          <button *ngIf="create" class="success-button" (click)="onExportClick()" [disabled]="step4Validation()">
+            Export
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

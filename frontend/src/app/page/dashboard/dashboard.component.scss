@@ -1,0 +1,80 @@
+@import 'variables';
+
+/* dashboard table styles */
+.dashboard-table {
+
+  position: relative;
+  width: 100%;
+  tr {
+    th {
+      &.completed-td {
+        width: 200px;
+      }
+      &.with-button {
+        width: 700px;
+        &.generated-table {
+          width: 600px;
+        }
+      }
+    }
+  }
+
+  .no-records {
+    width: 100%;
+    td {
+      align-items: center;
+      width: 100%;
+    }
+  }
+
+  tr {
+    td {
+      min-height: 41px;
+      word-wrap: break-word;
+      &:first-child {
+        width: 65px;
+        position: relative;
+      }
+      .remove-icon {
+        background: url('/assets/i/cancel-icon.png') no-repeat;
+        width: 32px;
+        height: 32px;
+        display: none;
+        position: absolute;
+        left: -12px;
+        top: 20%;
+        &:hover {
+          opacity: $hover-opacity;
+        }
+      }
+      &.action-button {
+        padding-top: 4px;
+        text-align: right;
+        width: 380px;
+        padding-bottom: 4px;
+        white-space: nowrap;
+        .small-button {
+          display: none;
+          margin-right: 10px;
+        }
+        .small-button.large {
+          width: 148px;
+        }
+      }
+    }
+    &:hover {
+      td {
+        .number {
+          display: none;
+        }
+        .small-button {
+          display: inline-block;
+        }
+        .remove-icon {
+          display: block;
+        }
+      }
+    }
+  }
+}
+

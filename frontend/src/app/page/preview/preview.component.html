@@ -1,0 +1,142 @@
+<app-header [menu]="menu"></app-header>
+
+
+<div class="container">
+
+  <!-- save configuration -->
+  <app-modal
+    (close)="configurationSave = false"
+    title="Configuration File Saved!"
+    subtitle="The loaded configuration file has been successfully saved into database."
+    type="success"
+    *ngIf="configurationSave"
+    [name]="previewData.name"
+    [text]="previewData.text"
+  >
+    <a class="blue-button" [routerLink]="'/dashboard'">OK</a>
+  </app-modal>
+
+  <!-- close configuration -->
+  <app-modal
+    (close)="configurationClose = false"
+    title="Close File"
+    subtitle="The file isn’t saved into database. Are you sure you want to close it without saving?"
+    type="warning"
+    *ngIf="configurationClose"
+    [name]="previewData.title"
+    [text]="previewData.text"
+  >
+    <a class="red-button" [routerLink]="'/dashboard'">Close</a>
+    <button class="cancel-button" (click)="configurationClose = false;">Cancel</button>
+  </app-modal>
+
+
+  <h1 class="heading">PREVIEW CONFIGURATION FILE</h1>
+
+
+  <div class="preview-wrapper clearfix">
+    <div class="preview-header clearfix">
+      <button *ngIf="previewData" (click)="configurationClose = true;" class="blue-button">Close</button>
+      <button *ngIf="previewData" (click)="onEditClick()" class="blue-button">Edit</button>
+      <button *ngIf="previewData" (click)="onSaveClick()" class="success-button">Save</button>
+      <h2>{{previewData.name}}</h2>
+      <small>Loaded configuration file name</small>
+    </div>
+
+    <div class="preview-block">
+      <h4>— POPULATION & DATA SCOPE —</h4>
+
+      <div class="row-element clearfix">
+        <div class="label">Dataset title</div>
+        <div class="value">{{previewData.title}}</div>
+      </div>
+
+      <h5>Population Configuration</h5>
+
+
+      <div class="row-element clearfix">
+        <div class="label">No.of patients</div>
+        <div class="value">{{previewData.numberOfPatients.toLocaleString()}}</div>
+      </div>
+
+      <div class="row-element clearfix">
+        <div class="label">Patient gender ratio<br/>
+          (m / f)
+        </div>
+        <div class="value">{{previewData.maleRatio + ' : ' + previewData.femaleRatio}}</div>
+      </div>
+
+      <h5>Data Scope</h5>
+      <div class="row-element clearfix">
+        <div class="label">War era</div>
+        <div class="value">{{previewData.warEra.warEra}}</div>
+      </div>
+      <div class="row-element clearfix">
+        <div class="label">Start date</div>
+        <div class="value">{{previewData.warEra.warEraStartDate | date:'dd / MM / yyyy'}}</div>
+      </div>
+      <div class="row-element clearfix">
+        <div class="label">End date</div>
+        <div class="value">{{previewData.warEra.warEraEndDate | date:'dd / MM / yyyy'}}</div>
+      </div>
+      <h4 class="margin-top">— MORBIDITY CONFIGURATIONS —</h4>
+
+      <table class="preview-table">
+        <tr>
+          <th>#</th>
+          <th>DIAGNOSIS</th>
+          <th>% OF POPULATION<br/>WITH DIAGNOSIS</th>
+          <th>% OF PROBABILITY THE POPULATION ACQUIRES DIAGNOSIS</th>
+          <th>NO. OF ENCOUNTERS/<br/>EPISODES OF CAREPROFILES</th>
+          <th>EXCLUSIONS<br/>
+            (Gender , Age)
+          </th>
+        </tr>
+        <tr *ngFor="let item of previewData.morbiditiesData; let $i=index">
+          <td>{{$i + 1}}</td>
+          <td>{{item.icd10Code + '-' + item.name}}</td>
+          <td><span class="span">{{item.percentOfPopulationWithDiagnosisRisk || 0}}%</span></td>
+          <td><span class="span">{{item.percentOfProbabilityToAcquireDiagnosis || 0}}%</span></td>
+          <td><span class="span">{{item.numberOfEncounters || 0}}</span></td>
+          <td>{{getGenderAndAgeFromExclusions(item.exclusionRules)}}</td>
+        </tr>
+      </table>
+
+      <h4>— RELATED CONDITIONS —</h4>
+
+      <table class="preview-table">
+        <tr>
+          <th>#</th>
+          <th>DIAGNOSIS</th>
+          <th>% OF POPULATION<br/>WITH DIAGNOSIS</th>
+          <th>% OF PROBABILITY THE POPULATION ACQUIRES DIAGNOSIS</th>
+          <th>NO. OF ENCOUNTERS/<br/>EPISODES OF CAREPROFILES</th>
+          <th>EXCLUSIONS<br/>
+            (Gender)
+          </th>
+        </tr>
+        <tr *ngFor="let item of previewData.relatedConditionsData; let $i=index">
+          <td>{{$i + 1}}</td>
+          <td>{{item.icd10Code + '-' + item.name}}</td>
+          <td><span class="span">{{item.percentOfPopulationWithDiagnosisRisk || 0}}%</span></td>
+          <td><span class="span">{{item.percentOfProbabilityToAcquireDiagnosis || 0}}%</span></td>
+          <td><span class="span">{{item.numberOfEncounters || 0}}</span></td>
+          <td>{{getGenderAndAgeFromExclusions(item.exclusionRules)}}</td>
+        </tr>
+      </table>
+
+      <h4>— OUTPUT FORMAT —</h4>
+      <div class="row-element clearfix last-ele">
+        <div class="label">Output format</div>
+        <div class="value">{{previewData.outputFormat}}</div>
+      </div>
+
+    </div>
+
+    <div class="action-buttons">
+      <button *ngIf="previewData" (click)="onSaveClick()" class="success-button">Save</button>
+      <button *ngIf="previewData" (click)="onEditClick()" class="blue-button">Edit</button>
+      <button *ngIf="previewData" (click)="configurationClose = true;" class="blue-button">Close</button>
+    </div>
+  </div>
+</div>

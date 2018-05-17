@@ -1,0 +1,26 @@
+<div [ngClass]="{'open' : open}" class="multi-select-wrapper">
+  <div class="selected-list" (click)="openDropDown()">
+    <ul>
+      <li *ngFor="let option of selectedOptions; let $i=index">{{option.icd10Code + '-' +option.name}}<a
+        (click)="removeItem($event, $i)"
+        href="javascript:;"></a></li>
+    </ul>
+  </div>
+
+  <div class="available-list">
+    <ul class="clearfix">
+      <li
+        [ngClass]="{'checked': isChecked(option)}"
+        (click)="toggleItem($event,option)"
+        *ngFor="let option of options; let $i=index">
+        <i></i>{{option.icd10Code + '-' +option.name}}
+      </li>
+    </ul>
+
+    <div class="action-buttons clearfix">
+      <button (click)="addSelected()" class="blue-button light-blue">Add</button>
+      <button (click)="clear()" class="cancel-button">Clear</button>
+    </div>
+  </div>
+
+</div>

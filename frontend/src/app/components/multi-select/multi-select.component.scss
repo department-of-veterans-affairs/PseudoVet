@@ -1,0 +1,100 @@
+@import "variables";
+
+.multi-select-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 40px;
+  border: solid 1px $primary-text-color;
+  background-color: $white-color;
+  font-family: MyriadPro;
+  .selected-list {
+    width: 100%;
+    min-height: 40px;
+    padding: 4px 16px 0 16px;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        margin-right: 7px;
+        margin-bottom: 4px;
+        height: 32px;
+        border-radius: 16px;
+        background-color: $primary-text-color;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 20px;
+        letter-spacing: 0.5px;
+        text-align: left;
+        color: $white-color;
+        padding: 6px 8px 6px 22px;
+        a {
+          width: 20px;
+          height: 20px;
+          margin-left: 12px;
+          background: url('/assets/i/item-remove-icon.png') no-repeat;
+          background-size: 20px 20px;
+          float: right;
+          &:hover {
+            opacity: $hover-opacity;
+          }
+        }
+      }
+    }
+  }
+  &.open {
+    .available-list {
+      display: block;
+    }
+  }
+  .available-list {
+    z-index: 20;
+    border: solid 1px $primary-text-color;
+    display: none;
+    position: absolute;
+    background: $white-color;
+    width: calc(100% + 2px);
+    top: 100%;
+    left: -1px;
+    padding: 23px 23px;
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        cursor: pointer;
+        width: 33.3%;
+        font-size: 16px;
+        color: $primary-text-color;
+        letter-spacing: 0.53px;
+        float: left;
+        margin-bottom: 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        line-height: 24px;
+        &.checked {
+          font-weight: bold;
+          i {
+            background-color: $primary-text-color;
+            background-image: url('/assets/i/check-icon.png');
+            background-repeat: no-repeat;
+            background-size: 15px 11px;
+            background-position: center center;
+          }
+        }
+        i {
+          border: 2px solid $primary-text-color;
+          border-radius: 2px;
+          width: 24px;
+          height: 24px;
+          float: left;
+          margin-right: 14px;
+        }
+      }
+    }
+  }
+}

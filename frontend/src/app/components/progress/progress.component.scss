@@ -1,0 +1,23 @@
+@import "variables";
+.progress {
+  float: left;
+  width: 256px;
+  height: 8px;
+  border-radius: 4px;
+  background-color: $progress-bg;
+  .bar {
+    width: 50%;
+    height: 8px;
+    border-radius: 4px;
+    background-color: $main-color;
+  }
+}
+.progress-text {
+  font-family: MyriadPro;
+  padding-left: 32px;
+  float: left;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-align: left;
+  color: $main-color;
+}
