@@ -61,7 +61,7 @@ export class UtilService {
    * @return {string} the description
    */
   static getDescriptionByBackendConfig (configObj) {
-    return `${configObj.warEra.warEra} / ${configObj.numberOfPatients} patients / ${
+    return `${configObj.studyProfile.studyProfile} / ${configObj.numberOfPatients} patients / ${
       configObj.maleRatio}:${configObj.femaleRatio} male-female ratio`;
   }
 }

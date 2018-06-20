@@ -34,8 +34,8 @@
                 <paragraph>    Phone: {{ econ_phone }}</paragraph>
                 <paragraph>    Email: {{ econ_email }}</paragraph>
                 <paragraph>---</paragraph>
-                {% if war != None %}
-                    <paragraph>Served in {{ war['war_name'] }}</paragraph>
+                {% if study_profile != None %}
+                    <paragraph>Served in {{ study_profile['study_profile_name'] }}</paragraph>
                     <paragraph>Military service disabilities: {{ military_service_disabilities }}</paragraph>
                 {% endif %}
                 {% if date_of_death != None %}

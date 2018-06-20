@@ -39,11 +39,11 @@
     }
   ],
   "title": "config-01",
-  "warEra": {
-    "warEra": "World War II",
-    "warEraCode": "world_war_ii",
-    "warEraEndDate": "Tue, 31 Dec 1946 00:00:00 GMT",
-    "warEraStartDate": "Sun, 07 Dec 1941 00:00:00 GMT"
+  "studyProfile": {
+    "studyProfile": "World War II",
+    "studyProfileCode": "world_war_ii",
+    "studyProfileEndDate": "Tue, 31 Dec 1946 00:00:00 GMT",
+    "studyProfileStartDate": "Sun, 07 Dec 1941 00:00:00 GMT"
   },
   "year": 1980
 }

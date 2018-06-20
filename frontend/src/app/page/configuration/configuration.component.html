@@ -132,38 +132,38 @@
         <h5>Data Scope</h5>
         <div class="clearfix">
           <div class="sec-3">
-            <label class="label-element">War Era</label>
+            <label class="label-element">Study Profile</label>
             <select
-              [ngClass]="{'empty': configurationData.war === ''}"
-              [value]="configurationData.war"
-              (change)="onWarSelected($event.target.value)"
+              [ngClass]="{'empty': configurationData.studyProfile === ''}"
+              [value]="configurationData.studyProfile"
+              (change)="onStudyProfileSelected($event.target.value)"
               class="form-element">
               <option value=""></option>
-              <option *ngFor="let war of warEars"
-                      [selected]="configurationData.war===war.warEra"
-                      [value]="war.warEra">{{war.warEra}}
+              <option *ngFor="let studyProfile of studyProfiles"
+                      [selected]="configurationData.studyProfile===studyProfile.studyProfile"
+                      [value]="studyProfile.studyProfile">{{studyProfile.studyProfile}}
               </option>
             </select>
           </div>
 
 
-          <!-- war start year -->
+          <!-- studyProfile start year -->
           <div class="sec-4">
             <label class="label-element">Start Date</label>
-            <input appNumber [value]="configurationData.warStart.d"
-                   (input)="configurationData.warStart.d = $event.target.value"
+            <input appNumber [value]="configurationData.studyProfileStart.d"
+                   (input)="configurationData.studyProfileStart.d = $event.target.value"
                    type="text" class="form-element date" maxlength="2" readonly/>
             <span>/</span>
-            <input appNumber [value]="configurationData.warStart.m"
-                   (input)="configurationData.warStart.m = $event.target.value"
+            <input appNumber [value]="configurationData.studyProfileStart.m"
+                   (input)="configurationData.studyProfileStart.m = $event.target.value"
                    type="text" class="form-element date" maxlength="2" readonly/>
             <span>/</span>
-            <input [value]="configurationData.warStart.y"
-                   (input)="configurationData.warStart.y = $event.target.value"
+            <input [value]="configurationData.studyProfileStart.y"
+                   (input)="configurationData.studyProfileStart.y = $event.target.value"
                    type="text" class="form-element year" maxlength="4" readonly/>
           </div>
 
-          <!-- war end year -->
+          <!-- studyProfile end year -->
           <div class="sec-4">
             <label class="label-element">End Date</label>
             <input appNumber [ngModel]="31"

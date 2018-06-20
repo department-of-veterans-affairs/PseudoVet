@@ -237,15 +237,15 @@ paths:
     get:
       summary: Get morbidities.
       description: |
-        Get all morbidities for war era.
+        Get all morbidities for study profile.
       tags:
         - DatasourcesData
       parameters:
-        - name: warEra
+        - name: studyProfile
           in: query
           type: string
           required: true
-          description: the war era
+          description: the study profile
       responses:
         '200':
           description: The operation succeeded. The entities will be returned.
@@ -265,11 +265,11 @@ paths:
             the operation failed on the server side
           schema:
             $ref: '#/definitions/Error'
-  /warEras:
+  /studyProfiles:
     get:
-      summary: Get all war eras.
+      summary: Get all study profiles.
       description: |
-        Get all war eras.
+        Get all study profiles.
       tags:
         - DatasourcesData
       responses:
@@ -278,7 +278,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/WarEraInfo'
+              $ref: '#/definitions/StudyProfileEraInfo'
         '400':
           description: >-
             BAD REQUEST - if there was problem with the request (e.g. malformed
@@ -297,8 +297,8 @@ definitions:
       title:
         type: string
         description: The title.
-      warEra:
-        $ref: '#/definitions/WarEraInfo'
+      studyProfile:
+        $ref: '#/definitions/StudyProfileEraInfo'
       numberOfPatients:
         type: integer
         description: The number of patients.
@@ -327,22 +327,22 @@ definitions:
       year:
         type: integer
         description: The report end year.
-  WarEraInfo:
+  StudyProfileEraInfo:
     properties:
-      warEra:
+      studyProfile:
         type: string
-        description: The name of the war era.
-      warEraCode:
+        description: The name of the study profile.
+      studyProfileCode:
         type: string
-        description: The code of the war era.
-      warEraStartDate:
-        type: string
-        format: date
-        description: The start date of the war era.
-      warEraEndDate:
+        description: The code of the study profile.
+      studyProfileStartDate:
         type: string
         format: date
-        description: The end date of the war era.
+        description: The start date of the study profile.
+      studyProfileEndDate:
+        type: string
+        format: date
+        description: The end date of the study profile.
   MorbidityData:
     properties:
       name:

@@ -48,14 +48,14 @@ CONFIGURATION_PREFIX = 'DatasetConfiguration'
 # the datasets directory prefix
 DATASET_PREFIX = 'Dataset'
 
-# the code of the default war era
-DEFAULT_WAR_ERA_CODE = 'world_war_ii'
+# the code of the default study profile
+DEFAULT_STUDY_PROFILE_CODE = 'world_war_ii'
 
-# the minimum age of generated patients on war start
-MIN_PATIENT_AGE_ON_WAR_START = 18
+# the minimum age of generated patients on study profile start
+MIN_PATIENT_AGE_ON_STUDY_PROFILE_START = 18
 
-# the maximum age of generated patients on war start
-MAX_PATIENT_AGE_ON_WAR_START = 40
+# the maximum age of generated patients on study profile start
+MAX_PATIENT_AGE_ON_STUDY_PROFILE_START = 40
 
 # the average death age of the generated patients
 DEATH_AGE_MEAN = 79
@@ -64,11 +64,11 @@ DEATH_AGE_MEAN = 79
 # death age is generated uniformly in the range [MEAN +/- DEVIATION]
 DEATH_AGE_DEVIATION = 15
 
-# the minimum number of days between the war start and the first report for a patient
-MIN_DAYS_TILL_FIRST_REPORT_AFTER_WAR_START = 100
+# the minimum number of days between the study profile start and the first report for a patient
+MIN_DAYS_TILL_FIRST_REPORT_AFTER_STUDY_PROFILE_START = 100
 
-# the maximum number of days between the war start and the first report for a patient
-MAX_DAYS_TILL_FIRST_REPORT_AFTER_WAR_START = 20 * 365
+# the maximum number of days between the study profile start and the first report for a patient
+MAX_DAYS_TILL_FIRST_REPORT_AFTER_STUDY_PROFILE_START = 20 * 365
 
 # the minimum number of days between the first report for a patient and a max date
 # that can be their death date or the configured report end year

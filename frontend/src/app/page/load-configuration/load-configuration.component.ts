@@ -157,7 +157,7 @@ export class LoadConfigurationComponent implements OnInit {
                                                                 ? 0 : parseFloat(m.percentOfPopulationWithDiagnosisRisk),
         percentOfProbabilityToAcquireDiagnosis: isNaN(parseFloat(m.percentOfProbabilityToAcquireDiagnosis))
                                                                 ? 0 : parseFloat(m.percentOfProbabilityToAcquireDiagnosis)})) : [],
-      warEra: loadedConfig.warEra,
+      studyProfile: loadedConfig.studyProfile,
       outputFormat: loadedConfig.outputFormat,
       year: loadedConfig.year
     };

@@ -10,7 +10,7 @@
 			"description": null,
 			"item": [
 				{
-					"name": "{{URL}}/datasetConfigurations - war not found",
+					"name": "{{URL}}/datasetConfigurations - study profile not found",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -21,7 +21,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"title\":\"config-01\",\n\t\"warEra\":{\n\t\t\"warEra\":\"World War III\"\n\t},\n\t\"maleRatio\":20,\n\t\"numberOfPatients\":13,\n\t\"year\":1993,\n\t\"morbiditiesData\":[\n\t\t{\n\t\t\t\"percentOfPopulationWithDiagnosisRisk\": 50,\n    \t\t\"percentOfProbabilityToAcquireDiagnosis\": 50,\n\t\t\t\"icd10Code\":\"I25\",\n\t\t\t\"name\":\"Chronic ischemic heart disease\"\n\t\t}\n\t]\n}"
+							"raw": "{\n\t\"title\":\"config-01\",\n\t\"studyProfile\":{\n\t\t\"studyProfile\":\"World War III\"\n\t},\n\t\"maleRatio\":20,\n\t\"numberOfPatients\":13,\n\t\"year\":1993,\n\t\"morbiditiesData\":[\n\t\t{\n\t\t\t\"percentOfPopulationWithDiagnosisRisk\": 50,\n    \t\t\"percentOfProbabilityToAcquireDiagnosis\": 50,\n\t\t\t\"icd10Code\":\"I25\",\n\t\t\t\"name\":\"Chronic ischemic heart disease\"\n\t\t}\n\t]\n}"
 						},
 						"url": "{{URL}}/datasetConfigurations"
 					},
@@ -39,7 +39,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"title\":\"config-01\",\n\t\"warEra\":{\n\t\t\"warEra\":\"World War II\"\n\t},\n\t\"femaleRatio\":30,\n\t\"numberOfPatients\":13,\n\t\"year\":1993,\n\t\"morbiditiesData\":[\n\t\t{\n    \t\t\"numberOfEncounters\": 3,\n\t\t\t\"icd10Code\":\"ZSDS\",\n\t\t\t\"name\":\"Unknown disease\"\n\t\t}\n\t]\n}"
+							"raw": "{\n\t\"title\":\"config-01\",\n\t\"studyProfile\":{\n\t\t\"studyProfile\":\"World War II\"\n\t},\n\t\"femaleRatio\":30,\n\t\"numberOfPatients\":13,\n\t\"year\":1993,\n\t\"morbiditiesData\":[\n\t\t{\n    \t\t\"numberOfEncounters\": 3,\n\t\t\t\"icd10Code\":\"ZSDS\",\n\t\t\t\"name\":\"Unknown disease\"\n\t\t}\n\t]\n}"
 						},
 						"url": "{{URL}}/datasetConfigurations"
 					},
@@ -57,7 +57,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"title\": \"config-01\",\r\n  \"maleRatio\": 60,\r\n  \"morbiditiesData\": [\r\n    {\r\n      \"exclusionRules\": \"gender == 'Female' or (gender == 'Male' and total_age <= 20)\",\r\n      \"name\": \"Chronic ischemic heart disease\",\r\n      \"numberOfEncounters\": 2\r\n    },\r\n    {\r\n      \"exclusionRules\": \"gender == 'Male'\",\r\n      \"icd10Code\": \"F33\",\r\n      \"name\": \"Major depressive disorder, recurrent\",\r\n      \"percentOfPopulationWithDiagnosisRisk\": 90,\r\n      \"percentOfProbabilityToAcquireDiagnosis\": 90\r\n    },\r\n    {\r\n      \"icd10Code\": \"Z60.2\",\r\n      \"name\": \"Problems related to living alone\",\r\n      \"numberOfEncounters\": 10\r\n    }\r\n  ],\r\n  \"numberOfPatients\": 10,\r\n  \"outputFolder\": \"./output/generatedDatasets\",\r\n  \"warEra\": {\r\n    \"warEra\": \"World War II\",\r\n    \"warEraCode\": \"world_war_ii\",\r\n    \"warEraEndDate\": \"Tue, 31 Dec 1946 00:00:00 GMT\",\r\n    \"warEraStartDate\": \"Sun, 07 Dec 1941 00:00:00 GMT\"\r\n  },\r\n  \"year\": 1980\r\n}"
+							"raw": "{\r\n  \"title\": \"config-01\",\r\n  \"maleRatio\": 60,\r\n  \"morbiditiesData\": [\r\n    {\r\n      \"exclusionRules\": \"gender == 'Female' or (gender == 'Male' and total_age <= 20)\",\r\n      \"name\": \"Chronic ischemic heart disease\",\r\n      \"numberOfEncounters\": 2\r\n    },\r\n    {\r\n      \"exclusionRules\": \"gender == 'Male'\",\r\n      \"icd10Code\": \"F33\",\r\n      \"name\": \"Major depressive disorder, recurrent\",\r\n      \"percentOfPopulationWithDiagnosisRisk\": 90,\r\n      \"percentOfProbabilityToAcquireDiagnosis\": 90\r\n    },\r\n    {\r\n      \"icd10Code\": \"Z60.2\",\r\n      \"name\": \"Problems related to living alone\",\r\n      \"numberOfEncounters\": 10\r\n    }\r\n  ],\r\n  \"numberOfPatients\": 10,\r\n  \"outputFolder\": \"./output/generatedDatasets\",\r\n  \"studyProfile\": {\r\n    \"studyProfile\": \"World War II\",\r\n    \"studyProfileCode\": \"world_war_ii\",\r\n    \"studyProfileEndDate\": \"Tue, 31 Dec 1946 00:00:00 GMT\",\r\n    \"studyProfileStartDate\": \"Sun, 07 Dec 1941 00:00:00 GMT\"\r\n  },\r\n  \"year\": 1980\r\n}"
 						},
 						"url": "{{URL}}/datasetConfigurations"
 					},
@@ -75,7 +75,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"title\":\"config-01\",\n\t\"warEra\":{\n\t\t\"warEra\":\"World War II\"\n\t},\n\t\"femaleRatio\":30.1,\n\t\"maleRatio\":20.1,\n\t\"numberOfPatients\":13,\n\t\"year\":1993,\n\t\"morbiditiesData\":[\n\t\t{\n\t\t\t\"percentOfPopulationWithDiagnosis\": 0,\n    \t\t\"percentOfProbabilityToAcquireDiagnosis\": 0,\n    \t\t\"numberOfEncounters\": 0,\n    \t\t\"exclusionRules\": \"gender == 'male' || (gender == 'female' && age <= 20)\",\n\t\t\t\"icd10Code\":\"I25\"\n\t\t}\n\t]\n}"
+							"raw": "{\n\t\"title\":\"config-01\",\n\t\"studyProfile\":{\n\t\t\"studyProfile\":\"World War II\"\n\t},\n\t\"femaleRatio\":30.1,\n\t\"maleRatio\":20.1,\n\t\"numberOfPatients\":13,\n\t\"year\":1993,\n\t\"morbiditiesData\":[\n\t\t{\n\t\t\t\"percentOfPopulationWithDiagnosis\": 0,\n    \t\t\"percentOfProbabilityToAcquireDiagnosis\": 0,\n    \t\t\"numberOfEncounters\": 0,\n    \t\t\"exclusionRules\": \"gender == 'male' || (gender == 'female' && age <= 20)\",\n\t\t\t\"icd10Code\":\"I25\"\n\t\t}\n\t]\n}"
 						},
 						"url": {
 							"raw": "{{URL}}/datasetConfigurations?title=config-sdsdsd",
@@ -123,7 +123,7 @@
 					"response": []
 				},
 				{
-					"name": "{{URL}}/morbidities - war not found",
+					"name": "{{URL}}/morbidities - study profile not found",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -132,7 +132,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{URL}}/morbidities?warEra=World War III",
+							"raw": "{{URL}}/morbidities?studyProfile=World War III",
 							"host": [
 								"{{URL}}"
 							],
@@ -141,7 +141,7 @@
 							],
 							"query": [
 								{
-									"key": "warEra",
+									"key": "studyProfile",
 									"value": "World War III"
 								}
 							]
@@ -150,7 +150,7 @@
 					"response": []
 				},
 				{
-					"name": "{{URL}}/morbidities - no war era",
+					"name": "{{URL}}/morbidities - no study profile",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -203,14 +203,14 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"title\": \"config-01\",\r\n  \"maleRatio\": 10,\r\n  \"morbiditiesData\": [\r\n    {\r\n      \"exclusionRules\": \"gender == 'Female' or (gender == 'Male' and total_age <= 20)\",\r\n      \"icd10Code\": \"I25\",\r\n      \"numberOfEncounters\": 2\r\n    },\r\n    {\r\n      \"exclusionRules\": \"gender == 'Male'\",\r\n      \"icd10Code\": \"F33\",\r\n      \"percentOfPopulationWithDiagnosisRisk\": 90,\r\n      \"percentOfProbabilityToAcquireDiagnosis\": 90\r\n    },\r\n    {\r\n      \"icd10Code\": \"Z60.2\",\r\n      \"numberOfEncounters\": 10\r\n    }\r\n  ],\r\n  \"numberOfPatients\": 10,\r\n  \"outputFolder\": \"./output/generatedDatasets\",\r\n  \"warEra\": {\r\n    \"warEra\": \"World War II\",\r\n    \"warEraCode\": \"world_war_ii\",\r\n    \"warEraEndDate\": \"Tue, 31 Dec 1946 00:00:00 GMT\",\r\n    \"warEraStartDate\": \"Sun, 07 Dec 1941 00:00:00 GMT\"\r\n  },\r\n  \"outputFormat\":\"FHIR-JSON\",\r\n  \"year\": 1980\r\n}"
+					"raw": "{\r\n  \"title\": \"config-01\",\r\n  \"maleRatio\": 10,\r\n  \"morbiditiesData\": [\r\n    {\r\n      \"exclusionRules\": \"gender == 'Female' or (gender == 'Male' and total_age <= 20)\",\r\n      \"icd10Code\": \"I25\",\r\n      \"numberOfEncounters\": 2\r\n    },\r\n    {\r\n      \"exclusionRules\": \"gender == 'Male'\",\r\n      \"icd10Code\": \"F33\",\r\n      \"percentOfPopulationWithDiagnosisRisk\": 90,\r\n      \"percentOfProbabilityToAcquireDiagnosis\": 90\r\n    },\r\n    {\r\n      \"icd10Code\": \"Z60.2\",\r\n      \"numberOfEncounters\": 10\r\n    }\r\n  ],\r\n  \"numberOfPatients\": 10,\r\n  \"outputFolder\": \"./output/generatedDatasets\",\r\n  \"studyProfile\": {\r\n    \"studyProfile\": \"World War II\",\r\n    \"studyProfileCode\": \"world_war_ii\",\r\n    \"studyProfileEndDate\": \"Tue, 31 Dec 1946 00:00:00 GMT\",\r\n    \"studyProfileStartDate\": \"Sun, 07 Dec 1941 00:00:00 GMT\"\r\n  },\r\n  \"outputFormat\":\"FHIR-JSON\",\r\n  \"year\": 1980\r\n}"
 				},
 				"url": "{{URL}}/datasetConfigurations"
 			},
 			"response": []
 		},
 		{
-			"name": "{{URL}}/datasetConfigurations - using morbidity missing in war era",
+			"name": "{{URL}}/datasetConfigurations - using morbidity missing in study profile",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -221,7 +221,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"title\": \"config-02\",\r\n  \"maleRatio\": 60,\r\n  \"morbiditiesData\": [\r\n    {\r\n      \"icd10Code\": \"L400\",\r\n      \"numberOfEncounters\": 2\r\n    }\r\n  ],\r\n  \"numberOfPatients\": 10,\r\n  \"outputFolder\": \"./output/generatedDatasets\",\r\n  \"warEra\": {\r\n    \"warEra\": \"World War II\",\r\n    \"warEraCode\": \"world_war_ii\",\r\n    \"warEraEndDate\": \"Tue, 31 Dec 1946 00:00:00 GMT\",\r\n    \"warEraStartDate\": \"Sun, 07 Dec 1941 00:00:00 GMT\"\r\n  },\r\n  \"year\": 1980\r\n}"
+					"raw": "{\r\n  \"title\": \"config-02\",\r\n  \"maleRatio\": 60,\r\n  \"morbiditiesData\": [\r\n    {\r\n      \"icd10Code\": \"L400\",\r\n      \"numberOfEncounters\": 2\r\n    }\r\n  ],\r\n  \"numberOfPatients\": 10,\r\n  \"outputFolder\": \"./output/generatedDatasets\",\r\n  \"studyProfile\": {\r\n    \"studyProfile\": \"World War II\",\r\n    \"studyProfileCode\": \"world_war_ii\",\r\n    \"studyProfileEndDate\": \"Tue, 31 Dec 1946 00:00:00 GMT\",\r\n    \"studyProfileStartDate\": \"Sun, 07 Dec 1941 00:00:00 GMT\"\r\n  },\r\n  \"year\": 1980\r\n}"
 				},
 				"url": "{{URL}}/datasetConfigurations"
 			},
@@ -239,7 +239,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"title\":\"config-01\",\n\t\"warEra\":{\n\t\t\"warEra\":\"World War II\"\n\t},\n\t\"femaleRatio\":30.1,\n\t\"maleRatio\":20.1,\n\t\"numberOfPatients\":13,\n\t\"year\":1993,\n\t\"morbiditiesData\":[\n\t\t{\n\t\t\t\"percentOfPopulationWithDiagnosis\": 0,\n    \t\t\"percentOfProbabilityToAcquireDiagnosis\": 0,\n    \t\t\"numberOfEncounters\": 0,\n    \t\t\"exclusionRules\": \"gender == 'male' || (gender == 'female' && age <= 20)\",\n\t\t\t\"icd10Code\":\"I25\"\n\t\t}\n\t]\n}"
+					"raw": "{\n\t\"title\":\"config-01\",\n\t\"studyProfile\":{\n\t\t\"studyProfile\":\"World War II\"\n\t},\n\t\"femaleRatio\":30.1,\n\t\"maleRatio\":20.1,\n\t\"numberOfPatients\":13,\n\t\"year\":1993,\n\t\"morbiditiesData\":[\n\t\t{\n\t\t\t\"percentOfPopulationWithDiagnosis\": 0,\n    \t\t\"percentOfProbabilityToAcquireDiagnosis\": 0,\n    \t\t\"numberOfEncounters\": 0,\n    \t\t\"exclusionRules\": \"gender == 'male' || (gender == 'female' && age <= 20)\",\n\t\t\t\"icd10Code\":\"I25\"\n\t\t}\n\t]\n}"
 				},
 				"url": {
 					"raw": "{{URL}}/datasetConfigurations?title=config-01",
@@ -271,7 +271,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"title\":\"config-01\",\n\t\"warEra\":{\n\t\t\"warEra\":\"World War II\"\n\t},\n\t\"femaleRatio\":30.1,\n\t\"maleRatio\":20.1,\n\t\"numberOfPatients\":13,\n\t\"year\":1993,\n\t\"morbiditiesData\":[\n\t\t{\n\t\t\t\"percentOfPopulationWithDiagnosis\": 0,\n    \t\t\"percentOfProbabilityToAcquireDiagnosis\": 0,\n    \t\t\"numberOfEncounters\": 0,\n    \t\t\"exclusionRules\": \"gender == 'male' || (gender == 'female' && age <= 20)\",\n\t\t\t\"icd10Code\":\"I25\"\n\t\t}\n\t]\n}"
+					"raw": "{\n\t\"title\":\"config-01\",\n\t\"studyProfile\":{\n\t\t\"studyProfile\":\"World War II\"\n\t},\n\t\"femaleRatio\":30.1,\n\t\"maleRatio\":20.1,\n\t\"numberOfPatients\":13,\n\t\"year\":1993,\n\t\"morbiditiesData\":[\n\t\t{\n\t\t\t\"percentOfPopulationWithDiagnosis\": 0,\n    \t\t\"percentOfProbabilityToAcquireDiagnosis\": 0,\n    \t\t\"numberOfEncounters\": 0,\n    \t\t\"exclusionRules\": \"gender == 'male' || (gender == 'female' && age <= 20)\",\n\t\t\t\"icd10Code\":\"I25\"\n\t\t}\n\t]\n}"
 				},
 				"url": "{{URL}}/datasetConfigurations"
 			},
@@ -329,7 +329,7 @@
 			"response": []
 		},
 		{
-			"name": "{{URL}}/warEras",
+			"name": "{{URL}}/studyProfiles",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -337,7 +337,7 @@
 					"mode": "raw",
 					"raw": ""
 				},
-				"url": "{{URL}}/warEras"
+				"url": "{{URL}}/studyProfiles"
 			},
 			"response": []
 		},
@@ -351,7 +351,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{URL}}/morbidities?warEra=World War II",
+					"raw": "{{URL}}/morbidities?studyProfile=World War II",
 					"host": [
 						"{{URL}}"
 					],
@@ -360,7 +360,7 @@
 					],
 					"query": [
 						{
-							"key": "warEra",
+							"key": "studyProfile",
 							"value": "World War II"
 						}
 					]

@@ -21,9 +21,9 @@ export class ConfigurationComponent implements OnInit {
     female: '',
     configurations: [],
     conditions: [],
-    war: '',
-    warStart: { d: '', m: '', y: '' },
-    warEnd: { d: '', m: '', y: '' },
+    studyProfile: '',
+    studyProfileStart: { d: '', m: '', y: '' },
+    studyProfileEnd: { d: '', m: '', y: '' },
     selectedConfigurations: [],
     selectedConditions: [],
     year: new Date().getUTCFullYear(),
@@ -52,7 +52,7 @@ export class ConfigurationComponent implements OnInit {
   dashboard = true;
 
   /* backend data */
-  warEars = [];
+  studyProfiles = [];
   morbidities = [];
 
   constructor (private route: ActivatedRoute,
@@ -98,11 +98,11 @@ export class ConfigurationComponent implements OnInit {
       ];
     }
 
-    // fetch wars
-    dataService.getWarEras().then(res => {
-      this.warEars = res;
-      if (this.configurationData.war) {
-        this.onWarSelected(this.configurationData.war);
+    // fetch study profiles
+    dataService.getStudyProfiles().then(res => {
+      this.studyProfiles = res;
+      if (this.configurationData.studyProfile) {
+        this.onStudyProfileSelected(this.configurationData.studyProfile);
       }
     }).catch(err => {
       console.error(err);
@@ -115,23 +115,23 @@ export class ConfigurationComponent implements OnInit {
 
 
   /**
-   * on war selected
-   * @param value the war code
+   * on study profile selected
+   * @param value the study profile code
    */
-  onWarSelected (value) {
-    this.configurationData.war = value;
-    const war = this.warEars.find(w => w.warEra === value);
-    if (!!war) {
-      this.configurationData.warStart = this.getDMYByTimeString(war.warEraStartDate);
-      this.configurationData.warEnd = this.getDMYByTimeString(war.warEraEndDate);
+  onStudyProfileSelected (value) {
+    this.configurationData.studyProfile = value;
+    const studyProfile = this.studyProfiles.find(s => s.studyProfile === value);
+    if (!!studyProfile) {
+      this.configurationData.studyProfileStart = this.getDMYByTimeString(studyProfile.studyProfileStartDate);
+      this.configurationData.studyProfileEnd = this.getDMYByTimeString(studyProfile.studyProfileEndDate);
     } else {
-      this.configurationData.warStart = { d: '', m: '', y: '' };
-      this.configurationData.warEnd = { d: '', m: '', y: '' };
+      this.configurationData.studyProfileStart = { d: '', m: '', y: '' };
+      this.configurationData.studyProfileEnd = { d: '', m: '', y: '' };
     }
   }
 
   /**
-   * get war start d/m/y by time string from backend
+   * get study profile start d/m/y by time string from backend
    * @param timeStr the time string
    * @return {any}
    */
@@ -152,7 +152,7 @@ export class ConfigurationComponent implements OnInit {
    */
   step1Validation () {
     let error = false;
-    const mandatory = ['title', 'patients', 'male', 'female', 'war', 'year'];
+    const mandatory = ['title', 'patients', 'male', 'female', 'studyProfile', 'year'];
     each(mandatory, (label) => {
       if (this.configurationData[label].toString().trim() === '' || this.configurationData['patients'] <= 0) {
         error = true;
@@ -161,14 +161,14 @@ export class ConfigurationComponent implements OnInit {
 
     const timeMandatory = ['d', 'm', 'y'];
     each(timeMandatory, (label) => {
-      if (this.configurationData.warStart[label] === '') {
+      if (this.configurationData.studyProfileStart[label] === '') {
         error = true;
       }
     });
 
     if (!error) {
-      const startDate = new Date(this.configurationData.warStart['y'], this.configurationData.warStart['m'],
-                                    this.configurationData.warStart['d']);
+      const startDate = new Date(this.configurationData.studyProfileStart['y'], this.configurationData.studyProfileStart['m'],
+                                    this.configurationData.studyProfileStart['d']);
       const endDate = new Date(this.configurationData.year, 12, 31);
 
       if (endDate <= startDate) {
@@ -209,7 +209,7 @@ export class ConfigurationComponent implements OnInit {
   onNextClick () {
     this.selectedTab = this.selectedTab + 1;
     if (this.selectedTab === 2) { // this mean switch to MORBIDITY
-      this.dataService.getMorbiditiesByWarName(this.configurationData.war).then(res => {
+      this.dataService.getMorbiditiesByStudyProfileName(this.configurationData.studyProfile).then(res => {
         this.morbidities = res as any;
         this.configurationData.configurations = intersectionBy(this.configurationData.configurations,
                this.morbidities, 'icd10Code');
@@ -473,7 +473,7 @@ export class ConfigurationComponent implements OnInit {
         percentOfPopulationWithDiagnosisRisk: this.toFloat(m.diagnosis),
         percentOfProbabilityToAcquireDiagnosis: this.toFloat(m.acquires),
       })),
-      warEra: this.warEars.find(w => w.warEra === frontendConfig.war),
+      studyProfile: this.studyProfiles.find(s => s.studyProfile === frontendConfig.studyProfile),
       outputFormat: frontendConfig.outputFormat,
       year: parseInt(frontendConfig.year, 10)
     };
@@ -485,7 +485,7 @@ export class ConfigurationComponent implements OnInit {
 
   getDialogDescription () {
     const configObj = this.configurationData;
-    return `${configObj.war} / ${configObj.patients.toLocaleString()} patients / ${
+    return `${configObj.studyProfile} / ${configObj.patients.toLocaleString()} patients / ${
       configObj.male}:${configObj.female} male-female ratio"`;
   }
 
@@ -518,9 +518,9 @@ export class ConfigurationComponent implements OnInit {
         acquires: (m.percentOfProbabilityToAcquireDiagnosis || 0) + '%',
         profiles: m.numberOfEncounters || 0,
       })) : [],
-      war: backendConfig.warEra.warEra,
-      warStart: this.getDMYByTimeString(backendConfig.warEra.warEraStartDate),
-      warEnd: this.getDMYByTimeString(backendConfig.warEra.warEraEndDate),
+      studyProfile: backendConfig.studyProfile.studyProfile,
+      studyProfileStart: this.getDMYByTimeString(backendConfig.studyProfile.studyProfileStartDate),
+      studyProfileEnd: this.getDMYByTimeString(backendConfig.studyProfile.studyProfileEndDate),
       selectedConfigurations: backendConfig.morbiditiesData.map(m => ({
         icd10Code: m.icd10Code,
         name: m.name,

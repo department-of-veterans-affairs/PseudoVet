@@ -102,7 +102,7 @@
           <th>#</th>
           <th>CONFIGURATION TITLE</th>
           <th colspan="2" class="with-button">GENERAL DEMOGRAPHICS
-            <small>(War Era / Patients / Gender ratio)</small>
+            <small>(Study Profile / Patients / Gender ratio)</small>
           </th>
         </tr>
         <tr *ngFor="let item of configurations; let $i=index">
@@ -110,7 +110,7 @@
             <a (click)="removeConfigItem($i)" href="javascript:;" class="remove-icon"></a>
             <span class="number">{{$i + 1}}</span></td>
           <td>{{item.title}}</td>
-          <td>{{item.warEra.warEra + ' / ' + getPatientsAndRadioLabel(item)}}
+          <td>{{item.studyProfile.studyProfile + ' / ' + getPatientsAndRadioLabel(item)}}
           </td>
           <td class="action-button">
             <button (click)="generateDataset($i)" class="small-button large">Generate Dataset</button>
@@ -139,7 +139,7 @@
           <th>OUTPUT FORMAT</th>
           <th class="completed-td">COMPLETED ON</th>
           <th colspan="2" class="with-button generated-table">GENERAL DEMOGRAPHICS
-            <small>(War Era / Patients / Gender ratio)</small>
+            <small>(Study Profile / Patients / Gender ratio)</small>
           </th>
         </tr>
         <tr *ngFor="let dataset of datasets; let $i=index">
@@ -150,7 +150,7 @@
           <td>{{dataset.title}}</td>
           <td>{{dataset.outputFormat}}</td>
           <td>{{dataset.completedOn | date:'yyyy-MM-dd HH:mm:ss'}}</td>
-          <td>{{dataset.configuration.warEra.warEra + ' / '
+          <td>{{dataset.configuration.studyProfile.studyProfile + ' / '
             + dataset.configuration.numberOfPatients.toLocaleString() + ' / '
             + getPatientsAndRadioLabel(dataset.configuration)}}
           </td>

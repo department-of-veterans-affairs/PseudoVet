@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class PreviewComponent implements OnInit {
 
   previewData: any = {
-    warEra: {},
+    studyProfile: {},
     morbiditiesData: [],
   };
   configurationSave = false;

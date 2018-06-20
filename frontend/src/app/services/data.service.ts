@@ -6,35 +6,35 @@ import 'rxjs/add/operator/share';
 
 @Injectable()
 export class DataService {
-  private _warErasData = null;
+  private _studyProfilesData = null;
 
   constructor (private http: HttpClient) {
   }
 
 
   /**
-   * get all warEras and cache those data
+   * get all studyProfiles and cache those data
    * @return {any} the promise with data
    */
-  getWarEras () {
-    if (this._warErasData !== null) {
-      return Promise.resolve(this._warErasData);
+  getStudyProfiles () {
+    if (this._studyProfilesData !== null) {
+      return Promise.resolve(this._studyProfilesData);
     } else {
-      return this.http.get(`${environment.baseUri}/warEras`).toPromise()
+      return this.http.get(`${environment.baseUri}/studyProfiles`).toPromise()
         .then(res => {
-          this._warErasData = res;
-          return this._warErasData;
+          this._studyProfilesData = res;
+          return this._studyProfilesData;
         });
     }
   }
 
   /**
-   * get morbidities by war name
-   * @param {string} warName
+   * get morbidities by study profile name
+   * @param {string} studyProfileName
    * @return {Array} the morbidities
    */
-  getMorbiditiesByWarName (warName: string) {
-    return this.http.get(`${environment.baseUri}/morbidities?warEra=${warName}`).toPromise();
+  getMorbiditiesByStudyProfileName (studyProfileName: string) {
+    return this.http.get(`${environment.baseUri}/morbidities?studyProfile=${studyProfileName}`).toPromise();
   }
 
   /**

@@ -2,7 +2,7 @@
 
 ## Description
 This CLI utility creates C-CDA compliant documents of any number of fictional patients, using random data. It has the following features:
-1. Builds C-CDA documents for the specified number of veterans of the specified war.
+1. Builds C-CDA documents for the specified number of veterans of the specified study profile.
 2. Calculates death based on [life expectancy](https://en.wikipedia.org/wiki/List_of_sovereign_states_by_life_expectancy) and modifies C-CDA documents accordingly.
 3. Distributes gender and morbidities across patients according to the provided probabilities and exclusion rules.
 4. Ages the patient records until death or specified report end year.
@@ -62,7 +62,7 @@ Options:
     -c path         Path to the dataset configuration file.
     -t title        Title of dataset configuration to be used.
       At maximum one of -c and -t switches is expected to be specified.
-    -w code         Code of war era for which records are created.
+    -s code         Code of study profile for which records are created.
       E.g. world_war_ii, vietnam_war, korean_conflict or gulf_war.
       Can override value specified in dataset configuration file.
       Default is world_war_ii.
