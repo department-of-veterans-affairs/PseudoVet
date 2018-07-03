@@ -11,6 +11,7 @@ export class NumberDirective implements OnInit {
   @Input() mustFormat = true;
   @Input() maxVal: number;
   @Input() minVal: number;
+  @Input() blank = false;
 
   constructor (private elementRef: ElementRef,
                private numberPipe: NumberPipe) {
@@ -24,13 +25,13 @@ export class NumberDirective implements OnInit {
 
   @HostListener('focus', ['$event.target.value'])
   onFocus (value) {
-    const result = this.numberPipe.parse(value, this.roundOff, this.mustFormat, this.minVal, this.maxVal);
+    const result = this.numberPipe.parse(value, this.roundOff, this.mustFormat, this.minVal, this.maxVal, this.blank);
     this.ngModelChange.emit(result);
   }
 
   @HostListener('blur', ['$event.target.value'])
   onBlur (value) {
-    const result = this.numberPipe.transform(value, this.roundOff, this.mustFormat, this.minVal, this.maxVal);
+    const result = this.numberPipe.transform(value, this.roundOff, this.mustFormat, this.minVal, this.maxVal, this.blank);
     this.ngModelChange.emit(result);
   }
 }

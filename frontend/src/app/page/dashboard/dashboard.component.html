@@ -88,10 +88,7 @@
   <h1 class="heading">DATASETS</h1>
 
 
-  <p class="large-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non erat in diam aliquet
-    hendrerit at eget eros. In at metus erat. Nam consequat dapibus nisl, et tempor
-    elit sollicitudin quis. Donec feugiat purus ligula, vel facilisis enim blandit at. Nulla dapibus
-    sapien in libero vulputate accumsan.</p>
+  <p class="large-text">Please select from an existing configuration below or use the "Create configuration" tab to create a new one. You can also view your perviously generated datasets below.</p>
 
 
   <ng-container *ngIf="dashboardData">
@@ -101,6 +98,7 @@
         <tr>
           <th>#</th>
           <th>CONFIGURATION TITLE</th>
+          <th class="format">OUTPUT FORMAT</th>
           <th colspan="2" class="with-button">GENERAL DEMOGRAPHICS
             <small>(Study Profile / Patients / Gender ratio)</small>
           </th>
@@ -110,6 +108,7 @@
             <a (click)="removeConfigItem($i)" href="javascript:;" class="remove-icon"></a>
             <span class="number">{{$i + 1}}</span></td>
           <td>{{item.title}}</td>
+          <td>{{item.outputFormat}}</td>
           <td>{{item.studyProfile.studyProfile + ' / ' + getPatientsAndRadioLabel(item)}}
           </td>
           <td class="action-button">
@@ -136,7 +135,9 @@
         <tr>
           <th>#</th>
           <th>DATATSET TITLE</th>
-          <th>OUTPUT FORMAT</th>
+          <th class="format">OUTPUT FORMAT</th>
+          <th class="status">STATUS</th>
+          <th class="progress">PROGRESS</th>
           <th class="completed-td">COMPLETED ON</th>
           <th colspan="2" class="with-button generated-table">GENERAL DEMOGRAPHICS
             <small>(Study Profile / Patients / Gender ratio)</small>
@@ -149,12 +150,15 @@
           </td>
           <td>{{dataset.title}}</td>
           <td>{{dataset.outputFormat}}</td>
+
+          <td>{{dataset.status}}</td>
+          <td>{{getProgressValue(dataset.progress)}}%</td>
           <td>{{dataset.completedOn | date:'yyyy-MM-dd HH:mm:ss'}}</td>
           <td>{{dataset.configuration.studyProfile.studyProfile + ' / '
             + dataset.configuration.numberOfPatients.toLocaleString() + ' / '
             + getPatientsAndRadioLabel(dataset.configuration)}}
           </td>
-          <td class="action-button">
+          <td class="action-button generated-table">
             <button (click)="reGeneratedItem($i)" class="small-button large">Regenerate</button>
             <button (click)="onDatsetEditConfigClick($i)" class="small-button large">Edit Config</button>
           </td>

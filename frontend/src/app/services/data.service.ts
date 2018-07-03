@@ -83,4 +83,11 @@ export class DataService {
     return this.http.delete(`${environment.baseUri}/datasetConfigurations?title=${title}`).toPromise();
   }
 
+  /**
+   * get dataset by title
+   * @param {string} title the dataset title
+   */
+  queryDataset(title: string) {
+    return this.http.get(`${environment.baseUri}/queryDataset?title=${title}`, {}).toPromise();
+  }
 }

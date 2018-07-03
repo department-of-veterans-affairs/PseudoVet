@@ -129,6 +129,13 @@ export class LoadConfigurationComponent implements OnInit {
   }
 
   /**
+   * convert value to float
+   * @param v the value
+   */
+  toFloat(v) {
+    return isNaN(parseFloat(v)) ? 0 : parseFloat(v);
+  }
+  /**
    * frontend configuration convert to backend configuration, then send this config object to server
    * @param loadedConfig the uploaded config object
    * @return the backend config object
@@ -137,8 +144,8 @@ export class LoadConfigurationComponent implements OnInit {
     const configObject = {
       title: loadedConfig.title.trim(),
       numberOfPatients:  isNaN(parseInt(loadedConfig.numberOfPatients, 10)) ? 0 : parseInt(loadedConfig.numberOfPatients, 10),
-      maleRatio: isNaN(parseFloat(loadedConfig.maleRatio)) ? 0 : parseInt(loadedConfig.maleRatio, 10),
-      femaleRatio: isNaN(parseFloat(loadedConfig.femaleRatio)) ? 0 : parseInt(loadedConfig.femaleRatio, 10),
+      maleRatio: this.toFloat(loadedConfig.maleRatio),
+      femaleRatio: this.toFloat(loadedConfig.femaleRatio),
       morbiditiesData: loadedConfig.morbiditiesData.map(m => ({
         icd10Code: m.icd10Code,
         name: m.name,

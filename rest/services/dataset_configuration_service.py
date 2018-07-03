@@ -14,9 +14,12 @@ from config import GENERATED_DATASETS_DIR, DATASET_CONFIGURATIONS_DIR, CONFIGURA
 from randomizer.pseudo_vets import get_icd_morbidity_name_by_code
 from rest.decorators import service, custom_validators
 from rest.errors import EntityNotFoundError, InnerServerError, BadRequestError
-from rest.services.datasources_service import get_study_profile_by_name, get_morbidities_from_study_profile_code, \
-    convert_raw_study_profile
+from rest.logger import logger
 
+from rest.services.datasources_service import get_study_profile_by_name, get_morbidities_from_study_profile_code, convert_raw_study_profile
+
+configurations_map = {}
+    
 from flask.json import dumps, load
 
 # the study profile validation schema
@@ -150,6 +153,7 @@ def save(body_entity):
     try:
         with open(configuration_file, 'w') as f:
             f.write(dumps(body_entity, indent=2))
+        get_cache_map()[body_entity['title']] = body_entity  # inject to cache
         return body_entity
 
     except Exception as e:
@@ -178,13 +182,27 @@ def get(title):
     """
     if title is None:  # return all configurations
         configurations = []
-        files = [f for f in listdir(DATASET_CONFIGURATIONS_DIR) if isfile(join(DATASET_CONFIGURATIONS_DIR, f))]
-        for file in files:
-            configurations.append(read_configuration_from_file(DATASET_CONFIGURATIONS_DIR + '/' + file))
+        keys = get_cache_map().keys()
+        for key in keys:
+            conf = get_cache_map().get(key)
+            if conf is not None:
+                configurations.append(conf)
         return sorted(configurations, key=lambda k: k['title'].lower())
     else:
         # put single configuration to a list
         return [get_configuration_by_title(title)]
+
+
+def preload_all_configurations():
+    """
+    preload all configurations into cache
+    :return: None
+    """
+    files = [f for f in listdir(DATASET_CONFIGURATIONS_DIR) if isfile(join(DATASET_CONFIGURATIONS_DIR, f))]
+    for file in files:
+        configuration = read_configuration_from_file(DATASET_CONFIGURATIONS_DIR + '/' + file)
+        get_cache_map()[configuration['title']] = configuration
+        logger.info("succeed load configuration = " + configuration['title'])
 
 
 def get_configuration_by_title(title):
@@ -193,11 +211,26 @@ def get_configuration_by_title(title):
     :param title: the configuration title
     :return: the dataset configuration instance
     """
+    configuration = get_cache_map().get(title)
+    if configuration is not None:
+        return configuration
+
     configuration_file_path = DATASET_CONFIGURATIONS_DIR + '/' + CONFIGURATION_PREFIX + '.' + title + '.json'
     if isfile(configuration_file_path):
-        return read_configuration_from_file(configuration_file_path)
+        configuration = read_configuration_from_file(configuration_file_path)
+        get_cache_map()[title] = configuration
+        return configuration
     else:
         raise EntityNotFoundError('Cannot find configuration file for title ' + title)
+
+
+def get_cache_map():
+    """
+    get cache map
+    :return: the cached configurations
+    """
+    global configurations_map
+    return configurations_map
 
 
 @service(schema={'title': {'type': 'string', 'required': True}})
@@ -212,3 +245,9 @@ def delete_config_by_title(title):
     if not exists(config_file):
         raise EntityNotFoundError("Dataset config not found where title = " + title)
     remove(config_file)
+
+    if get_cache_map().get(title) is not None:  # delete from cache
+        get_cache_map().pop(title, None)
+
+    from rest.services.dataset_generation_service import remove_dateset_by_config_title
+    remove_dateset_by_config_title(title)

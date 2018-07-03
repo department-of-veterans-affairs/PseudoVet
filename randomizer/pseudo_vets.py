@@ -3,6 +3,7 @@ import io
 import json
 import os
 import types
+import threading
 from collections import OrderedDict
 from datetime import timedelta
 
@@ -25,8 +26,6 @@ from rest.services.datasources_service import get_study_profiles_from_file, get_
 
 # Global variables
 data_source = None
-work_dir = None
-session_id = None
 military_eras = None
 study_profile_lines = None
 icd_morbidity_name_by_code = None
@@ -45,29 +44,26 @@ def setup_work_session(output_dir, create_session_path=True, config_title=None, 
     :param create_session_path: True if session directory should be created, False otherwise
     :param config_title: the config title used
     :param output_format: the output format
-    :return: None
+    :return: [work_dir,session_id]
     """
-    global work_dir
-    global session_id
 
     # generate new session ID from the current timestamp
-    session_id = config_title and '{0}.{1}.{2}.{3}'.format(
+    session_name = config_title and '{0}.{1}.{2}.{3}'.format(
         DATASET_PREFIX,
         config_title,
         datetime.datetime.now().strftime("%Y%m%d%H%M%S"),
         output_format) or datetime.datetime.now().isoformat().replace(':', '')
-    work_dir = output_dir
 
     # load data sources if they haven't been loaded previously
     if not data_source:
         load_datasources()
 
-    if not os.path.exists(work_dir):
-        os.makedirs(work_dir)
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
 
     if create_session_path:
         # create subfolder for the current session
-        session_path = "%(work_dir)s/%(session_id)s" % globals()
+        session_path = output_dir + '/' + session_name
         # try to use short relative to the current directory path if possible
         try:
             session_path = os.path.relpath(session_path)
@@ -78,6 +74,8 @@ def setup_work_session(output_dir, create_session_path=True, config_title=None, 
             shutil.rmtree(session_path)
         os.mkdir(session_path)
         logger.info("Using output folder " + session_path)
+
+    return [output_dir, session_name]
 
 
 def load_datasources():
@@ -153,17 +151,19 @@ def timedelta_years(years):
 
 
 def random_patient(index, study_profile, end_year):
+
     """
     Build a patient record to be used as base for template rendering and aging
     :param index: the 1-based index of the patient in the current dataset
     :param study_profile: the study profile entity
     :param end_year: the end year for generated reports
+    :param work_entity: the work_entity include dir and session
     :return: None
     """
-    global session_id
+
     global data_source
 
-    patient_id = '{session_id}-{index}'.format(session_id=session_id, index=index)
+    patient_id = '{session_id}-{index}'.format(session_id=work_entity[1], index=index)
 
     # initialize dictionary with patient data
     patient = {
@@ -352,16 +352,15 @@ def age_patient(patient, end_year):
     return True
 
 
-def create_file(record, output_format):
+def create_file(record, output_format, work_entity):
     """
     Create an XML output file for the given patient
     :param record: the patient record to be saved to a file
     :param output_format: the output format
+    :param work_entity the work entity include dir and session id
     :return: None
     """
     global renderer
-    global work_dir
-    global session_id
 
     index = record['index']
     age = record['total_age']
@@ -370,7 +369,7 @@ def create_file(record, output_format):
     if output_format in ['FHIR-JSON', ]:
         file_extension = 'json'
     filename = "{work_dir}/{session_id}/{session_id}-{index}_{age}.{extension}".format(
-        work_dir=work_dir, session_id=session_id, index=index, age=age, extension=file_extension)
+        work_dir=work_entity[0], session_id=work_entity[1], index=index, age=age, extension=file_extension)
 
     with io.open(filename, 'w', encoding='utf-8') as f:
         f.write(result)
@@ -462,7 +461,9 @@ def apply_morbidity(patients, morbidity_data):
         })
 
 
+
 def generate_records(study_profile, patients_num, male_perc, morbidities_data, end_year, output_format):
+
     """
     Generates dataset record files using the specified parameters.
     :param study_profile: the study profile data dictionary (just name of code can be specified)
@@ -471,8 +472,11 @@ def generate_records(study_profile, patients_num, male_perc, morbidities_data, e
     :param morbidities_data: the list with morbidities details
     :param end_year: the end year for generated reports
     :param output_format: the output format
+    :param dataset_manager: the dataset manager
+    :param work_entity: the work_entity include dir and session
     :return: the total number of created report files
     """
+    logger.info("start new Thread " + threading.currentThread().getName())
     logger.info('Creating {0} fictional patient{1}...'.format(patients_num, "s" if patients_num > 1 else ""))
 
     # first generate required number of random patients
@@ -484,8 +488,8 @@ def generate_records(study_profile, patients_num, male_perc, morbidities_data, e
         apply_morbidity(patients, morbidity_data)
 
     files_num = 0
-
-    for patient in patients:
+    patients_len = len(patients)
+    for index, patient in enumerate(patients):
         # sort expected problems by diagnosis date to make them appear sequentially in the report
         patient['expected_problems'].sort(key=lambda p: p['onset'])
 
@@ -493,7 +497,7 @@ def generate_records(study_profile, patients_num, male_perc, morbidities_data, e
         populate_current_problems(patient)
 
         # save initial report for the current patient
-        create_file(patient, output_format)
+        create_file(patient, output_format, work_entity)
         patient_files_num = 1
         initial_problems_num = len(patient['icd_problems'])
 
@@ -501,7 +505,7 @@ def generate_records(study_profile, patients_num, male_perc, morbidities_data, e
         while patient['date_of_death'] is None:
             if not age_patient(patient, end_year):
                 break
-            create_file(patient, output_format)
+            create_file(patient, output_format, work_entity)
             patient_files_num += 1
 
         final_problems_num = len(patient['icd_problems'])
@@ -511,9 +515,11 @@ def generate_records(study_profile, patients_num, male_perc, morbidities_data, e
             else initial_problems_num if initial_problems_num == final_problems_num
             else str(initial_problems_num) + '-' + str(final_problems_num)))
         files_num += patient_files_num
+        dataset_manager.update_entity(work_entity[1], 'Generating', index * 100 / patients_len)
 
+    dataset_manager.update_entity(work_entity[1], 'Completed', 100)
     logger.info('Successfully generated {0} report files'.format(files_num))
-
+    logger.info('Thread run successfully, name = ' + threading.currentThread().getName())
     return files_num
 
 
@@ -544,10 +550,11 @@ def get_full_study_profile(study_profile):
     return None
 
 
-def generate_from_config(dataset_config):
+def generate_from_config(dataset_config, dataset_manager):
     """
     Generate dataset records using the provided dataset configuration parameters and save them to files
     :param dataset_config: the dataset configuration dictionary
+    :param dataset_manager: the dataset manager
     :return: None
     """
 
@@ -590,7 +597,7 @@ def generate_from_config(dataset_config):
     cur_work_dir = GENERATED_DATASETS_DIR
     if 'outputFolder' in dataset_config:
         cur_work_dir = dataset_config['outputFolder']
-    setup_work_session(cur_work_dir, True, dataset_config['title'], output_format)
+    work_entity = setup_work_session(cur_work_dir, True, dataset_config['title'], output_format)
 
     # retrieve morbidities from configuration or data source
     morbidities_data = None
@@ -607,4 +614,21 @@ def generate_from_config(dataset_config):
     if ('relatedConditionsData' in dataset_config) and (len(dataset_config['relatedConditionsData']) > 0):
         morbidities_data.extend(dataset_config['relatedConditionsData'])
 
-    return generate_records(full_study_profile, patients_num, male_ratio, morbidities_data, end_year, output_format)
+
+    # push new entity
+    dataset_manager.push_entity(work_entity[1], {
+        'title': dataset_config['title'],
+        'completedOn': 'N/A',
+        'configuration': dataset_config,
+        'status': 'Generating',
+        'progress': 0,
+        'outputFormat': output_format,
+        'datasetName': work_entity[1]
+    })
+    # start new thread
+    generate_thread = threading.Thread(target=generate_records,
+                                       args=(full_study_profile, patients_num, male_ratio,
+                                             morbidities_data, end_year,
+                                             output_format,
+                                             dataset_manager, work_entity,))
+    generate_thread.start()

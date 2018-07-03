@@ -25,6 +25,8 @@ export class PercentagePipe implements PipeTransform {
     const v = parseFloat(value);
     if (isNaN(v)) {
       value = '0';
+    } else if (v > 100) {
+      value = '100';
     }
     return value.indexOf('%') === -1 ? value + '%' : value;
   }

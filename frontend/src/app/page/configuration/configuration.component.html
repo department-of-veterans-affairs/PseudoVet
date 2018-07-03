@@ -85,11 +85,8 @@
     <small>Loaded configuration file name</small>
   </div>
 
-  <p *ngIf="dashboard" class="large-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non erat in
-    diam aliquet
-    hendrerit at eget eros. In at metus erat. Nam consequat dapibus nisl, et tempor
-    elit sollicitudin quis. Donec feugiat purus ligula, vel facilisis enim blandit at. Nulla dapibus
-    sapien in libero vulputate accumsan. Guidelines go here.</p>
+  <p *ngIf="dashboard" class="large-text">Use the options below to configure and create your dataset. A study profile will allow you to pre-load some configuration
+  items based on the profile.  You can still override these options in the tabs below.</p>
 </div>
 <div class="field-wrapper clearfix">
   <div class="accordion-wrapper">
@@ -117,14 +114,14 @@
           <div class="sec-1">
             <label class="label-element">No. of Patients</label>
             <input appNumber [(ngModel)]= "configurationData.patients"
-                   type="text" minVal="1" class="form-element no-of-patients"/>
+                   type="text" blank="true" class="form-element no-of-patients"/>
           </div>
           <div class="sec-2">
             <label class="label-element">Patient gender Ratio (m / f)</label>
-            <input appNumber roundOff="false" [ngModel]= "configurationData.male"
+            <input appNumber blank="true" roundOff="false" mustFormat="false" [ngModel]= "configurationData.male"
                    (ngModelChange)="onRadioChange($event, 'male')"
                    type="text" class="form-element ratio"/>
-            <input appNumber roundOff="false" [ngModel]= "configurationData.female"
+            <input appNumber blank="true" roundOff="false" mustFormat="false" [ngModel]= "configurationData.female"
                    (ngModelChange)="onRadioChange($event, 'female')"
                    type="text" class="form-element ratio"/>
           </div>
@@ -226,7 +223,7 @@
                      type="text" class="form-element percentage" maxlength="4"/>
             </td>
             <td>
-              <input appNumber [(ngModel)]="item.profiles"
+              <input appNumber [(ngModel)]="item.profiles" mustFormat="false"
                      type="text" class="form-element percentage"/>
             </td>
             <td>
@@ -255,7 +252,7 @@
       </div>
     </div>
     <div [ngClass]="{'active': selectedTab === 3, 'done': selectedTab > 3, 'completed': !create && !dashboard}" class="accordion">
-      <div class="accordion-header" (click)="selectedTab = (!create && !dashboard) ? 3 : selectedTab">
+      <div class="accordion-header" (click)="selectedTab = (selectedTab > 3 || (!create && !dashboard)) ? 3 : selectedTab">
         <i class="expand"></i>
         <i class="done" [ngClass]="{'show': selectedTab > 3}"></i>
         <span [ngClass]="{'hide': selectedTab > 3}">3.</span>
@@ -279,7 +276,7 @@
           </tr>
           <tr *ngFor="let item of configurationData.conditions; let $i=index">
             <td>
-              <a (click)="deleteItems(item.name, 'conditions')" class="remove-icon"></a>
+              <a (click)="deleteItems(item.icd10Code, item.name, 'conditions')" class="remove-icon"></a>
               {{$i + 1}}
             </td>
             <td>{{item.icd10Code + '-' + item.name}}</td>
@@ -292,7 +289,7 @@
                      type="text" class="form-element percentage" maxlength="4"/>
             </td>
             <td>
-              <input appNumber [(ngModel)]="item.profiles"
+              <input appNumber [(ngModel)]="item.profiles" mustFormat="false"
                      type="text" class="form-element percentage"/>
             </td>
             <td>

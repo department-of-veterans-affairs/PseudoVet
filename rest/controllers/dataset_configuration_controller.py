@@ -40,6 +40,7 @@ def save_file():
         raise BadRequestError('Dataset configuration file is missing in POST request')
     return dataset_configuration_service.save(loads(config_file_obj.read()))
 
+
 @rest_mapping('/datasetConfigurations', ['DELETE'])
 def delete_config():
     """

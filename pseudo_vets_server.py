@@ -70,4 +70,4 @@ if __name__ == '__main__':
     logger.info('Starting app at port = {0}, with mode = {1}'.format(WEB_PORT, FLASK_RUN_MODE))
     # inject routers
     init(app)
-    app.run(debug=(FLASK_RUN_MODE == 'DEBUG'), port=int(WEB_PORT))  # start run app
+    app.run(debug=(FLASK_RUN_MODE == 'DEBUG'), port=int(WEB_PORT), threaded=True)  # start run app

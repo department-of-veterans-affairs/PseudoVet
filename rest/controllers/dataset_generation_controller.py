@@ -30,6 +30,15 @@ def get_all_datasets():
     return dataset_generation_service.get_all_datasets()
 
 
+@rest_mapping('/queryDataset', ['GET'])
+def get_dataset_by_name():
+    """
+    query dataset with title
+    :return: the cached datas
+    """
+    return dataset_generation_service.get(request.args.get('title'))
+
+
 @rest_mapping('/datasets', ['DELETE'])
 def delete_dataset():
     """

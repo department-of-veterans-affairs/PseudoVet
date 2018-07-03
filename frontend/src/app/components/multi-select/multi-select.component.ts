@@ -58,15 +58,29 @@ export class MultiSelectComponent implements OnInit {
   }
 
   /**
+   * find index from copyOfSelectedOptions
+   */
+  findIndex(entity) {
+    if (this.copyOfSelectedOptions && this.copyOfSelectedOptions.length > 0) {
+      for (let i = 0 ; i < this.copyOfSelectedOptions.length ; i ++) {
+        if (this.copyOfSelectedOptions[i]['icd10Code'] === entity['icd10Code']) {
+          return i;
+        }
+      }
+    }
+    return -1;
+  }
+
+  /**
    * Toggle select
    * @param e - event
    * @param text - selected item text
    */
   toggleItem (e, text) {
-    if (this.copyOfSelectedOptions.indexOf(text) === -1) {
+    if (this.findIndex(text) === -1) {
       this.copyOfSelectedOptions.push(text);
     } else {
-      this.copyOfSelectedOptions.splice(this.copyOfSelectedOptions.indexOf(text), 1);
+      this.removeItem(e, this.findIndex(text));
     }
     e.stopPropagation();
   }
@@ -81,11 +95,17 @@ export class MultiSelectComponent implements OnInit {
   }
 
   /**
+   * update select
+   */
+  doUpdate() {
+    this.selectedOptions = [...this.copyOfSelectedOptions];
+    this.add.emit(this.copyOfSelectedOptions);
+  }
+  /**
    * add selected Items
    */
   addSelected () {
-    this.selectedOptions = [...this.copyOfSelectedOptions];
-    this.add.emit(this.copyOfSelectedOptions);
+    this.doUpdate();
     this.open = false;
   }
 }

@@ -1,17 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { UtilService } from '../../services/util.service';
 import { Router } from '@angular/router';
 import { AppConfig } from '../../config';
 import { ToastrService } from 'ngx-toastr';
 import { saveAs } from 'file-saver/FileSaver';
+import {isNumber} from 'util';
+
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
+
   dashboardData: any = {};
   datasets: any = null;
   configurations: any = null;
@@ -28,6 +31,7 @@ export class DashboardComponent implements OnInit {
   generatedObj: any = {};
   deleteConfigItem = false;
   deleteConfigObj: any = {};
+  intervalHandler: any = null;
   menu = [
     { name: 'Dashboard', url: '/dashboard', subname: '', active: true },
     { name: 'Create configuration', url: '/configuration/create', subname: '' },
@@ -40,6 +44,7 @@ export class DashboardComponent implements OnInit {
     this.fetchConfigurations();
     this.fetchDatasets();
   }
+
 
   /**
    * get PatientsAndRadio label for table row
@@ -103,8 +108,12 @@ export class DashboardComponent implements OnInit {
    * @param index - item index
    */
   removeGeneratedItem (index) {
-    this.deleteGenerated = true;
     const dataset = this.datasets[index];
+    if (dataset.status === 'Generating') {
+      this.toastr.error('You cannot delete a generating dataset.');
+      return;
+    }
+    this.deleteGenerated = true;
     const configObj = dataset.configuration;
     this.deleteGeneratedObj = {
       index,
@@ -197,7 +206,7 @@ export class DashboardComponent implements OnInit {
       this.generated = false;
       this.generatedObj = null;
       this.fetchDatasets();
-      this.toastr.success('Dataset Generate succeed');
+      this.toastr.info('Start Generating Dataset...');
     }).catch(err => {
       console.error(err);
       this.toastr.error(err.error ? err.error.message : err.message);
@@ -227,7 +236,7 @@ export class DashboardComponent implements OnInit {
       this.reGenerated = false;
       this.reGeneratedObj = null;
       this.fetchDatasets();
-      this.toastr.success('Dataset reGenerate succeed');
+      this.toastr.info('Start reGenerating Dataset...');
     }).catch(err => {
       console.error(err);
       this.toastr.error(err.error ? err.error.message : err.message);
@@ -267,8 +276,47 @@ export class DashboardComponent implements OnInit {
     saveAs(blob, configObj.title + '.json');
   }
 
+  /**
+   * get progress value with two point
+   * @param v the value
+   */
+  getProgressValue(v) {
+    if (isNumber(v)) {
+      return v.toFixed(2);
+    }
+    return '0.00';
+  }
+  /**
+   * on component init
+   */
+  ngOnInit() {
+    this.intervalHandler = setInterval(() => {
+      if (!this.datasets || this.datasets.length <= 0) {
+        return;
+      }
+      for (let i = 0; i < this.datasets.length; i++) {
+        const d = this.datasets[i];
+        if (d.status === 'Generating') {
+          this.dataService.queryDataset(d.datasetName).then((r => {
+            if (r) {
+              d.status = r['status'];
+              d.progress = r['progress'];
+              d.completedOn = r['completedOn'];
+              if (r['status']  === 'Completed') {
+                this.toastr.success(`Dataset ${r['title']} Generated succeed.`);
+              }
+            }
+          }));
+        }
+      }
+    }, 1000);
+  }
 
-  ngOnInit () {
+  /**
+   * on component destroy
+   */
+  ngOnDestroy(): void {
+    clearInterval(this.intervalHandler);
   }
 
 }

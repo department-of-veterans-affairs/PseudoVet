@@ -13,5 +13,12 @@ def init(flask_app):
     """
     inject_flask_app(flask_app)
     from .dataset_configuration_controller import save, save_file, get
-    from .dataset_generation_controller import generate, get_all_datasets, delete_dataset
+
+    from .dataset_generation_controller import generate, get_all_datasets, delete_dataset, get_dataset_by_name
     from .datasources_controller import get_morbidities_for_study_profile, get_study_profiles
+
+    from rest.services.dataset_configuration_service import preload_all_configurations
+    from rest.services.dataset_generation_service import preload_datasets
+
+    preload_all_configurations()  # preload configurations into cache
+    preload_datasets()  # preload data sets into cache

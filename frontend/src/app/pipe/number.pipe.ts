@@ -5,11 +5,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class NumberPipe implements PipeTransform {
 
-  transform (value: any, roundOff?: boolean, mustFormat?: boolean, minVal?: number, maxVal?: number): any {
+  transform (value: any, roundOff?: boolean, mustFormat?: boolean, minVal?: number, maxVal?: number, blank?: boolean ): any {
     value = (value || '').toString();
     value = value.replace(/,/g , '');
     let v = parseFloat(value);
     if (isNaN(v) || v < 0) {
+      if (blank) {
+        return '';
+      }
       value = '0';
       if (minVal) {
         value = minVal.toString();
@@ -22,7 +25,11 @@ export class NumberPipe implements PipeTransform {
         v = maxVal;
       }
       if (roundOff && roundOff === true) {
-        value = Math.round(v).toString();
+        if (v > 2147483647) { // MAX INT
+          value = '2147483647';
+        } else {
+          value = Math.round(v).toString();
+        }
       } else {
         value = v.toString();
       }
@@ -33,11 +40,14 @@ export class NumberPipe implements PipeTransform {
     return value;
   }
 
-  parse (value: string, roundOff?: boolean, mustFormat?: boolean, minVal?: number, maxVal?: number): string {
+  parse (value: string, roundOff?: boolean, mustFormat?: boolean, minVal?: number, maxVal?: number, blank?: boolean ): string {
     value = (value || '').toString();
     value = value.replace(/,/g , '');
     let v = parseFloat(value);
     if (isNaN(v) || v < 0) {
+      if (blank) {
+        return '';
+      }
       value = '0';
       if (minVal) {
         value = minVal.toString();

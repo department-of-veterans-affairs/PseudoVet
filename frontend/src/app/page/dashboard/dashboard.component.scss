@@ -8,13 +8,22 @@
   tr {
     th {
       &.completed-td {
-        width: 200px;
+        width: 180px;
       }
       &.with-button {
         width: 700px;
         &.generated-table {
-          width: 600px;
+          width: 500px;
         }
+      }
+      &.format {
+        width: 160px;
+      }
+      &.status {
+        width: 100px;
+      }
+      &.progress {
+        width: 100px;
       }
     }
   }
@@ -59,6 +68,11 @@
         }
         .small-button.large {
           width: 148px;
+        }
+      }
+      &.generated-table {
+        .small-button.large {
+          width: 120px;
         }
       }
     }

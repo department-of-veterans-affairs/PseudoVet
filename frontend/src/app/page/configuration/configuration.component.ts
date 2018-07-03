@@ -211,6 +211,15 @@ export class ConfigurationComponent implements OnInit {
     if (this.selectedTab === 2) { // this mean switch to MORBIDITY
       this.dataService.getMorbiditiesByStudyProfileName(this.configurationData.studyProfile).then(res => {
         this.morbidities = res as any;
+        const hashMap = {};
+        const newMorbidities = [];
+        this.morbidities.forEach(item => {
+          if (!hashMap[item.icd10Code]) {
+            newMorbidities.push(item);
+            hashMap[item.icd10Code] = true;
+          }
+        });
+        this.morbidities = newMorbidities;
         this.configurationData.configurations = intersectionBy(this.configurationData.configurations,
                this.morbidities, 'icd10Code');
         this.configurationData.selectedConfigurations =  this.configurationData.configurations;
@@ -423,8 +432,8 @@ export class ConfigurationComponent implements OnInit {
    */
   startGenerateDataset () {
     this.ngProgress.start();
-    this.dataService.generateDatasets(this.configurationData.title).then(res => {
-      this.toastr.success('Dataset generate succeed');
+    this.dataService.generateDatasets(this.configurationData.title.trim()).then(res => {
+      this.toastr.success('Dataset generate started.');
       this.ngProgress.completed();
     }).catch(err => {
       console.error(err);
@@ -436,14 +445,19 @@ export class ConfigurationComponent implements OnInit {
   /**
    * convert percent to float
    * @param v the percent value
+   * @param max the max value
    * @return {number} the float value
    */
-  toFloat(v) {
+  toFloat(v, max) {
     if (!v) {
       return 0;
     }
     const vStr = v.toString().replace('%', '');
-    return parseFloat(vStr);
+    const destV =  parseFloat(vStr);
+    if (max) {
+      return Math.min(max, destV);
+    }
+    return destV;
   }
 
   /**
@@ -462,16 +476,16 @@ export class ConfigurationComponent implements OnInit {
         name: m.name,
         exclusionRules: UtilService.getExclusionsByItem(m),
         numberOfEncounters: parseFloat(m.profiles),
-        percentOfPopulationWithDiagnosisRisk: this.toFloat(m.diagnosis),
-        percentOfProbabilityToAcquireDiagnosis: this.toFloat(m.acquires),
+        percentOfPopulationWithDiagnosisRisk: this.toFloat(m.diagnosis, 100),
+        percentOfProbabilityToAcquireDiagnosis: this.toFloat(m.acquires, 100),
       })),
       relatedConditionsData: frontendConfig.conditions.map(m => ({
         icd10Code: m.icd10Code,
         name: m.name,
         exclusionRules: UtilService.getExclusionsByItem(m),
         numberOfEncounters: parseFloat(m.profiles),
-        percentOfPopulationWithDiagnosisRisk: this.toFloat(m.diagnosis),
-        percentOfProbabilityToAcquireDiagnosis: this.toFloat(m.acquires),
+        percentOfPopulationWithDiagnosisRisk: this.toFloat(m.diagnosis, 100),
+        percentOfProbabilityToAcquireDiagnosis: this.toFloat(m.acquires, 100),
       })),
       studyProfile: this.studyProfiles.find(s => s.studyProfile === frontendConfig.studyProfile),
       outputFormat: frontendConfig.outputFormat,
@@ -538,13 +552,14 @@ export class ConfigurationComponent implements OnInit {
    */
   onRadioChange (value, type) {
     let v = parseFloat(value);
+    const floatDt = 100000;
     if (!isNaN(v)) {
       this.configurationData[type] = value;
       if (v > 100) {
         v = 100;
         this.configurationData[type] = `${v}`;
       }
-      this.configurationData[type === 'male' ? 'female' : 'male'] = Math.round((100 - v) * 100) / 100;
+      this.configurationData[type === 'male' ? 'female' : 'male'] = Math.round((100 - v) * floatDt) / floatDt;
     }
   }
 }
